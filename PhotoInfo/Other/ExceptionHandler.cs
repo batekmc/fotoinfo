@@ -10,7 +10,7 @@ namespace PhotoInfo.Other
     {
         void SmartISLib.Interfaces.IExceptionHandler.Handle(Exception ex, bool quiet)
         {
-            SmartISLib.Messages.Error(ex.StackTrace);//TOD devel only
+            SmartISLib.Messages.Error(ex.Message);//TOD devel only
         }
     }
 }

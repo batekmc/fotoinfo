@@ -67,5 +67,25 @@ namespace PhotoInfo
 SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
         }
 
+        private void kategorieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("KategorieKomponentu").Start(
+SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
+        }
+
+        private void komponentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("KomponentKategorie").Start(
+SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
+            
+
+        }
+
+        private void statusSetuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("StatusySetu").Start(
+SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
+        }
+
     }
 }

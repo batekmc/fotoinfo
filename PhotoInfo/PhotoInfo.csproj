@@ -45,6 +45,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.6.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Nativa\CoInfoNET\Resources\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainForm.cs">
@@ -53,6 +57,27 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Ciselniky\CiselnikyDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\CiselnikyDesign.Designer.cs">
+      <DependentUpon>CiselnikyDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentu.cs" />
+    <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentuGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentuGrid.Designer.cs">
+      <DependentUpon>KategorieKomponentuGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\KdoFoti\KdoFoti.cs" />
+    <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorie.cs" />
+    <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorieGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorieGrid.Designer.cs">
+      <DependentUpon>KomponentKategorieGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Ciselniky\PDM_Status\PDM_StatusGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +85,7 @@
       <DependentUpon>PDM_StatusGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\PDM_Status\PDM_Status.cs" />
+    <Compile Include="Modules\Ciselniky\StatusySetu\StatusySetu.cs" />
     <Compile Include="Other\AppConfigParser.cs" />
     <Compile Include="Other\ExceptionHandler.cs" />
     <Compile Include="Other\UserSettingsManager.cs" />

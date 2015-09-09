@@ -68,6 +68,11 @@
             // 
             this.tsPanelBottom.Location = new System.Drawing.Point(0, 372);
             // 
+            // dockPanel
+            // 
+            this.dockPanel.Location = new System.Drawing.Point(0, 25);
+            this.dockPanel.Size = new System.Drawing.Size(744, 347);
+            // 
             // tsPanelTop
             // 
             this.tsPanelTop.Location = new System.Drawing.Point(0, 25);
@@ -218,12 +223,14 @@
             this.kategorieToolStripMenuItem.Name = "kategorieToolStripMenuItem";
             this.kategorieToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.kategorieToolStripMenuItem.Text = "Kategorie komponentu";
+            this.kategorieToolStripMenuItem.Click += new System.EventHandler(this.kategorieToolStripMenuItem_Click);
             // 
             // komponentToolStripMenuItem
             // 
             this.komponentToolStripMenuItem.Name = "komponentToolStripMenuItem";
             this.komponentToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.komponentToolStripMenuItem.Text = "Komponent kategorie";
+            this.komponentToolStripMenuItem.Click += new System.EventHandler(this.komponentToolStripMenuItem_Click);
             // 
             // dostupnostKategorieToolStripMenuItem
             // 
@@ -260,6 +267,7 @@
             this.statusSetuToolStripMenuItem.Name = "statusSetuToolStripMenuItem";
             this.statusSetuToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.statusSetuToolStripMenuItem.Text = "Status setu";
+            this.statusSetuToolStripMenuItem.Click += new System.EventHandler(this.statusSetuToolStripMenuItem_Click);
             // 
             // druhBaleníToolStripMenuItem
             // 
@@ -328,8 +336,9 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
             this.Text = "Photo Info";
-            this.Controls.SetChildIndex(this.tsPanelBottom, 0);
             this.Controls.SetChildIndex(this.toolStrip1, 0);
+            this.Controls.SetChildIndex(this.dockPanel, 0);
+            this.Controls.SetChildIndex(this.tsPanelBottom, 0);
             this.Controls.SetChildIndex(this.tsPanelRight, 0);
             this.Controls.SetChildIndex(this.tsPanelLeft, 0);
             this.Controls.SetChildIndex(this.tsPanelTop, 0);

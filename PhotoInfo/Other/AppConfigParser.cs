@@ -36,9 +36,9 @@ namespace PhotoInfo.Other
         {
             get
             {
-                if (singleton != null)
-                    return singleton;
-                return new AppConfigParser();
+                if (singleton == null)
+                    singleton =  new AppConfigParser();
+                return singleton;
             }
         }
 
