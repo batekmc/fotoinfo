@@ -56,7 +56,7 @@
             this.colGrid.DataPropertyName = "KomponentKategorieName";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.colGrid.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colGrid.HeaderText = "Komponent Kategorie";
+            this.colGrid.HeaderText = "Druh komponentu";
             this.colGrid.MaxInputLength = 18;
             this.colGrid.Name = "Komponent Kategorie";
             this.colGrid.Width = 150;
@@ -68,7 +68,7 @@
             this.Controls.Add(this.gridView);
             this.DataGridView = this.gridView;
             this.Name = "Kategorie Komponentu";
-            this.SqlSelect = "Select * from TKomponentKategorie";
+            this.SqlSelect = "Select * from TKomponentKategorie order by KomponentKategorieName";
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
 

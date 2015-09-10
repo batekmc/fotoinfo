@@ -38,9 +38,8 @@ namespace PhotoInfo.Modules.Ciselniky.KdoFoti
 
         protected override SmartISLib.Modules.EditableGrid.EditableGridControl CreateGrid(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
         {
-            return new CiselnikyDesign("TODO", "TODO");
+            return new KdoFotiGrid();
         }
-
 
     }
 

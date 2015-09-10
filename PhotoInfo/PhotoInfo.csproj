@@ -63,6 +63,7 @@
     <Compile Include="Modules\Ciselniky\CiselnikyDesign.Designer.cs">
       <DependentUpon>CiselnikyDesign.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Ciselniky\DruhBaleni\DruhBaleni.cs" />
     <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentu.cs" />
     <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentuGrid.cs">
       <SubType>Form</SubType>
@@ -71,6 +72,12 @@
       <DependentUpon>KategorieKomponentuGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\KdoFoti\KdoFoti.cs" />
+    <Compile Include="Modules\Ciselniky\KdoFoti\KdoFotiGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\KdoFoti\KdoFotiGrid.Designer.cs">
+      <DependentUpon>KdoFotiGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorie.cs" />
     <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorieGrid.cs">
       <SubType>Form</SubType>
@@ -85,7 +92,13 @@
       <DependentUpon>PDM_StatusGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\PDM_Status\PDM_Status.cs" />
+    <Compile Include="Modules\Ciselniky\SeznamOpravKomponentu\SeznamOpravKomponentu.cs" />
+    <Compile Include="Modules\Ciselniky\SeznamTypuFotek\SeznamTypuFotek.cs" />
     <Compile Include="Modules\Ciselniky\StatusySetu\StatusySetu.cs" />
+    <Compile Include="Modules\Ciselniky\TypyBreatherBagu\TypyBreatherBagu.cs" />
+    <Compile Include="Modules\Ciselniky\TypyKrabic\TypyKrabic.cs" />
+    <Compile Include="Modules\Ciselniky\ZpusobyVyskladneni\ZpusobyVyskladneni.cs" />
+    <Compile Include="Modules\DostupnostFotek\DostupnostFotek.cs" />
     <Compile Include="Other\AppConfigParser.cs" />
     <Compile Include="Other\ExceptionHandler.cs" />
     <Compile Include="Other\UserSettingsManager.cs" />
@@ -94,6 +107,9 @@
     <Compile Include="Security\Autentificate.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Ciselniky\KdoFoti\KdoFotiGrid.resx">
+      <DependentUpon>KdoFotiGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Ciselniky\PDM_Status\PDM_StatusGrid.resx">
       <DependentUpon>PDM_StatusGrid.cs</DependentUpon>

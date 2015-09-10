@@ -38,7 +38,7 @@ namespace PhotoInfo.Modules.Ciselniky.StatusySetu
 
         protected override SmartISLib.Modules.EditableGrid.EditableGridControl CreateGrid(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
         {
-            return new CiselnikyDesign("TSampleListCis where SCategory='Status' order by Name", "Name");
+            return new CiselnikyDesign("TSampleListCis where SCategory='Status' order by Name", "Name","Status" );
         }
 
 

@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -243,12 +243,14 @@
             this.dostupnostFotekToolStripMenuItem.Name = "dostupnostFotekToolStripMenuItem";
             this.dostupnostFotekToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.dostupnostFotekToolStripMenuItem.Text = "Dostupnost fotek";
+            this.dostupnostFotekToolStripMenuItem.Click += new System.EventHandler(this.dostupnostFotekToolStripMenuItem_Click);
             // 
             // kdoFotíToolStripMenuItem
             // 
             this.kdoFotíToolStripMenuItem.Name = "kdoFotíToolStripMenuItem";
             this.kdoFotíToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.kdoFotíToolStripMenuItem.Text = "Kdo fotí";
+            this.kdoFotíToolStripMenuItem.Click += new System.EventHandler(this.kdoFotíToolStripMenuItem_Click);
             // 
             // zeměPoznámkyToolStripMenuItem
             // 
@@ -274,36 +276,42 @@
             this.druhBaleníToolStripMenuItem.Name = "druhBaleníToolStripMenuItem";
             this.druhBaleníToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.druhBaleníToolStripMenuItem.Text = "Druh balení";
+            this.druhBaleníToolStripMenuItem.Click += new System.EventHandler(this.druhBaleníToolStripMenuItem_Click);
             // 
             // typyBreatherBagůToolStripMenuItem
             // 
             this.typyBreatherBagůToolStripMenuItem.Name = "typyBreatherBagůToolStripMenuItem";
             this.typyBreatherBagůToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.typyBreatherBagůToolStripMenuItem.Text = "Typy breather bagů";
+            this.typyBreatherBagůToolStripMenuItem.Click += new System.EventHandler(this.typyBreatherBagůToolStripMenuItem_Click);
             // 
             // typyKrabicToolStripMenuItem
             // 
             this.typyKrabicToolStripMenuItem.Name = "typyKrabicToolStripMenuItem";
             this.typyKrabicToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.typyKrabicToolStripMenuItem.Text = "Typy krabic";
+            this.typyKrabicToolStripMenuItem.Click += new System.EventHandler(this.typyKrabicToolStripMenuItem_Click);
             // 
             // opravyKomponentůToolStripMenuItem
             // 
             this.opravyKomponentůToolStripMenuItem.Name = "opravyKomponentůToolStripMenuItem";
             this.opravyKomponentůToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.opravyKomponentůToolStripMenuItem.Text = "Opravy komponentů";
+            this.opravyKomponentůToolStripMenuItem.Click += new System.EventHandler(this.opravyKomponentůToolStripMenuItem_Click);
             // 
             // způsobyVyskladněníToolStripMenuItem
             // 
             this.způsobyVyskladněníToolStripMenuItem.Name = "způsobyVyskladněníToolStripMenuItem";
             this.způsobyVyskladněníToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.způsobyVyskladněníToolStripMenuItem.Text = "Způsoby vyskladnění";
+            this.způsobyVyskladněníToolStripMenuItem.Click += new System.EventHandler(this.způsobyVyskladněníToolStripMenuItem_Click);
             // 
             // typyFotekToolStripMenuItem
             // 
             this.typyFotekToolStripMenuItem.Name = "typyFotekToolStripMenuItem";
             this.typyFotekToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.typyFotekToolStripMenuItem.Text = "Typy fotek";
+            this.typyFotekToolStripMenuItem.Click += new System.EventHandler(this.typyFotekToolStripMenuItem_Click);
             // 
             // globálníNastaveníToolStripMenuItem
             // 
