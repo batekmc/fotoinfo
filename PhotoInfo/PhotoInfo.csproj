@@ -97,8 +97,21 @@
     <Compile Include="Modules\Ciselniky\StatusySetu\StatusySetu.cs" />
     <Compile Include="Modules\Ciselniky\TypyBreatherBagu\TypyBreatherBagu.cs" />
     <Compile Include="Modules\Ciselniky\TypyKrabic\TypyKrabic.cs" />
+    <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeFilter.Designer.cs">
+      <DependentUpon>ZemeFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeGrid.Designer.cs">
+      <DependentUpon>ZemeGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemePoznamky.cs" />
     <Compile Include="Modules\Ciselniky\ZpusobyVyskladneni\ZpusobyVyskladneni.cs" />
-    <Compile Include="Modules\DostupnostFotek\DostupnostFotek.cs" />
+    <Compile Include="Modules\Ciselniky\DostupnostFotek\DostupnostFotek.cs" />
     <Compile Include="Other\AppConfigParser.cs" />
     <Compile Include="Other\ExceptionHandler.cs" />
     <Compile Include="Other\UserSettingsManager.cs" />
@@ -113,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Ciselniky\PDM_Status\PDM_StatusGrid.resx">
       <DependentUpon>PDM_StatusGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Ciselniky\ZemePoznamky\ZemeFilter.resx">
+      <DependentUpon>ZemeFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Ciselniky\ZemePoznamky\ZemeGrid.resx">
+      <DependentUpon>ZemeGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

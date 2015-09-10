@@ -137,5 +137,11 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
 SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
         }
 
+        private void zeměPoznámkyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("ZemePoznamky").Start(
+SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
+        }
+
     }
 }

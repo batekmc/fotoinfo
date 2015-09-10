@@ -257,6 +257,7 @@
             this.zeměPoznámkyToolStripMenuItem.Name = "zeměPoznámkyToolStripMenuItem";
             this.zeměPoznámkyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.zeměPoznámkyToolStripMenuItem.Text = "Země - poznámky";
+            this.zeměPoznámkyToolStripMenuItem.Click += new System.EventHandler(this.zeměPoznámkyToolStripMenuItem_Click);
             // 
             // hmotnostníKoeficientToolStripMenuItem
             // 

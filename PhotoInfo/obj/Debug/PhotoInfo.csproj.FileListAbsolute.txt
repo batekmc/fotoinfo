@@ -1,0 +1,16 @@
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.exe.config
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.exe
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.pdb
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\SmartISLib.dll
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\EPPlus.dll
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.MainForm.resources
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Ciselniky.KdoFoti.KdoFotiGrid.resources
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Ciselniky.PDM_Status.PDM_StatusGrid.resources
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Properties.Resources.resources
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.csproj.GenerateResource.Cache
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.exe
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.pdb
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.csprojResolveAssemblyReference.cache
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Ciselniky.ZemePoznamky.ZemeGrid.resources
+c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Ciselniky.ZemePoznamky.ZemeFilter.resources
