@@ -82,7 +82,7 @@
         }
 
         #endregion
-
+        // TODO - fuckin not working...ORM to Tables.&& we will see...
         private SmartISLib.Filters.SqlFilterHeader sqlFilterHeader1;
         private SmartISLib.Filters.SqlFilterItems.StringFilterItem stringFilterItem1;
         private SmartISLib.Filters.SqlFilterItems.StringFilterItem stringFilterItem2;
