@@ -30,8 +30,7 @@ namespace PhotoInfo.Modules.Ciselniky.ZemePoznamky
 
     class ZemePoznamkyInstance : SmartISLib.Modules.EditableGrid.EditableGridModuleInstance
     {
-        public ZemePoznamkyInstance(SmartISLib.Modules.EditableGrid.EditableGridModule mod)
-            : base(mod)
+        public ZemePoznamkyInstance(SmartISLib.Modules.EditableGrid.EditableGridModule mod) : base(mod)
         {
 
         }
@@ -41,7 +40,8 @@ namespace PhotoInfo.Modules.Ciselniky.ZemePoznamky
             return new ZemeGrid();
         }
 
-        protected override SmartISLib.Filters.FilterControl CreateFilter(SmartISLib.Modules.AppModuleStartingOptions startingOptions) {
+        protected override SmartISLib.Filters.FilterControl CreateFilter(SmartISLib.Modules.AppModuleStartingOptions startingOptions) 
+        {
             return new ZemeFilter();
         }
 

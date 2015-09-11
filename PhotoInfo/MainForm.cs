@@ -1,4 +1,7 @@
-﻿using SmartISLib.Modules;
+﻿using SmartISLib;
+using SmartISLib.Modules;
+using SmartISLib.Modules.EditableGrid;
+using SmartISLib.Modules.GridDetail;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,12 +62,38 @@ namespace PhotoInfo
             SmartISLib.Modules.AppModuleManager.LoadAssembly(a);
         }
 
+        //public override void UpdateUI()
+        //{
+        //    if (Instances.CurrentModule is GridDetailModuleInstance)
+        //    {
+        //        //tsGridDetail.Visible = true;
+
+        //        GridDetailModuleInstance module =
+        //            Instances.CurrentModule as GridDetailModuleInstance;
+
+        //        //if (module.GridControl != null)
+        //        //{
+        //        //    tsbtnNewRecord.Enabled = module.GridControl.NewRecordAvailable;
+        //        //    tsbtnExport.Enabled = module.GridControl.ExportAvailable;
+        //        //}
+        //    }
+        //    //else
+        //    //{
+        //    //    tsGridDetail.Visible = false;
+        //    //}
+        //}
+
         #endregion
 
+
+        #region click events
         private void pDMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AppModuleManager.GetModuleByName("PDM_Status").Start(
 SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
+            // TODO devel only, delete later
+            foreach (AppModule a in AppModuleManager.Modules)
+                Console.WriteLine(a.Name);
         }
 
         private void kategorieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,6 +171,41 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
             AppModuleManager.GetModuleByName("ZemePoznamky").Start(
 SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
         }
+
+        /// <summary>
+        /// Allows user to exprt viewed data into Excel file format. 
+        /// Functionalitzy is provided bySmartISLib:)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (Instances.CurrentModule is GridDetailModuleInstance )
+            {
+                GridDetailModuleInstance module =
+                    Instances.CurrentModule as GridDetailModuleInstance;
+                module.GridControl.Export();
+            }
+            if (Instances.CurrentModule is EditableGridModuleInstance)
+            {
+                EditableGridModuleInstance module =
+                    Instances.CurrentModule as EditableGridModuleInstance;
+                module.GridControl.Export();
+            }
+            else {
+                SmartISLib.Messages.Error("Žádná vstupní data.\nToto tlačítko je určeno k exportu dat zobrazených v tabulce, do souboru ve formátu XLSX (Microsoft Excel)");
+            }
+        }
+
+        private void globálníNastaveníToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("GlobalniNastaveni").Start(
+SmartISLib.Modules.StandAlone.StandAloneStartingOptions.Empty);
+        }
+
+
+        #endregion click events
+
 
     }
 }

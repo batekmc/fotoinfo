@@ -30,30 +30,30 @@ namespace PhotoInfo.Modules.Ciselniky.ZemePoznamky
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.ZemePoynamky = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZemePoznamky = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZemePoznamky1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZemePoznamky2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridView = new SmartISLib.Controls.FastDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // ZemePoynamky
+            // ZemePoznamky1
             // 
-            this.ZemePoynamky.DataPropertyName = "Zeme";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ZemePoynamky.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ZemePoynamky.HeaderText = "Země";
-            this.ZemePoynamky.MaxInputLength = 18;
-            this.ZemePoynamky.Name = "ZemePoynamky";
-            this.ZemePoynamky.Width = 150;
+            this.ZemePoznamky1.DataPropertyName = "Zeme";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ZemePoznamky1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ZemePoznamky1.HeaderText = "Země";
+            this.ZemePoznamky1.MaxInputLength = 18;
+            this.ZemePoznamky1.Name = "Zeme";
+            this.ZemePoznamky1.Width = 150;
             // 
-            // ZemePoznamky
+            // ZemePoznamky2
             // 
-            this.ZemePoznamky.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ZemePoznamky.DataPropertyName = "Text";
-            this.ZemePoznamky.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ZemePoznamky.HeaderText = "Poznámky";
-            this.ZemePoznamky.MaxInputLength = 18;
-            this.ZemePoznamky.Name = "ZemePoznamky";
+            this.ZemePoznamky2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ZemePoznamky2.DataPropertyName = "Text";
+            this.ZemePoznamky2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ZemePoznamky2.HeaderText = "Poznámky";
+            this.ZemePoznamky2.MaxInputLength = 18;
+            this.ZemePoznamky2.Name = "ZemeText";
             // 
             // gridView
             // 
@@ -65,8 +65,8 @@ namespace PhotoInfo.Modules.Ciselniky.ZemePoznamky
             this.gridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ZemePoynamky,
-            this.ZemePoznamky});
+            this.ZemePoznamky1,
+            this.ZemePoznamky2});
             this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.gridView.HighlightSelectedCross = false;
@@ -84,7 +84,7 @@ namespace PhotoInfo.Modules.Ciselniky.ZemePoznamky
             this.Controls.Add(this.gridView);
             this.DataGridView = this.gridView;
             this.Name = "ZemeGrid";
-            this.SqlSelect = "SELECT * FROM TZEME";
+            this.SqlSelect = "SELECT * FROM TZEME where @where";
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -93,9 +93,7 @@ namespace PhotoInfo.Modules.Ciselniky.ZemePoznamky
         #endregion
 
         private SmartISLib.Controls.FastDataGridView gridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGrid1; 
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGrid2;
-        private DataGridViewTextBoxColumn ZemePoynamky;
-        private DataGridViewTextBoxColumn ZemePoznamky;
+        private DataGridViewTextBoxColumn ZemePoznamky1;
+        private DataGridViewTextBoxColumn ZemePoznamky2;
     }
 }
