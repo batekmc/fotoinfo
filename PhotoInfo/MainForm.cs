@@ -199,8 +199,7 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
 
         private void globálníNastaveníToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AppModuleManager.GetModuleByName("GlobalniNastaveni").Start(
-SmartISLib.Modules.StandAlone.StandAloneStartingOptions.Empty);
+            new Forms.GlobalniNastaveni().Show();
         }
 
 
