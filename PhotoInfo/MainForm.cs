@@ -202,8 +202,17 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
             new Forms.GlobalniNastaveni().Show();
         }
 
+        private void historieZměnToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("HistorieZmen").Start(
+SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
+
+        }
+
 
         #endregion click events
+
+
 
 
     }

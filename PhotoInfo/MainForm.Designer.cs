@@ -57,10 +57,10 @@
             this.způsobyVyskladněníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typyFotekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globálníNastaveníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +167,7 @@
             this.historieZměnToolStripMenuItem1.Name = "historieZměnToolStripMenuItem1";
             this.historieZměnToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.historieZměnToolStripMenuItem1.Text = "Historie změn";
+            this.historieZměnToolStripMenuItem1.Click += new System.EventHandler(this.historieZměnToolStripMenuItem1_Click);
             // 
             // příkazyKVyskladněníToolStripMenuItem1
             // 
@@ -309,6 +310,18 @@
             this.globálníNastaveníToolStripMenuItem.Text = "Globální nastavení";
             this.globálníNastaveníToolStripMenuItem.Click += new System.EventHandler(this.globálníNastaveníToolStripMenuItem_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -330,18 +343,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // MainForm
             // 

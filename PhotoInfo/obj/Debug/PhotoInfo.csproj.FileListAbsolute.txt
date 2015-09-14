@@ -15,3 +15,5 @@ c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\
 c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Ciselniky.ZemePoznamky.ZemeGrid.resources
 c:\users\ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Ciselniky.ZemePoznamky.ZemeFilter.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Forms.GlobalniNastaveni.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.HistorieZmen.HistorieZmenGrid.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.HistorieZmen.HistorieZmenFilter.resources

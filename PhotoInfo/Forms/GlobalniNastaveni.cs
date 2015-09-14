@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,10 +55,30 @@ namespace PhotoInfo.Forms
             
             }
 
+            //UPDATE listenery
             this.textBox1.TextChanged += this.Hmotnost_TextChanged;
             this.textBox2.TextChanged += this.Most_TextChanged;
             this.textBox3.TextChanged += this.Prirazka_TextChanged;
             this.dataGridView1.CellEndEdit += this.DataGrid_CellEdited;
+            this.dataGridView1.RowsAdded += this.DataGrid_RowAdded;
+        }
+
+        private void DataGrid_RowAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            double ifuValue = 0;
+            string ifuType;
+            try
+            {
+                ifuType = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                ifuValue = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            }
+            catch (Exception ex) {
+                SmartISLib.Messages.Error("Špatný formát záznamu. Používejte desetinné čárky místo teček.");
+                return;
+            }
+            string sql = String.Format("insert into TIFU(ifuType, ifuValue) values('{0}', {1})", ifuType, ifuValue.ToString(CultureInfo.InvariantCulture));
+            // TODO - nefunguje nejlepe: otestovat poradne.
+            SmartISLib.Data.Execute(sql);
         }
 
         private void DataGrid_CellEdited(object sender, DataGridViewCellEventArgs e)
@@ -80,6 +101,7 @@ namespace PhotoInfo.Forms
                 
             }
             catch (Exception ex) {
+                SmartISLib.Messages.Error("Špatný formát záznamu. Používejte desetinné čárky místo teček.");
                 return;
             }
             string sql;
@@ -102,6 +124,7 @@ namespace PhotoInfo.Forms
                 Convert.ToDouble(this.textBox1.Text);
             }
             catch (Exception ex) {
+                SmartISLib.Messages.Error("Špatný formát záznamu. Používejte desetinné čárky místo teček.");
                 return;
             }
             string sql = String.Format("UPDATE Tparameters SET HmotnostKoef = {0} where ID = 1", this.textBox1.Text);
@@ -124,6 +147,7 @@ namespace PhotoInfo.Forms
             }
             catch (Exception ex)
             {
+                SmartISLib.Messages.Error("Špatný formát záznamu. Používejte desetinné čárky místo teček.");
                 return;
             }
             string sql = String.Format("UPDATE Tparameters SET PathMostForm = '{0}' where ID = 1", this.textBox2.Text);
@@ -141,6 +165,7 @@ namespace PhotoInfo.Forms
             }
             catch (Exception ex)
             {
+                SmartISLib.Messages.Error("Špatný formát záznamu. Používejte desetinné čárky místo teček.");
                 return;
             }
             string sql = String.Format("UPDATE Tparameters SET TimeKoef = {0} where ID = 1", prirazka/100);
@@ -149,7 +174,5 @@ namespace PhotoInfo.Forms
             Console.WriteLine(sql);
             SmartISLib.Data.Execute(sql);
         }
-
-
     }
 }

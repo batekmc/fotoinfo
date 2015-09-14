@@ -96,7 +96,7 @@
       <DependentUpon>KomponentKategorieGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\PDM_Status\PDM_StatusGrid.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\PDM_Status\PDM_StatusGrid.Designer.cs">
       <DependentUpon>PDM_StatusGrid.cs</DependentUpon>
@@ -108,7 +108,7 @@
     <Compile Include="Modules\Ciselniky\TypyBreatherBagu\TypyBreatherBagu.cs" />
     <Compile Include="Modules\Ciselniky\TypyKrabic\TypyKrabic.cs" />
     <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeFilter.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeFilter.Designer.cs">
       <DependentUpon>ZemeFilter.cs</DependentUpon>
@@ -122,6 +122,19 @@
     <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemePoznamky.cs" />
     <Compile Include="Modules\Ciselniky\ZpusobyVyskladneni\ZpusobyVyskladneni.cs" />
     <Compile Include="Modules\Ciselniky\DostupnostFotek\DostupnostFotek.cs" />
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmen.cs" />
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenFilter.Designer.cs">
+      <DependentUpon>HistorieZmenFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.Designer.cs">
+      <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Other\AppConfigParser.cs" />
     <Compile Include="Other\ExceptionHandler.cs" />
     <Compile Include="Other\UserSettingsManager.cs" />
@@ -146,6 +159,12 @@
     <EmbeddedResource Include="Modules\Ciselniky\ZemePoznamky\ZemeGrid.resx">
       <DependentUpon>ZemeGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\HistorieZmen\HistorieZmenFilter.resx">
+      <DependentUpon>HistorieZmenFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.resx">
+      <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -169,7 +188,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\Komponenty\" />
     <Folder Include="Modules\Menu\" />
     <Folder Include="Resources\" />
   </ItemGroup>
