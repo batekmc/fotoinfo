@@ -191,7 +191,7 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
                 EditableGridModuleInstance module =
                     Instances.CurrentModule as EditableGridModuleInstance;
                 module.GridControl.Export();
-            }
+            }            
             else {
                 SmartISLib.Messages.Error("Žádná vstupní data.\nToto tlačítko je určeno k exportu dat zobrazených v tabulce, do souboru ve formátu XLSX (Microsoft Excel)");
             }
@@ -211,6 +211,12 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 
 
         #endregion click events
+
+        private void seznamKomponentůToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("SeznamKomponent").Start(
+SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
+        }
 
 
 

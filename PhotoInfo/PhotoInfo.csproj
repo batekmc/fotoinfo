@@ -123,6 +123,12 @@
     <Compile Include="Modules\Ciselniky\ZpusobyVyskladneni\ZpusobyVyskladneni.cs" />
     <Compile Include="Modules\Ciselniky\DostupnostFotek\DostupnostFotek.cs" />
     <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmen.cs" />
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenDetail.Designer.cs">
+      <DependentUpon>HistorieZmenDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +140,19 @@
     </Compile>
     <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.Designer.cs">
       <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponent.cs" />
+    <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentFilter.Designer.cs">
+      <DependentUpon>SeznamKomponentFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentGrid.Designer.cs">
+      <DependentUpon>SeznamKomponentGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Other\AppConfigParser.cs" />
     <Compile Include="Other\ExceptionHandler.cs" />
@@ -164,6 +183,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.resx">
       <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentFilter.resx">
+      <DependentUpon>SeznamKomponentFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentGrid.resx">
+      <DependentUpon>SeznamKomponentGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -161,6 +161,7 @@
             this.seznamKomponentůToolStripMenuItem1.Name = "seznamKomponentůToolStripMenuItem1";
             this.seznamKomponentůToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.seznamKomponentůToolStripMenuItem1.Text = "Seznam komponentů";
+            this.seznamKomponentůToolStripMenuItem1.Click += new System.EventHandler(this.seznamKomponentůToolStripMenuItem1_Click);
             // 
             // historieZměnToolStripMenuItem1
             // 
