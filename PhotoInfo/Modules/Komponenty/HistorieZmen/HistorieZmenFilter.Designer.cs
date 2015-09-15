@@ -105,6 +105,7 @@
             this.FilterElements.Add(this.strForeignKeyFilterControl1);
             this.FilterElements.Add(this.dateFilterItem1);
             this.strForeignKeyFilterControl1.ValueAttribute = "TableField";
+            this.ResumeLayout(false);
 
         }
 

@@ -175,6 +175,7 @@
             this.příkazyKVyskladněníToolStripMenuItem1.Name = "příkazyKVyskladněníToolStripMenuItem1";
             this.příkazyKVyskladněníToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.příkazyKVyskladněníToolStripMenuItem1.Text = "Příkazy k vyskladnění";
+            this.příkazyKVyskladněníToolStripMenuItem1.Click += new System.EventHandler(this.příkazyKVyskladněníToolStripMenuItem1_Click);
             // 
             // importToolStripMenuItem
             // 

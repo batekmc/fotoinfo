@@ -218,6 +218,12 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
         }
 
+        private void příkazyKVyskladněníToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("PrikazyKVyskladneni").Start(
+SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
+        }
+
 
 
 

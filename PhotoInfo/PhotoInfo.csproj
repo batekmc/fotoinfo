@@ -141,6 +141,19 @@
     <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.Designer.cs">
       <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneni.cs" />
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniFilter.Designer.cs">
+      <DependentUpon>PrikazyKVyskladneniFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniGrid.Designer.cs">
+      <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponent.cs" />
     <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentFilter.cs">
       <SubType>UserControl</SubType>
@@ -183,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.resx">
       <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniGrid.resx">
+      <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentFilter.resx">
       <DependentUpon>SeznamKomponentFilter.cs</DependentUpon>
