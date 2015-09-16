@@ -48,11 +48,11 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
                 return new RevizeCasuGrid();
             }
 
-            //protected override SmartISLib.Filters.FilterControl
-            //    CreateFilter(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
-            //{
-            //    return new RevizeCasuFilter();
-            //}
+            protected override SmartISLib.Filters.FilterControl
+                CreateFilter(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
+            {
+                return new RevizeCasuFilter();
+            }
         }
 
     }

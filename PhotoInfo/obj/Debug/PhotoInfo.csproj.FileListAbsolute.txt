@@ -20,3 +20,4 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentGrid.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentFilter.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni.PrikazyKVyskladneniGrid.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.RevizeCasu.RevizeCasuGrid.resources

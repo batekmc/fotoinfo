@@ -155,6 +155,12 @@
       <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasu.cs" />
+    <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuFilter.Designer.cs">
+      <DependentUpon>RevizeCasuFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>

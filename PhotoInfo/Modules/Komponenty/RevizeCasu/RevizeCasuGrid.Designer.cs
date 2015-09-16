@@ -1,4 +1,5 @@
-﻿namespace PhotoInfo.Modules.Komponenty.RevizeCasu
+﻿using System.Drawing;
+namespace PhotoInfo.Modules.Komponenty.RevizeCasu
 {
     partial class RevizeCasuGrid
     {
@@ -142,6 +143,7 @@
             this.revize.HeaderText = "Revize";
             this.revize.Name = "revize";
             this.revize.ReadOnly = true;
+            fastDataGridView1.Columns["revize"].DefaultCellStyle.BackColor = Color.LightCoral;
             // 
             // aktualniRevize
             // 
@@ -254,6 +256,8 @@
             this.fotka.ReadOnly = true;
             this.fotka.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.fotka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            fastDataGridView1.Columns["fotka"].DefaultCellStyle.Font = new Font("Tahoma", 7.75F, FontStyle.Bold);
+            fastDataGridView1.Columns["fotka"].DefaultCellStyle.BackColor = Color.LightGreen;
             // 
             // VS
             // 
@@ -266,6 +270,7 @@
             // 
             // VV
             // 
+            this.VV.DataPropertyName = "VV";
             this.VV.HeaderText = "VV";
             this.VV.Name = "VV";
             this.VV.ReadOnly = true;
@@ -274,6 +279,7 @@
             // 
             // VM
             // 
+            this.VM.DataPropertyName = "VM";
             this.VM.HeaderText = "VM";
             this.VM.Name = "VM";
             this.VM.ReadOnly = true;
@@ -282,6 +288,7 @@
             // 
             // VP
             // 
+            this.VP.DataPropertyName = "VP";
             this.VP.HeaderText = "VP";
             this.VP.Name = "VP";
             this.VP.ReadOnly = true;
@@ -290,6 +297,7 @@
             // 
             // Vx
             // 
+            this.Vx.DataPropertyName = "Vx";
             this.Vx.HeaderText = "Vx";
             this.Vx.Name = "Vx";
             this.Vx.ReadOnly = true;
@@ -298,90 +306,109 @@
             // 
             // PP
             // 
+            this.PP.DataPropertyName = "PP";
             this.PP.HeaderText = "PP";
             this.PP.Name = "PP";
             this.PP.ReadOnly = true;
             // 
             // PM
             // 
+            this.PM.DataPropertyName = "PM";
             this.PM.HeaderText = "PM";
             this.PM.Name = "PM";
             this.PM.ReadOnly = true;
             // 
             // Px
             // 
+            this.Px.DataPropertyName = "Px";
             this.Px.HeaderText = "Px";
             this.Px.Name = "Px";
             this.Px.ReadOnly = true;
             // 
             // K
             // 
+            this.K.DataPropertyName = "K";
             this.K.HeaderText = "K";
             this.K.Name = "K";
             this.K.ReadOnly = true;
             // 
             // routing
             // 
+            this.routing.DataPropertyName = "Routing";
             this.routing.HeaderText = "Routing";
             this.routing.Name = "routing";
             this.routing.ReadOnly = true;
+            fastDataGridView1.Columns["routing"].DefaultCellStyle.BackColor = Color.LightCoral;
+            fastDataGridView1.Columns["routing"].DefaultCellStyle.Font = new Font("Tahoma", 7.75F, FontStyle.Bold);
+
             // 
             // timeSAP
             // 
+            this.timeSAP.DataPropertyName = "TimeSAP";
             this.timeSAP.HeaderText = "Time SAP";
             this.timeSAP.Name = "timeSAP";
             this.timeSAP.ReadOnly = true;
+            fastDataGridView1.Columns["timeSAP"].DefaultCellStyle.BackColor = Color.LightCoral;
+            fastDataGridView1.Columns["timeSAP"].DefaultCellStyle.Font = new Font("Tahoma", 7.75F, FontStyle.Bold);
             // 
             // zdrojCasu
             // 
+            this.zdrojCasu.DataPropertyName = "Description";
             this.zdrojCasu.HeaderText = "Zdroj časů";
             this.zdrojCasu.Name = "zdrojCasu";
             this.zdrojCasu.ReadOnly = true;
             // 
             // exportovan
             // 
+            this.exportovan.DataPropertyName = "ExportDate";
             this.exportovan.HeaderText = "Exportován";
             this.exportovan.Name = "exportovan";
             this.exportovan.ReadOnly = true;
             // 
             // counterNo
             // 
+            this.counterNo.DataPropertyName = "CounterNo";
             this.counterNo.HeaderText = "Counter No.";
             this.counterNo.Name = "counterNo";
             this.counterNo.ReadOnly = true;
             // 
             // noveNafocene
             // 
+            this.noveNafocene.DataPropertyName = "NewImage";
             this.noveNafocene.HeaderText = "Nově nafocené";
             this.noveNafocene.Name = "noveNafocene";
             this.noveNafocene.ReadOnly = true;
             // 
             // zruseno
             // 
+            this.zruseno.DataPropertyName = "CancelImage";
             this.zruseno.HeaderText = "Zrušeno";
             this.zruseno.Name = "zruseno";
             this.zruseno.ReadOnly = true;
             // 
             // vytvoreno
             // 
+            this.vytvoreno.DataPropertyName = "Created";
             this.vytvoreno.HeaderText = "Vytvořeno";
             this.vytvoreno.Name = "vytvoreno";
             this.vytvoreno.ReadOnly = true;
             // 
             // vytvoril
             // 
+            this.vytvoril.DataPropertyName = "CreatedBy";
             this.vytvoril.HeaderText = "Vytvořil";
             this.vytvoril.Name = "vytvoril";
             this.vytvoril.ReadOnly = true;
             // 
             // RevizeCasuGrid
             // 
+            this.HorizontalScroll.Visible = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.fastDataGridView1);
             this.DataGridView = this.fastDataGridView1;
             this.Name = "RevizeCasuGrid";
-            this.SqlSelect = "SELECT * FROM QFTimesRevisions ORDER BY Code, Revision";
+            this.SqlSelect = "SELECT * FROM QFTimesRevisions where @where";
             this.Controls.SetChildIndex(this.fastDataGridView1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.fastDataGridView1)).EndInit();
             this.ResumeLayout(false);
