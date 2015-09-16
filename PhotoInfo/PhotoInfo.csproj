@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SmartISLib">
-      <HintPath>..\..\..\..\..\Desktop\Nativa\CoInfoNET\Resources\SmartISLib.dll</HintPath>
+    <Reference Include="SmartISLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Nativa\SmartISLib\trunk\SmartISLib\bin\Debug\SmartISLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,7 +69,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\CiselnikyDesign.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\CiselnikyDesign.Designer.cs">
       <DependentUpon>CiselnikyDesign.cs</DependentUpon>
@@ -76,21 +77,21 @@
     <Compile Include="Modules\Ciselniky\DruhBaleni\DruhBaleni.cs" />
     <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentu.cs" />
     <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentuGrid.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\Kategorie_Komponentu\KategorieKomponentuGrid.Designer.cs">
       <DependentUpon>KategorieKomponentuGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\KdoFoti\KdoFoti.cs" />
     <Compile Include="Modules\Ciselniky\KdoFoti\KdoFotiGrid.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\KdoFoti\KdoFotiGrid.Designer.cs">
       <DependentUpon>KdoFotiGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorie.cs" />
     <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorieGrid.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\Komponent_Kategorie\KomponentKategorieGrid.Designer.cs">
       <DependentUpon>KomponentKategorieGrid.cs</DependentUpon>
@@ -114,7 +115,7 @@
       <DependentUpon>ZemeFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeGrid.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modules\Ciselniky\ZemePoznamky\ZemeGrid.Designer.cs">
       <DependentUpon>ZemeGrid.cs</DependentUpon>
@@ -155,6 +156,12 @@
       <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasu.cs" />
+    <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuDetail.Designer.cs">
+      <DependentUpon>RevizeCasuDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniGrid.resx">
       <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\RevizeCasu\RevizeCasuDetail.resx">
+      <DependentUpon>RevizeCasuDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\RevizeCasu\RevizeCasuGrid.resx">
       <DependentUpon>RevizeCasuGrid.cs</DependentUpon>

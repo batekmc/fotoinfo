@@ -191,7 +191,8 @@
             //
             //boolFilter2
             //
-            // TODO - upravit... ConditionFormat. „CASE WHEN [{0}] IS NOT NULL THEN ELSE 0 END = {1}“
+            // TODO - opraveno upravit... ConditionFormat. „CASE WHEN [{0}] IS NOT NULL THEN ELSE 0 END = {1}“
+            this.boolFilter2.ConditionFormat = "CASE WHEN [{0}] IS NOT NULL THEN 1 ELSE 0 END = {1}";
             this.boolFilter2.Active = false;
             this.boolFilter2.Attribute = "EOD";
             this.boolFilter2.AttributeTitle = "EOD";

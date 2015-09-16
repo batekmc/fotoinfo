@@ -36,11 +36,12 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
 
             }
 
-            //protected override SmartISLib.Modules.GridDetail.DetailControl
-            //    CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
-            //{
-            //    return new HistorieZmenDetail();
-            //}
+            protected override SmartISLib.Modules.GridDetail.DetailControl
+                CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
+            {
+                Console.WriteLine("ahoj svete");
+                return new RevizeCasuDetail();
+            }
 
             protected override SmartISLib.Modules.GridDetail.GridControl
                 CreateGrid(SmartISLib.Modules.AppModuleStartingOptions startingOptions)

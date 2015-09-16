@@ -62,26 +62,6 @@ namespace PhotoInfo
             SmartISLib.Modules.AppModuleManager.LoadAssembly(a);
         }
 
-        //public override void UpdateUI()
-        //{
-        //    if (Instances.CurrentModule is GridDetailModuleInstance)
-        //    {
-        //        //tsGridDetail.Visible = true;
-
-        //        GridDetailModuleInstance module =
-        //            Instances.CurrentModule as GridDetailModuleInstance;
-
-        //        //if (module.GridControl != null)
-        //        //{
-        //        //    tsbtnNewRecord.Enabled = module.GridControl.NewRecordAvailable;
-        //        //    tsbtnExport.Enabled = module.GridControl.ExportAvailable;
-        //        //}
-        //    }
-        //    //else
-        //    //{
-        //    //    tsGridDetail.Visible = false;
-        //    //}
-        //}
 
         #endregion
 
@@ -106,8 +86,6 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
         {
             AppModuleManager.GetModuleByName("KomponentKategorie").Start(
 SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
-            
-
         }
 
         private void statusSetuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -230,11 +208,6 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 
 
         #endregion click events
-
-
-
-
-
 
     }
 }

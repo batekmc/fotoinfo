@@ -21,3 +21,8 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentFilter.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni.PrikazyKVyskladneniGrid.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.RevizeCasu.RevizeCasuGrid.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\SmartISLib.pdb
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\SmartISLib.xml
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\EPPlus.xml
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\cs\SmartISLib.resources.dll
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.RevizeCasu.RevizeCasuDetail.resources

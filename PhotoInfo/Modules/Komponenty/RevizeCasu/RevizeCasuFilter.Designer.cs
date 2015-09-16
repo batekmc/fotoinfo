@@ -240,8 +240,8 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             //
             //boolFilter6
             //
-            // TODO - zmenit podminku asi - zjistit jestli uz jsou vyexportovane
-            //tj export date = null
+            // TODO - zmenit podminku "CASE WHEN [{0}] IS NOT NULL THEN 1 ELSE 0 END = {1}"
+            this.boolFilter6.ConditionFormat = "CASE WHEN [{0}] IS NOT NULL THEN 1 ELSE 0 END = {1}";
             this.boolFilter6.Active = false;
             this.boolFilter6.Attribute = "ExportDate";
             this.boolFilter6.AttributeTitle = "Již vyexportované";
@@ -324,8 +324,6 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
         private SmartISLib.Filters.SqlFilterItems.BoolFilterItem boolFilter7;
         private SmartISLib.Filters.SqlFilterItems.BoolFilterItem boolFilter8;
         private SmartISLib.Filters.SqlFilterItems.DateFilterItem dateFilterItem1;
-
-
 
         #endregion
     }
