@@ -188,6 +188,7 @@
             this.revizeČasůToolStripMenuItem1.Name = "revizeČasůToolStripMenuItem1";
             this.revizeČasůToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.revizeČasůToolStripMenuItem1.Text = "Revize časů";
+            this.revizeČasůToolStripMenuItem1.Click += new System.EventHandler(this.revizeČasůToolStripMenuItem1_Click);
             // 
             // toolStripDropDownButton3
             // 

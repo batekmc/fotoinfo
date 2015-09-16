@@ -209,9 +209,6 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 
         }
 
-
-        #endregion click events
-
         private void seznamKomponentůToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AppModuleManager.GetModuleByName("SeznamKomponent").Start(
@@ -223,6 +220,18 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
             AppModuleManager.GetModuleByName("PrikazyKVyskladneni").Start(
 SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
         }
+
+        private void revizeČasůToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("RevizeCasu").Start(
+SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
+
+        }
+
+
+        #endregion click events
+
+
 
 
 
