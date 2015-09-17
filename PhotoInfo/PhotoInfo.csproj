@@ -56,6 +56,7 @@
     <Compile Include="Data\Functions.cs" />
     <Compile Include="Data\Procedures.cs" />
     <Compile Include="Data\Tables.cs" />
+    <Compile Include="Data\[QFTimesRevisionDialog]ORM.cs" />
     <Compile Include="Forms\GlobalniNastaveni.cs">
       <SubType>Form</SubType>
     </Compile>
