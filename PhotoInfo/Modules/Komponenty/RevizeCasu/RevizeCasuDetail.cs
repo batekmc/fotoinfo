@@ -33,7 +33,6 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
                 SqlDataAdapter adapter = SmartISLib.Data.GetDataAdapter("SELECT * FROM QFTimesRevisionDialog where TimesRevisionID = " + this.PrimaryKey);
                 revisionsTable = new DataTable();
                 adapter.Fill(revisionsTable);
-                Console.WriteLine("________Pocet radku: " + revisionsTable.Rows.Count);
             }
             catch (Exception e)
             {
@@ -50,7 +49,13 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             // bind grid data to grid
             this.dataGridView1.DataSource = this.revisionsTable;
 
-            BindTextBox(this.textBox2, ormTimeRev, "CompStatus");
+            BindTextBox(this.textBox1, ormTimeRev, "CompStatus");
+            BindTextBox(this.textBox2, ormTimeRev, "CompCode");
+            BindTextBox(this.textBox3, ormTimeRev, "CompCategory");
+            BindTextBox(this.textBox4, ormTimeRev, "CompPhotoDate");
+            BindTextBox(this.textBox5, ormTimeRev, "CompComent");
+            BindTextBox(this.textBox6, ormTimeRev, "Revision");
+            BindComboBox(this.comboBox1, "select * from TPickType order by PickTypeName", "PickTypeName", "PickTypeName", new Data.TPickType(), "PickTypeName");
         }
 
     }
