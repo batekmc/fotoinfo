@@ -288,7 +288,6 @@ namespace PhotoInfo.Data
         public static QFTimesRevisionDialog Load(int timesRevisionID)
         {
             SqlCommand str = Session.CreateCommand();
-            Console.WriteLine(str.CommandText + "_____________________");
             QFTimesRevisionDialog result = new QFTimesRevisionDialog();
             result.LoadRecord(timesRevisionID);
             return result;
