@@ -233,15 +233,22 @@ namespace PhotoInfo.Data
             cmdProcedure.ExecuteNonQuery();
         }
 
-        public static void SPIdentityNew(DbNullable<string> sQLText)
+
+        /// <summary>
+        /// Some procedure, which should return something like id.
+        /// </summary>
+        /// <param name="sQLText"></param>
+        /// <returns></returns>
+        public static SqlDataReader SPIdentityNew(DbNullable<string> sQLText)
         {
             SqlCommand cmdProcedure = Session.CreateCommand();
 
             cmdProcedure.CommandText = "dbo.SPIdentityNew";
             cmdProcedure.CommandType = CommandType.StoredProcedure;
             cmdProcedure.Parameters.AddWithValue("@SQLText", DbConverter.FromStringNull(sQLText));
+            SqlDataReader sqlRead = cmdProcedure.ExecuteReader();
 
-            cmdProcedure.ExecuteNonQuery();
+            return sqlRead;
         }
 
         public static void Dt_addtosourcecontrol_u(DbNullable<string> vchSourceSafeINI, DbNullable<string> vchProjectName, DbNullable<string> vchComment, DbNullable<string> vchLoginName, DbNullable<string> vchPassword)

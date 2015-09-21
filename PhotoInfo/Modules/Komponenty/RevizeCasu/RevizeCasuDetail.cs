@@ -19,6 +19,8 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
         private DataTable revisionsTable;
         // item detail
         private Data.QFTimesRevisionDialog ormTimeRev;
+        //workaround
+        private int fkTypeRevision = 0;
         
         public RevizeCasuDetail()
         {
@@ -26,28 +28,28 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
         }
 
 
-        protected override bool InsertRecordCore()
-        {
-            try
-            {
-                Console.WriteLine("insert__________Most: " + this.textBox9.Text);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                SmartISLib.Messages.Error(ex.Message);
-                return false;
-            }
+        #region overrided methods
+
+
+        protected override bool InsertRecordCore() {
+
+            // has to be set, because if TypeRevision has not been changed, then it takes default value 0
+            if (this.ormTimeRev.TypeRevision == 0)
+                this.ormTimeRev.TypeRevision = this.fkTypeRevision;
+            
+            return this.InsertProcedure();
         }
+
 
         protected override bool UpdateRecordCore()
         {
             try
             {
-
-                Console.WriteLine("____Checked:  " + this.ormTimeRev.TypeRevision);
+                // has to be set, because if TypeRevision has not been changed, then it takes default value 0
+                if (this.ormTimeRev.TypeRevision == 0)
+                    this.ormTimeRev.TypeRevision = this.fkTypeRevision;
                 this.ormTimeRev.Update();
-                //UpdateProcedure();
+                UpdateProcedure();
                 return true;
             }
             catch (Exception ex)
@@ -64,7 +66,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             {
                 //Load data for fields - ORM 
                 this.ormTimeRev = Data.QFTimesRevisionDialog.Load((int)this.PrimaryKey);
-                //load data for grid
+                //load data for grid - View not in ORM
                 SqlDataAdapter adapter = SmartISLib.Data.GetDataAdapter("SELECT image, VS, VV, vm, vp, vx, pp, pm, px,k,RoutingVyp, timeSAPvyp,SourceImage, ExportDate,CounterNo, CancelImage FROM QFTimeRevisionDetail2 where TimesRevisionDetailID = " + this.PrimaryKey);
                 revisionsTable = new DataTable();
                 adapter.Fill(revisionsTable);
@@ -79,12 +81,12 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             return true;
         }
 
-
-        
         protected override void BindData()
         {
             // bind grid data to grid
             this.dataGridView1.DataSource = this.revisionsTable;
+            //set PK
+            this.ormTimeRev.TimesRevisionID = (int)this.PrimaryKey;
 
             BindTextBox(this.textBox2, ormTimeRev, "CompStatus");
             BindTextBox(this.textBox1, ormTimeRev, "CompCode");
@@ -93,9 +95,9 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             BindTextBox(this.textBox5, ormTimeRev, "CompComent");
             BindTextBox(this.textBox6, ormTimeRev, "Revision");
 
-            BindComboBox(this.comboBox1, "select * from TPickType order by PickTypeName", "PickTypeName", "PickTypeName", ormTimeRev, "PickType");
+            BindComboBox(this.comboBox1, "select * from TPickType order by PickTypeName", "PickTypeID", "PickTypeName", ormTimeRev, "PickType");
             BindComboBox(this.comboBox2, "select * from TCorrection order by CorrectionName", "CorrectionName", "CorrectionName", ormTimeRev, "CorrectionNote");
-            BindComboBox(this.comboBox4, "SELECT * FROM TIFU", "IFUtype", "IFUtype", ormTimeRev, "IFU_type");
+            BindComboBox(this.comboBox4, "SELECT * FROM TIFU", "ifuID", "IFUtype", ormTimeRev, "IFU_type");
 
             BindTextBox(this.textBox7, ormTimeRev, "CorrectionNote");
             BindTextBox(this.textBox8, ormTimeRev, "Note");
@@ -109,6 +111,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             BindCheckBox(this.checkBox1, ormTimeRev, "CheckPackage");
             BindCheckBox(this.checkBox1, ormTimeRev, "RevisionDone");
 
+            this.fkTypeRevision = ormTimeRev.TypeRevision;
             if (ormTimeRev.TypeRevision == 1)
                 this.radioButton1.Checked = true;
             else if (ormTimeRev.TypeRevision == 2)
@@ -123,6 +126,9 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             
         }
 
+        #endregion 
+
+        #region methods
         private bool UpdateProcedure()
         {
             DbTable<Data.TTimesRevisionDetail> detail = Data.TTimesRevisionDetail.LoadBy("TimesRevision =@param0 AND SourceImage is null", ormTimeRev.TimesRevisionID);
@@ -142,7 +148,104 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             return true;
         }
 
+        private bool InsertProcedure()
+        {
+            DbTable<Data.TTimesRevision> actualRev = Data.TTimesRevision.LoadBy("Component =@param0 and Actual =@parma1", this.ormTimeRev.Component, 1);
+            if (actualRev[0] == null )
+            {
+                SmartISLib.Messages.Error("Zatím neexistuje žádná aktuální revize, nelze vytvoøit další.");
+                return false;
+            }
+
+            DataTable mDt = SmartISLib.Data.GetDataTable("Select MaxRevision from QTimesRevisionMax where Component = " + this.ormTimeRev.Component);
+            if (mDt.Rows.Count < 1)
+            {
+                SmartISLib.Messages.Error("Neexistuje  hledaný záznam v MaxRevision");
+                return false;
+            }
+            int maxRev = Convert.ToInt32(  ( (DataRow)mDt.Rows[0] )["MaxRevision"]  );
+            int aRev = actualRev[0].Revision;
+            int aRevID = actualRev[0].TimesRevisionID;
+
+            if (maxRev == aRev + 1)
+            {
+                SmartISLib.Messages.Error("Již byla vytvoøena jedna revize po aktuální.");
+                return false;
+            }
+            else 
+            {
+                Console.WriteLine("OK___________________________________");
+                //Splneny podminky, vytvoreni nove revize
+
+                //vytvori novou hlavicku
+                Data.Procedures.SPTimesRevisionNew(this.ormTimeRev.TimesRevisionID, this.ormTimeRev.Component);
+
+                //zjisti nove ID
+                SqlDataReader sqlR = Data.Procedures.SPIdentityNew("");
+                sqlR.Read();
+                DbNullable<int> newID= (DbNullable<int>) sqlR["Identity"];
+                if (newID == null)
+                {
+                    SmartISLib.Messages.Error("Novárevize nebyla vytvořena.");
+                    return false;
+                }
+
+                //pokud jsou stejne comp i main-comp pak udela update odkazu v MainRevision
+                if (ormTimeRev.Component == ormTimeRev.MainComponent)
+                {
+                    Data.Procedures.SPTimesRevisionUpdateMainRevision(newID);
+                }
+
+                //novy detail
+                Data.Procedures.SPTimesRevisionDetailNew(ormTimeRev.TimesRevisionID, newID);
+
+                //pokud jsou v detailu odkazy - update odkazu na foto
+                mDt = SmartISLib.Data.GetDataTable("SELECT * FROM QTimesRevisionSourceImage where TimesRevision =" + ormTimeRev.TimesRevisionID);
+                foreach(DataRow row in mDt.Rows)
+                {
+                    int newDetailID = -1;
+                    if(ormTimeRev.Component == ormTimeRev.MainComponent)
+                    {
+                        newDetailID = Data.TTimesRevisionDetail.LoadBy("TimesRevision =@param0 and Image =@param1", this.ormTimeRev.Component, row["SourceImageNo"])[0].TimesRevisionDetailID;
+                    }
+                    else 
+                    { 
+                        //TODO ----------------------------------------------
+                        //newDetailID = 
+                    }
+
+                    //zjisti datum exportu
+
+                    DbNullable<DateTime> expDate = Data.TTimesRevisionDetail.LoadBy("TimesRevisionDetailID =@param0", row["TimesRevisionDetailID"])[0].ExportDate;
+
+                    SmartISLib.Data.Execute(string.Format("UPDATE TTimesRevisionDetail set SourceImage ={0}, ExportDate = {1} where TimesRevision = {2} and /image = {3}",newDetailID, expDate.Value,  newID.Value, Convert.ToInt32(row["Image"]) ));
+
+                }
+                
+                mDt = SmartISLib.Data.GetDataTable("SELECT * FROM QTimesRevisionCheckMainComp where MainComponent =" + ormTimeRev.Component);
+
+                //pokud je  comp nekde jinde jako main-comp pak update pole RevisionDone=0
+                foreach (DataRow row in mDt.Rows) {
+                    Data.Procedures.SPComponentTimesRevisionUpd(ormTimeRev.Component);            
+                }
+
+                if (Module.GridControl != null)
+                    Module.GridControl.RefreshData();
+                return true;
+    
+            }
+        }
+
+        #endregion
+
         #region click events
+
+        /// <summary>
+        /// If is radiobutton checked, then the typeRevision value is set based on the RB name.
+        /// RB names are 1,2,3 so it works fine. 
+        /// </summary>
+        /// <param name="sender">Radiobutton</param>
+        /// <param name="e"></param>
         private void AllCheckBoxes_CheckedChanged(Object sender, EventArgs e)
         {
             // Check of the raiser of the event is a checked Checkbox.
@@ -150,12 +253,20 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             {
                 // This is the correct control.
                 RadioButton rb = (RadioButton)sender;
-                // TODO FUCKING HELL SHIT!!!!!
-                Console.WriteLine("__________________RB NAME " + rb.Name);
+                if (rb.Name == "")
+                    return;
                 this.ormTimeRev.TypeRevision = Int32.Parse(rb.Name);
+                //Oznamim zmenu gui
+                this.NotifyChanged();
             }
         }
 
+
+        /// <summary>
+        /// Button for file select
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             // Create an instance of the open file dialog box.
