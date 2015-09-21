@@ -31,22 +31,13 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
         #region overrided methods
 
 
-        protected override bool PrepareNew()
-        {
+        protected override bool InsertRecordCore() {
+
             // has to be set, because if TypeRevision has not been changed, then it takes default value 0
             if (this.ormTimeRev.TypeRevision == 0)
                 this.ormTimeRev.TypeRevision = this.fkTypeRevision;
-            try
-            {
-                bool res = this.InsertProcedure();
-                return res;
-            }
-            catch (Exception ex) {
-                SmartISLib.Messages.Error(ex.Message);
-                SmartISLib.Messages.Error(ex.StackTrace);
-                return false;
-            }
             
+            return this.InsertProcedure();
         }
 
 
@@ -68,20 +59,6 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             }
         }
 
-        protected override bool DeleteRecordCore()
-        {
-            DataTable mDt = SmartISLib.Data.GetDataTable("Select MaxRevision from QTimesRevisionMax where Component = " + this.ormTimeRev.Component);
-            int maxRev = Convert.ToInt32(  ( (DataRow)mDt.Rows[0] )["MaxRevision"]  );
-            //maze se jen pokud se jedna o posledni revizi
-            if (maxRev == ormTimeRev.Revision)
-            {
-                this.ormTimeRev.Delete();
-                SmartISLib.Messages.Information("Revize smazána.");
-            }
-            else
-                SmartISLib.Messages.Information("Odstranil lze pouze poslední revizi.");
-            return true;
-        }
 
         protected override bool LoadRecordCore()
         {
@@ -109,7 +86,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             // bind grid data to grid
             this.dataGridView1.DataSource = this.revisionsTable;
             //set PK
-            this.ormTimeRev.TimesRevisionID = (int)this.PrimaryKey; 
+            this.ormTimeRev.TimesRevisionID = (int)this.PrimaryKey;
 
             BindTextBox(this.textBox2, ormTimeRev, "CompStatus");
             BindTextBox(this.textBox1, ormTimeRev, "CompCode");
@@ -142,6 +119,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             else if (ormTimeRev.TypeRevision == 3)
                 this.radioButton3.Checked = true;
 
+
             BindComboBox(this.comboBox3, string.Format("SELECT Revision FROM QMainComponentRevision where TimesRevisionID={0}", ormTimeRev.MainCompRevision), "Revision", "TimesRevisionID", ormTimeRev, "TypeRevision");
             //Display text to user
             this.comboBox3.SelectedIndex = 0;
@@ -172,12 +150,13 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
 
         private bool InsertProcedure()
         {
-            DbTable<Data.TTimesRevision> actualRev = Data.TTimesRevision.LoadBy("Component =@param0 and Actual =@param1", (int)this.ormTimeRev.Component, 1);
+            DbTable<Data.TTimesRevision> actualRev = Data.TTimesRevision.LoadBy("Component =@param0 and Actual =@parma1", this.ormTimeRev.Component, 1);
             if (actualRev[0] == null )
             {
                 SmartISLib.Messages.Error("Zatím neexistuje žádná aktuální revize, nelze vytvoøit další.");
                 return false;
             }
+
             DataTable mDt = SmartISLib.Data.GetDataTable("Select MaxRevision from QTimesRevisionMax where Component = " + this.ormTimeRev.Component);
             if (mDt.Rows.Count < 1)
             {
@@ -188,27 +167,29 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             int aRev = actualRev[0].Revision;
             int aRevID = actualRev[0].TimesRevisionID;
 
-            if (maxRev <= ++aRev)
+            if (maxRev == aRev + 1)
             {
-                SmartISLib.Messages.Error("Již byla vytvořena jedna revize po aktuální.");
+                SmartISLib.Messages.Error("Již byla vytvoøena jedna revize po aktuální.");
                 return false;
             }
             else 
             {
+                Console.WriteLine("OK___________________________________");
                 //Splneny podminky, vytvoreni nove revize
+
                 //vytvori novou hlavicku
                 Data.Procedures.SPTimesRevisionNew(this.ormTimeRev.TimesRevisionID, this.ormTimeRev.Component);
 
                 //zjisti nove ID
                 SqlDataReader sqlR = Data.Procedures.SPIdentityNew("");
                 sqlR.Read();
-                DbNullable<int> newID= Convert.ToInt32( sqlR["Identity"] );
+                DbNullable<int> newID= (DbNullable<int>) sqlR["Identity"];
                 if (newID == null)
                 {
                     SmartISLib.Messages.Error("Novárevize nebyla vytvořena.");
                     return false;
                 }
-                sqlR.Close();
+
                 //pokud jsou stejne comp i main-comp pak udela update odkazu v MainRevision
                 if (ormTimeRev.Component == ormTimeRev.MainComponent)
                 {
@@ -231,31 +212,25 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
                     { 
                         //TODO ----------------------------------------------
                         //newDetailID = 
-                        newDetailID = 2;
                     }
 
                     //zjisti datum exportu
 
                     DbNullable<DateTime> expDate = Data.TTimesRevisionDetail.LoadBy("TimesRevisionDetailID =@param0", row["TimesRevisionDetailID"])[0].ExportDate;
-                    string str;
-                    if (expDate != null)
-                        str = string.Format("UPDATE TTimesRevisionDetail set SourceImage ={0}, ExportDate = {1} where TimesRevision = {2} and image = {3}", newDetailID, expDate, newID, Convert.ToInt32(row["Image"]));
-                    else
-                        str = string.Format("UPDATE TTimesRevisionDetail set SourceImage ={0}, ExportDate = {1} where TimesRevision = {2} and image = {3}", newDetailID, "NULL", newID, Convert.ToInt32(row["Image"]));
 
-                    Console.WriteLine("_________SQL: " + str);
-                    SmartISLib.Data.Execute(str);
+                    SmartISLib.Data.Execute(string.Format("UPDATE TTimesRevisionDetail set SourceImage ={0}, ExportDate = {1} where TimesRevision = {2} and /image = {3}",newDetailID, expDate.Value,  newID.Value, Convert.ToInt32(row["Image"]) ));
 
                 }
+                
                 mDt = SmartISLib.Data.GetDataTable("SELECT * FROM QTimesRevisionCheckMainComp where MainComponent =" + ormTimeRev.Component);
 
                 //pokud je  comp nekde jinde jako main-comp pak update pole RevisionDone=0
                 foreach (DataRow row in mDt.Rows) {
                     Data.Procedures.SPComponentTimesRevisionUpd(ormTimeRev.Component);            
                 }
-                SmartISLib.Messages.Information("Záznam uložen.");
-                //if (Module.GridControl != null)
-                //    Module.GridControl.RefreshData();
+
+                if (Module.GridControl != null)
+                    Module.GridControl.RefreshData();
                 return true;
     
             }
