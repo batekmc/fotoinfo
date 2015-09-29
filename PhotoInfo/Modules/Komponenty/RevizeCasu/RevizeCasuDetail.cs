@@ -109,7 +109,8 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             // bind grid data to grid
             this.dataGridView1.DataSource = this.revisionsTable;
             //set PK
-            this.ormTimeRev.TimesRevisionID = (int)this.PrimaryKey; 
+            if ( this.PrimaryKey != null)
+                this.ormTimeRev.TimesRevisionID = (int)this.PrimaryKey; 
 
             BindTextBox(this.textBox2, ormTimeRev, "CompStatus");
             BindTextBox(this.textBox1, ormTimeRev, "CompCode");
@@ -188,7 +189,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             int aRev = actualRev[0].Revision;
             int aRevID = actualRev[0].TimesRevisionID;
 
-            if (maxRev <= ++aRev)
+            if (maxRev == ++aRev)
             {
                 SmartISLib.Messages.Error("Již byla vytvořena jedna revize po aktuální.");
                 return false;
@@ -229,9 +230,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
                     }
                     else 
                     { 
-                        //TODO ----------------------------------------------
-                        //newDetailID = 
-                        newDetailID = 2;
+                        newDetailID  = Data.TTimesRevisionDetail.LoadBy("TimesRevision =@param0 and Image in (select SourceImageNo from QTimesRevisionSourceImage where Component =@param1 and Revision =@param2 )", ormTimeRev.TimesRevisionID, row["Image"], ormTimeRev.MainCompRevision)[0].TimesRevisionDetailID;
                     }
 
                     //zjisti datum exportu

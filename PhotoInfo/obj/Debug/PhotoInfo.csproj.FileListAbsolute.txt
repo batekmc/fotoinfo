@@ -26,3 +26,4 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\EPPlus.xml
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\cs\SmartISLib.resources.dll
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.RevizeCasu.RevizeCasuDetail.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentDetail.resources
