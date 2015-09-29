@@ -652,18 +652,12 @@ namespace PhotoInfo.Data
         {
             if (schema == null)
             {
-                // added
-                schema.Add("AvailabilityName", typeof(string), "AvailabilityName", true);
-                schema.Add("NafotilKdoStr", typeof(string), "NafotilKdoStr", true);
-                schema.Add("PDMStatusPhoto", typeof(string), "PDMStatusPhoto", true);
-                schema.Add("KomponentKategorieName", typeof(string), "KomponentKategorieName", true);
-
                 schema = new DbSchema("QFComponentsPhoto");
                 schema.Add("ComponentID", typeof(int), "ComponentID", false, true, true);
                 schema.Add("Code", typeof(string), "Code", false);
                 schema.Add("Vendor", typeof(string), "Vendor", true);
                 schema.Add("Description", typeof(string), "Description", true);
-                schema.Add("ProdApprovPDM", typeof(DateTime), "ProdApprovPDM", true);
+                //schema.Add("ProdApprovPDM", typeof(DateTime), "ProdApprovPDM", true);
                 schema.Add("PDMStatusPhotoID", typeof(int), "PDMStatusPhotoID", true);
                 schema.Add("KategorieKomponentu", typeof(string), "KategorieKomponentu", true);
                 schema.Add("PDMComent", typeof(string), "PDMComent", true);
@@ -699,6 +693,11 @@ namespace PhotoInfo.Data
                 schema.Add("VahaPoznamka", typeof(string), "VahaPoznamka", true);
                 schema.Add("TimeRevision", typeof(bool), "TimeRevision", false);
                 schema.Add("PcsBIN2", typeof(int), "PcsBIN2", true);
+                // added
+                schema.Add("AvailabilityName", typeof(string), "AvailabilityName", true);
+                schema.Add("NafotilKdoStr", typeof(string), "NafotilKdoStr", true);
+                schema.Add("PDMStatusPhoto", typeof(string), "PDMStatusPhoto", true);
+                schema.Add("KomponentKategorieName", typeof(string), "KomponentKategorieName", true);
             }
 
             return schema;
@@ -716,7 +715,7 @@ namespace PhotoInfo.Data
 
             this["Description"] = DBNull.Value;
 
-            this["ProdApprovPDM"] = DBNull.Value;
+            //this["ProdApprovPDM"] = DBNull.Value;
 
             this["PDMStatusPhotoID"] = DBNull.Value;
 
@@ -845,16 +844,6 @@ namespace PhotoInfo.Data
             DbTable<QFComponentsPhoto> table = new DbTable<QFComponentsPhoto>();
             QFComponentsPhoto prototype = new QFComponentsPhoto();
             prototype.LoadTable(table);
-            return table;
-        }
-
-
-        // TODO class to class_
-        public static DbTable<QFComponentsPhoto> LoadByClass(DbNullable<string> class_)
-        {
-            DbTable<QFComponentsPhoto> table = new DbTable<QFComponentsPhoto>();
-            QFComponentsPhoto prototype = new QFComponentsPhoto();
-            prototype.LoadTable(table, "[Class]={0}", DbConverter.FromStringNull(class_));
             return table;
         }
 

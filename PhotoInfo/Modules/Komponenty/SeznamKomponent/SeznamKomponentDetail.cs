@@ -14,8 +14,10 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
     public partial class SeznamKomponentDetail : SmartISLib.Modules.GridDetail.DetailControl
     {
 
-        //private Data.QFComponentsPhoto ormCompPhoto;
+        private Data.QFComponentsPhoto ormCompPhoto;
         private DataTable hZmenDTAB;
+        private DataTable kVyskladneniDTAB;
+        private DataTable kompDTAB;
 
         public SeznamKomponentDetail()
         {
@@ -26,19 +28,39 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
 
         protected override void BindData()
         {
+            //historie Zmen
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.DataSource = hZmenDTAB;
 
+            //Prikazy k vyskladneni
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.DataSource = kVyskladneniDTAB;
+
+            //Hlavni komponent pro
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.DataSource = kompDTAB;
         }
 
         protected override bool LoadRecordCore()
         {
-
-            //this.ormCompPhoto = Data.QFComponentsPhoto.LoadBy("ComponentID =@param0", (int)this.PrimaryKey)[0];
-            SqlDataAdapter hZmen = SmartISLib.Data.GetDataAdapter("select * from QHistorie where componentID =@compID oreder by UpdateDate");
+            //ORM
+            this.ormCompPhoto = Data.QFComponentsPhoto.Load( (int)this.PrimaryKey);
+            //historie zmen
+            SqlDataAdapter hZmen = SmartISLib.Data.GetDataAdapter("select * from QHistorie where componentID =@compID ORDER BY UpdateDate");
             hZmen.SelectCommand.Parameters.AddWithValue("compID", (int)this.PrimaryKey);
             hZmenDTAB = new DataTable();
             hZmen.Fill(hZmenDTAB);
+            //prikazy k vyskladneni
+            SqlDataAdapter pKvyskladneni = SmartISLib.Data.GetDataAdapter("select * from QFComponentDetailVyskladneni where ComponentID =@ID");
+            pKvyskladneni.SelectCommand.Parameters.AddWithValue("ID", (int)this.PrimaryKey);
+            kVyskladneniDTAB = new DataTable();
+            pKvyskladneni.Fill(kVyskladneniDTAB);
+            //Hlavni komponent pro
+            SqlDataAdapter komp = SmartISLib.Data.GetDataAdapter("select * from QFComponentDetailMainComp where component =@ID");
+            komp.SelectCommand.Parameters.AddWithValue("ID", (int)this.PrimaryKey);
+            kompDTAB = new DataTable();
+            komp.Fill(kompDTAB);
+
 
             return true;
         }
