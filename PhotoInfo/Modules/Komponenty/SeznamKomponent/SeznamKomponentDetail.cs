@@ -30,6 +30,43 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
 
         #region overrided methods
 
+        protected override bool PrepareNew() {
+
+            //Just clean all fields and update UI for user to see the change:)
+            this.ormCompPhoto.LoadDefaultValues();
+            Update();
+            //if this is a new record, then will be inserted new row to the db, instead of update
+            isNewRecord = true;
+            return true;
+        }
+
+        private bool isNewRecord = false;
+        protected override bool UpdateRecordCore()
+        {
+            //If the user has made a new record, then will be inserted new row to the db. Otherwise will be updated current record.
+            try
+            {
+
+                if (isNewRecord)
+                {
+                    Console.WriteLine("_____INSERTING...");
+                    this.ormCompPhoto.Insert();
+                    SmartISLib.Messages.Information("Vložen nový záznam.");
+                }
+                else
+                {
+                    this.ormCompPhoto.Update();
+                    SmartISLib.Messages.Information("Záznam aktualizován.");
+                }
+            }
+            catch (Exception ex) 
+            {
+                SmartISLib.Messages.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         protected override void BindData()
         {
             //historie Zmen
@@ -71,8 +108,10 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
             BindTextBox(this.textBoxBIN, ormCompPhoto, "BIN");
             BindTextBox(this.textBoxVychoziNaskladneni, ormCompPhoto, "PcsBIN2");
             BindTextBox(this.textBoxVychoziOdepsani, ormCompPhoto, "SCRAP2");
-            // TODO =[PcsBIN2]+[TotalNA]-[TotalVY] -> textBoxPOcetKSBIN
+
+            // TODO =[PcsBIN2]+[TotalNA]-[TotalVY] -> textBoxPOcetKSBIN --> FAIL!
             BindTextBox(this.textBoxPOcetKSBIN, ormCompPhoto, "PcsBIN2");
+
             BindTextBox(this.textBoxKomentKeZmene, ormCompPhoto, "ZmenaPozn");
             BindTextBox(this.textBoxPoznamkySpecialni, ormCompPhoto, "SpecialNote");
 
@@ -139,7 +178,7 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
             zpusobOdepsaniDrDownDTAB = new DataTable();
             dalsiDRDownAdapter.Fill(zpusobOdepsaniDrDownDTAB);
 
-            //odepsani grid
+            // odepsani grid
             SqlDataAdapter dalsiGridAdapter = SmartISLib.Data.GetDataAdapter("Select * from QFComponentDetailMovementNA where Component = " + this.ormCompPhoto.ComponentID);
             dalsiNaskladneniDTAB = new DataTable();
             dalsiGridAdapter.Fill(dalsiNaskladneniDTAB);
