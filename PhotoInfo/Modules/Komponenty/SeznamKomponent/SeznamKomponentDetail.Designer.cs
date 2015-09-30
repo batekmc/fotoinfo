@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlHlKompPro = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dateTimePickerDatumZmeny = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerNafocenoDne = new System.Windows.Forms.DateTimePicker();
@@ -46,19 +46,10 @@
             this.dostupnostProFoceni = new System.Windows.Forms.Label();
             this.dalsiOdepsani = new System.Windows.Forms.Label();
             this.dalsiNaskladneni = new System.Windows.Forms.Label();
-            this.dataGridView6 = new SmartISLib.Controls.FastDataGridView();
-            this.zpusobOdepsani = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pocetKSDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poznamkaDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vytvorenoDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vytvorilDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView5 = new SmartISLib.Controls.FastDataGridView();
-            this.zpusobNaskladneni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pocetKS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poznamka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vytvorenoDLN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vytvorilDLN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewDalsiOdepsani = new SmartISLib.Controls.FastDataGridView();
+            this.dataGridViewDalsiNaskladeni = new SmartISLib.Controls.FastDataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBoxVychoziOdepsani = new System.Windows.Forms.TextBox();
             this.textBoxVychoziNaskladneni = new System.Windows.Forms.TextBox();
             this.textBoxPOcetKSBIN = new System.Windows.Forms.TextBox();
@@ -95,18 +86,18 @@
             this.statusKomp = new System.Windows.Forms.Label();
             this.cisloKomponentu = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new SmartISLib.Controls.FastDataGridView();
+            this.dataGridViewrevizeCasu = new SmartISLib.Controls.FastDataGridView();
             this.btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.revizeCasu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vytvorenoRevize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aktualni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new SmartISLib.Controls.FastDataGridView();
+            this.dataGridViewHlavniompPro = new SmartISLib.Controls.FastDataGridView();
             this.component = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.revize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new SmartISLib.Controls.FastDataGridView();
+            this.dataGridViewPrikazyKVyskladneni = new SmartISLib.Controls.FastDataGridView();
             this.cisloSetu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vytvoreno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vytvoril = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,47 +105,56 @@
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new SmartISLib.Controls.FastDataGridView();
+            this.dataGridViewHistorieZmen = new SmartISLib.Controls.FastDataGridView();
             this.coSeZmenilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kdy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kdo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.puvodniStav = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.novaHodnota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.zpusobNaskladneni = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pocetKS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poznamka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vytvorenoDLN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vytvorilDLN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zpusobOdepsani = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pocetKSDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poznamkaDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vytvorenoDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vytvorilDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControlHlKompPro.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDalsiOdepsani)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDalsiNaskladeni)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewrevizeCasu)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHlavniompPro)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrikazyKVyskladneni)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorieZmen)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControlHlKompPro
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControlHlKompPro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.HotTrack = true;
-            this.tabControl1.Location = new System.Drawing.Point(3, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(609, 625);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlHlKompPro.Controls.Add(this.tabPage1);
+            this.tabControlHlKompPro.Controls.Add(this.tabPage2);
+            this.tabControlHlKompPro.Controls.Add(this.tabPage3);
+            this.tabControlHlKompPro.Controls.Add(this.tabPage4);
+            this.tabControlHlKompPro.Controls.Add(this.tabPage5);
+            this.tabControlHlKompPro.HotTrack = true;
+            this.tabControlHlKompPro.Location = new System.Drawing.Point(3, 1);
+            this.tabControlHlKompPro.Name = "tabControlHlKompPro";
+            this.tabControlHlKompPro.SelectedIndex = 0;
+            this.tabControlHlKompPro.Size = new System.Drawing.Size(609, 625);
+            this.tabControlHlKompPro.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -174,8 +174,8 @@
             this.tabPage1.Controls.Add(this.dostupnostProFoceni);
             this.tabPage1.Controls.Add(this.dalsiOdepsani);
             this.tabPage1.Controls.Add(this.dalsiNaskladneni);
-            this.tabPage1.Controls.Add(this.dataGridView6);
-            this.tabPage1.Controls.Add(this.dataGridView5);
+            this.tabPage1.Controls.Add(this.dataGridViewDalsiOdepsani);
+            this.tabPage1.Controls.Add(this.dataGridViewDalsiNaskladeni);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -339,91 +339,41 @@
             this.dalsiNaskladneni.TabIndex = 39;
             this.dalsiNaskladneni.Text = "Další naskladnění";
             // 
-            // dataGridView6
+            // dataGridViewDalsiOdepsani
             // 
-            this.dataGridView6.AlternatingRowStyle = true;
-            this.dataGridView6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewDalsiOdepsani.AlternatingRowStyle = true;
+            this.dataGridViewDalsiOdepsani.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewDalsiOdepsani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDalsiOdepsani.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.zpusobOdepsani,
             this.pocetKSDO,
             this.poznamkaDO,
             this.vytvorenoDO,
             this.vytvorilDO});
-            this.dataGridView6.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dataGridView6.HighlightSelectedCross = false;
-            this.dataGridView6.Location = new System.Drawing.Point(307, 357);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(278, 104);
-            this.dataGridView6.TabIndex = 38;
+            this.dataGridViewDalsiOdepsani.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewDalsiOdepsani.HighlightSelectedCross = false;
+            this.dataGridViewDalsiOdepsani.Location = new System.Drawing.Point(307, 357);
+            this.dataGridViewDalsiOdepsani.Name = "dataGridViewDalsiOdepsani";
+            this.dataGridViewDalsiOdepsani.Size = new System.Drawing.Size(278, 104);
+            this.dataGridViewDalsiOdepsani.TabIndex = 38;
             // 
-            // zpusobOdepsani
+            // dataGridViewDalsiNaskladeni
             // 
-            this.zpusobOdepsani.HeaderText = "Způsob odepsání";
-            this.zpusobOdepsani.Name = "zpusobOdepsani";
-            // 
-            // pocetKSDO
-            // 
-            this.pocetKSDO.HeaderText = "Počet ks";
-            this.pocetKSDO.Name = "pocetKSDO";
-            // 
-            // poznamkaDO
-            // 
-            this.poznamkaDO.HeaderText = "Poznámka";
-            this.poznamkaDO.Name = "poznamkaDO";
-            // 
-            // vytvorenoDO
-            // 
-            this.vytvorenoDO.HeaderText = "Vytvořeno";
-            this.vytvorenoDO.Name = "vytvorenoDO";
-            // 
-            // vytvorilDO
-            // 
-            this.vytvorilDO.HeaderText = "Vytvořil";
-            this.vytvorilDO.Name = "vytvorilDO";
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.AlternatingRowStyle = true;
-            this.dataGridView5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewDalsiNaskladeni.AlternatingRowStyle = true;
+            this.dataGridViewDalsiNaskladeni.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewDalsiNaskladeni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDalsiNaskladeni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.zpusobNaskladneni,
             this.pocetKS,
             this.poznamka,
             this.vytvorenoDLN,
             this.vytvorilDLN});
-            this.dataGridView5.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dataGridView5.HighlightSelectedCross = false;
-            this.dataGridView5.Location = new System.Drawing.Point(3, 357);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(284, 105);
-            this.dataGridView5.TabIndex = 37;
-            // 
-            // zpusobNaskladneni
-            // 
-            this.zpusobNaskladneni.HeaderText = "Způsob naskladnění";
-            this.zpusobNaskladneni.Name = "zpusobNaskladneni";
-            // 
-            // pocetKS
-            // 
-            this.pocetKS.HeaderText = "Počet ks";
-            this.pocetKS.Name = "pocetKS";
-            // 
-            // poznamka
-            // 
-            this.poznamka.HeaderText = "Poznámka";
-            this.poznamka.Name = "poznamka";
-            // 
-            // vytvorenoDLN
-            // 
-            this.vytvorenoDLN.HeaderText = "Vytvořeno";
-            this.vytvorenoDLN.Name = "vytvorenoDLN";
-            // 
-            // vytvorilDLN
-            // 
-            this.vytvorilDLN.HeaderText = "Vytvořil";
-            this.vytvorilDLN.Name = "vytvorilDLN";
+            this.dataGridViewDalsiNaskladeni.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewDalsiNaskladeni.HighlightSelectedCross = false;
+            this.dataGridViewDalsiNaskladeni.Location = new System.Drawing.Point(3, 357);
+            this.dataGridViewDalsiNaskladeni.Name = "dataGridViewDalsiNaskladeni";
+            this.dataGridViewDalsiNaskladeni.Size = new System.Drawing.Size(284, 105);
+            this.dataGridViewDalsiNaskladeni.TabIndex = 37;
             // 
             // groupBox3
             // 
@@ -442,9 +392,18 @@
             this.groupBox3.TabIndex = 36;
             this.groupBox3.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(466, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "(Za období 2009-2014)";
+            // 
             // textBoxVychoziOdepsani
             // 
-            this.textBoxVychoziOdepsani.BackColor = System.Drawing.SystemColors.Info;
+            this.textBoxVychoziOdepsani.BackColor = System.Drawing.Color.Bisque;
             this.textBoxVychoziOdepsani.Location = new System.Drawing.Point(414, 34);
             this.textBoxVychoziOdepsani.Name = "textBoxVychoziOdepsani";
             this.textBoxVychoziOdepsani.ReadOnly = true;
@@ -453,7 +412,7 @@
             // 
             // textBoxVychoziNaskladneni
             // 
-            this.textBoxVychoziNaskladneni.BackColor = System.Drawing.SystemColors.Info;
+            this.textBoxVychoziNaskladneni.BackColor = System.Drawing.Color.Bisque;
             this.textBoxVychoziNaskladneni.Location = new System.Drawing.Point(414, 4);
             this.textBoxVychoziNaskladneni.Name = "textBoxVychoziNaskladneni";
             this.textBoxVychoziNaskladneni.ReadOnly = true;
@@ -778,7 +737,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView4);
+            this.tabPage2.Controls.Add(this.dataGridViewrevizeCasu);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -787,22 +746,22 @@
             this.tabPage2.Text = "Revize časů";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // dataGridViewrevizeCasu
             // 
-            this.dataGridView4.AlternatingRowStyle = true;
-            this.dataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewrevizeCasu.AlternatingRowStyle = true;
+            this.dataGridViewrevizeCasu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewrevizeCasu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewrevizeCasu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btn,
             this.revizeCasu,
             this.vytvorenoRevize,
             this.aktualni});
-            this.dataGridView4.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dataGridView4.HighlightSelectedCross = false;
-            this.dataGridView4.Location = new System.Drawing.Point(4, 11);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(594, 360);
-            this.dataGridView4.TabIndex = 0;
+            this.dataGridViewrevizeCasu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewrevizeCasu.HighlightSelectedCross = false;
+            this.dataGridViewrevizeCasu.Location = new System.Drawing.Point(4, 11);
+            this.dataGridViewrevizeCasu.Name = "dataGridViewrevizeCasu";
+            this.dataGridViewrevizeCasu.Size = new System.Drawing.Size(594, 582);
+            this.dataGridViewrevizeCasu.TabIndex = 0;
             // 
             // btn
             // 
@@ -829,7 +788,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.dataGridViewHlavniompPro);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -838,25 +797,25 @@
             this.tabPage3.Text = "Hlavní komponent pro";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // dataGridViewHlavniompPro
             // 
-            this.dataGridView3.AlternatingRowStyle = true;
-            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewHlavniompPro.AlternatingRowStyle = true;
+            this.dataGridViewHlavniompPro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewHlavniompPro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewHlavniompPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHlavniompPro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.component,
             this.revize,
             this.ID});
-            this.dataGridView3.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dataGridView3.HighlightSelectedCross = false;
-            this.dataGridView3.Location = new System.Drawing.Point(4, 6);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(596, 528);
-            this.dataGridView3.TabIndex = 0;
+            this.dataGridViewHlavniompPro.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewHlavniompPro.HighlightSelectedCross = false;
+            this.dataGridViewHlavniompPro.Location = new System.Drawing.Point(4, 6);
+            this.dataGridViewHlavniompPro.Name = "dataGridViewHlavniompPro";
+            this.dataGridViewHlavniompPro.ReadOnly = true;
+            this.dataGridViewHlavniompPro.Size = new System.Drawing.Size(596, 587);
+            this.dataGridViewHlavniompPro.TabIndex = 0;
             // 
             // component
             // 
@@ -881,7 +840,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dataGridView2);
+            this.tabPage4.Controls.Add(this.dataGridViewPrikazyKVyskladneni);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -890,28 +849,28 @@
             this.tabPage4.Text = "Příkazy k vyskladnění";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dataGridViewPrikazyKVyskladneni
             // 
-            this.dataGridView2.AlternatingRowStyle = true;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewPrikazyKVyskladneni.AlternatingRowStyle = true;
+            this.dataGridViewPrikazyKVyskladneni.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewPrikazyKVyskladneni.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPrikazyKVyskladneni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPrikazyKVyskladneni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cisloSetu,
             this.vytvoreno,
             this.vytvoril,
             this.zeme,
             this.description,
             this.qty});
-            this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dataGridView2.HighlightSelectedCross = false;
-            this.dataGridView2.Location = new System.Drawing.Point(5, 8);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(586, 526);
-            this.dataGridView2.TabIndex = 0;
+            this.dataGridViewPrikazyKVyskladneni.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewPrikazyKVyskladneni.HighlightSelectedCross = false;
+            this.dataGridViewPrikazyKVyskladneni.Location = new System.Drawing.Point(5, 8);
+            this.dataGridViewPrikazyKVyskladneni.Name = "dataGridViewPrikazyKVyskladneni";
+            this.dataGridViewPrikazyKVyskladneni.ReadOnly = true;
+            this.dataGridViewPrikazyKVyskladneni.Size = new System.Drawing.Size(586, 585);
+            this.dataGridViewPrikazyKVyskladneni.TabIndex = 0;
             // 
             // cisloSetu
             // 
@@ -958,7 +917,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.dataGridView1);
+            this.tabPage5.Controls.Add(this.dataGridViewHistorieZmen);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -967,27 +926,27 @@
             this.tabPage5.Text = "Historie změn";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewHistorieZmen
             // 
-            this.dataGridView1.AlternatingRowStyle = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewHistorieZmen.AlternatingRowStyle = true;
+            this.dataGridViewHistorieZmen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewHistorieZmen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewHistorieZmen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHistorieZmen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.coSeZmenilo,
             this.kdy,
             this.kdo,
             this.puvodniStav,
             this.novaHodnota});
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.dataGridView1.HighlightSelectedCross = false;
-            this.dataGridView1.Location = new System.Drawing.Point(-2, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(604, 521);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridViewHistorieZmen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewHistorieZmen.HighlightSelectedCross = false;
+            this.dataGridViewHistorieZmen.Location = new System.Drawing.Point(-2, 19);
+            this.dataGridViewHistorieZmen.Name = "dataGridViewHistorieZmen";
+            this.dataGridViewHistorieZmen.ReadOnly = true;
+            this.dataGridViewHistorieZmen.Size = new System.Drawing.Size(604, 574);
+            this.dataGridViewHistorieZmen.TabIndex = 3;
             // 
             // coSeZmenilo
             // 
@@ -1024,27 +983,82 @@
             this.novaHodnota.Name = "novaHodnota";
             this.novaHodnota.ReadOnly = true;
             // 
-            // label1
+            // zpusobNaskladneni
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(466, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "(Za období 2099-2014)";
+            this.zpusobNaskladneni.DataPropertyName = "MovementType";
+            this.zpusobNaskladneni.HeaderText = "Způsob naskladnění";
+            this.zpusobNaskladneni.Name = "zpusobNaskladneni";
+            this.zpusobNaskladneni.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zpusobNaskladneni.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // pocetKS
+            // 
+            this.pocetKS.DataPropertyName = "Quantity";
+            this.pocetKS.HeaderText = "Počet ks";
+            this.pocetKS.Name = "pocetKS";
+            // 
+            // poznamka
+            // 
+            this.poznamka.DataPropertyName = "Note";
+            this.poznamka.HeaderText = "Poznámka";
+            this.poznamka.Name = "poznamka";
+            // 
+            // vytvorenoDLN
+            // 
+            this.vytvorenoDLN.DataPropertyName = "Created";
+            this.vytvorenoDLN.HeaderText = "Vytvořeno";
+            this.vytvorenoDLN.Name = "vytvorenoDLN";
+            // 
+            // vytvorilDLN
+            // 
+            this.vytvorilDLN.DataPropertyName = "CreatedBy";
+            this.vytvorilDLN.HeaderText = "Vytvořil";
+            this.vytvorilDLN.Name = "vytvorilDLN";
+            // 
+            // zpusobOdepsani
+            // 
+            this.zpusobOdepsani.DataPropertyName = "MovementType";
+            this.zpusobOdepsani.HeaderText = "Způsob odepsání";
+            this.zpusobOdepsani.Name = "zpusobOdepsani";
+            this.zpusobOdepsani.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zpusobOdepsani.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // pocetKSDO
+            // 
+            this.pocetKSDO.DataPropertyName = "Quantity";
+            this.pocetKSDO.HeaderText = "Počet ks";
+            this.pocetKSDO.Name = "pocetKSDO";
+            // 
+            // poznamkaDO
+            // 
+            this.poznamkaDO.DataPropertyName = "Note";
+            this.poznamkaDO.HeaderText = "Poznámka";
+            this.poznamkaDO.Name = "poznamkaDO";
+            // 
+            // vytvorenoDO
+            // 
+            this.vytvorenoDO.DataPropertyName = "Created";
+            this.vytvorenoDO.HeaderText = "Vytvořeno";
+            this.vytvorenoDO.Name = "vytvorenoDO";
+            // 
+            // vytvorilDO
+            // 
+            this.vytvorilDO.DataPropertyName = "CreatedBy";
+            this.vytvorilDO.HeaderText = "Vytvořil";
+            this.vytvorilDO.Name = "vytvorilDO";
             // 
             // SeznamKomponentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlHlKompPro);
             this.Name = "SeznamKomponentDetail";
             this.Size = new System.Drawing.Size(615, 639);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlHlKompPro.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDalsiOdepsani)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDalsiNaskladeni)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1052,43 +1066,43 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewrevizeCasu)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHlavniompPro)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrikazyKVyskladneni)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorieZmen)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlHlKompPro;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private SmartISLib.Controls.FastDataGridView dataGridView1;
+        private SmartISLib.Controls.FastDataGridView dataGridViewHistorieZmen;
         private System.Windows.Forms.DataGridViewTextBoxColumn coSeZmenilo;
         private System.Windows.Forms.DataGridViewTextBoxColumn kdy;
         private System.Windows.Forms.DataGridViewTextBoxColumn kdo;
         private System.Windows.Forms.DataGridViewTextBoxColumn puvodniStav;
         private System.Windows.Forms.DataGridViewTextBoxColumn novaHodnota;
-        private SmartISLib.Controls.FastDataGridView dataGridView2;
+        private SmartISLib.Controls.FastDataGridView dataGridViewPrikazyKVyskladneni;
         private System.Windows.Forms.DataGridViewTextBoxColumn cisloSetu;
         private System.Windows.Forms.DataGridViewTextBoxColumn vytvoreno;
         private System.Windows.Forms.DataGridViewTextBoxColumn vytvoril;
         private System.Windows.Forms.DataGridViewTextBoxColumn zeme;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private SmartISLib.Controls.FastDataGridView dataGridView3;
+        private SmartISLib.Controls.FastDataGridView dataGridViewHlavniompPro;
         private System.Windows.Forms.DataGridViewTextBoxColumn component;
         private System.Windows.Forms.DataGridViewTextBoxColumn revize;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private SmartISLib.Controls.FastDataGridView dataGridView4;
+        private SmartISLib.Controls.FastDataGridView dataGridViewrevizeCasu;
         private System.Windows.Forms.TextBox textBoxNazevKom;
         private System.Windows.Forms.TextBox textBoxCisloKomponentu;
         private System.Windows.Forms.Label interniKomentar;
@@ -1141,23 +1155,23 @@
         private System.Windows.Forms.Label dostupnostProFoceni;
         private System.Windows.Forms.Label dalsiOdepsani;
         private System.Windows.Forms.Label dalsiNaskladneni;
-        private SmartISLib.Controls.FastDataGridView dataGridView6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zpusobOdepsani;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pocetKSDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn poznamkaDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorenoDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorilDO;
-        private SmartISLib.Controls.FastDataGridView dataGridView5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zpusobNaskladneni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pocetKS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn poznamka;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorenoDLN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorilDLN;
+        private SmartISLib.Controls.FastDataGridView dataGridViewDalsiOdepsani;
+        private SmartISLib.Controls.FastDataGridView dataGridViewDalsiNaskladeni;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBoxPoznamkySpecialni;
         private System.Windows.Forms.Label poznamkySpecialni;
         private System.Windows.Forms.DateTimePicker dateTimePickerDatumZmeny;
         private System.Windows.Forms.DateTimePicker dateTimePickerNafocenoDne;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zpusobOdepsani;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pocetKSDO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poznamkaDO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorenoDO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorilDO;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zpusobNaskladneni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pocetKS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poznamka;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorenoDLN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vytvorilDLN;
     }
 }

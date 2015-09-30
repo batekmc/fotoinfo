@@ -18,6 +18,10 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
         private DataTable hZmenDTAB;
         private DataTable kVyskladneniDTAB;
         private DataTable kompDTAB;
+        private DataTable dalsiNaskladneniDTAB;
+        private DataTable dalsiOdepsaniDTAB;
+        private DataTable zpusobNaskladneniDrDownDTAB;
+        private DataTable zpusobOdepsaniDrDownDTAB;
 
         public SeznamKomponentDetail()
         {
@@ -29,16 +33,30 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
         protected override void BindData()
         {
             //historie Zmen
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.DataSource = hZmenDTAB;
+            this.dataGridViewHistorieZmen.AutoGenerateColumns = false;
+            this.dataGridViewHistorieZmen.DataSource = hZmenDTAB;
 
             //Prikazy k vyskladneni
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.DataSource = kVyskladneniDTAB;
+            this.dataGridViewPrikazyKVyskladneni.AutoGenerateColumns = false;
+            this.dataGridViewPrikazyKVyskladneni.DataSource = kVyskladneniDTAB;
 
             //Hlavni komponent pro
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.DataSource = kompDTAB;
+            this.dataGridViewHlavniompPro.AutoGenerateColumns = false;
+            this.dataGridViewHlavniompPro.DataSource = kompDTAB;
+
+            //dalsi naskladneni col zpusob naskladneni
+            this.zpusobNaskladneni.DataSource = zpusobNaskladneniDrDownDTAB;
+            this.zpusobNaskladneni.DisplayMember = "MovementTypeName";
+
+            //dalsi odepsani - zpusob odepsani 
+            this.zpusobOdepsani.DataSource = zpusobOdepsaniDrDownDTAB;
+            this.zpusobOdepsani.DisplayMember = "MovementTypeName";
+
+            //dalsi naskladneni grid
+            this.dataGridViewDalsiNaskladeni.DataSource = dalsiNaskladneniDTAB;
+
+            //zpusobOdeslani grid
+            this.dataGridViewDalsiOdepsani.DataSource = dalsiOdepsaniDTAB;
 
             BindTextBox( this.textBoxCisloKomponentu, ormCompPhoto, "Code");
             BindTextBox(this.textBoxNazevKom, ormCompPhoto, "Description");
@@ -69,6 +87,10 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
 
             BindDateTimePicker(this.dateTimePickerNafocenoDne, ormCompPhoto, "NafocenoKdy");
             BindDateTimePicker(this.dateTimePickerDatumZmeny, ormCompPhoto, "ZmenaDatum");
+            
+            //must be set .... again....
+            this.dateTimePickerDatumZmeny.Checked = false;
+            this.dateTimePickerNafocenoDne.Checked = false;
         }
 
         protected override bool LoadRecordCore()
@@ -92,11 +114,35 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
             kompDTAB = new DataTable();
             komp.Fill(kompDTAB);
 
-            //Revize casu 
+            // Revize casu 
             // ------------------------------
             // TODO revize casu rozklik
             // ------------------------------
 
+            // Dalsi naskladneni ///////////////////
+
+            // drop down zpusob naskladneni
+            SqlDataAdapter zpusobDrdown = SmartISLib.Data.GetDataAdapter("SELECT MovementTypeName FROM TMovementTypes WHERE MovementCode = 'NA'");
+            zpusobNaskladneniDrDownDTAB = new DataTable();
+            zpusobDrdown.Fill(zpusobNaskladneniDrDownDTAB);
+
+            // Grid
+            SqlDataAdapter zpusobGridAdapter = SmartISLib.Data.GetDataAdapter("Select * from QFComponentDetailMovementVY where Component = " + this.ormCompPhoto.ComponentID);
+            dalsiNaskladneniDTAB = new DataTable();
+            zpusobGridAdapter.Fill(dalsiNaskladneniDTAB);
+
+
+            // Dalsi odepsani //////////////////////
+
+            // drop down zpusob odepsani
+            SqlDataAdapter dalsiDRDownAdapter = SmartISLib.Data.GetDataAdapter("SELECT MovementTypeName FROM TMovementTypes WHERE MovementCode = 'VY'");
+            zpusobOdepsaniDrDownDTAB = new DataTable();
+            dalsiDRDownAdapter.Fill(zpusobOdepsaniDrDownDTAB);
+
+            //odepsani grid
+            SqlDataAdapter dalsiGridAdapter = SmartISLib.Data.GetDataAdapter("Select * from QFComponentDetailMovementNA where Component = " + this.ormCompPhoto.ComponentID);
+            dalsiNaskladneniDTAB = new DataTable();
+            dalsiGridAdapter.Fill(dalsiNaskladneniDTAB);
 
             return true;
         }
