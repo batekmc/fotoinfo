@@ -384,7 +384,7 @@ namespace PhotoInfo.Data
 
     }
 
-    public class QFComponentsPhoto: DbObject
+    public class QFComponentsPhoto : DbObject
     {
         private static DbSchema schema = null;
 
@@ -891,6 +891,493 @@ namespace PhotoInfo.Data
         {
             DbTable<QFComponentsPhoto> table = new DbTable<QFComponentsPhoto>();
             QFComponentsPhoto prototype = new QFComponentsPhoto();
+            prototype.LoadTable(table, whereCondition, parameterValues);
+            return table;
+        }
+    }
+
+
+    public class QFComponentDetailPhoto : DbObject
+    {
+        private static DbSchema schema = null;
+
+        public int ComponentID
+        {
+            get { return DbConverter.ToInt(this["ComponentID"]); }
+            set { this["ComponentID"] = DbConverter.FromInt(value); }
+        }
+
+        public string Code
+        {
+            get { return DbConverter.ToString(this["Code"]); }
+            set { this["Code"] = DbConverter.FromString(value); }
+        }
+
+        public DbNullable<string> Vendor
+        {
+            get { return DbConverter.ToStringNull(this["Vendor"]); }
+            set { this["Vendor"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> Description
+        {
+            get { return DbConverter.ToStringNull(this["Description"]); }
+            set { this["Description"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> PVC
+        {
+            get { return DbConverter.ToStringNull(this["PVC"]); }
+            set { this["PVC"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<int> PDMStatusPhotoID
+        {
+            get { return DbConverter.ToIntNull(this["PDMStatusPhotoID"]); }
+            set { this["PDMStatusPhotoID"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<string> KategorieKomponentu
+        {
+            get { return DbConverter.ToStringNull(this["KategorieKomponentu"]); }
+            set { this["KategorieKomponentu"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> Note
+        {
+            get { return DbConverter.ToStringNull(this["Note"]); }
+            set { this["Note"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> SpecialNote
+        {
+            get { return DbConverter.ToStringNull(this["SpecialNote"]); }
+            set { this["SpecialNote"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> BIN
+        {
+            get { return DbConverter.ToStringNull(this["BIN"]); }
+            set { this["BIN"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> PcsBIN
+        {
+            get { return DbConverter.ToStringNull(this["PcsBIN"]); }
+            set { this["PcsBIN"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<int> VP
+        {
+            get { return DbConverter.ToIntNull(this["VP"]); }
+            set { this["VP"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> KomponentKategorieID
+        {
+            get { return DbConverter.ToIntNull(this["KomponentKategorieID"]); }
+            set { this["KomponentKategorieID"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> FyzickaKontrola
+        {
+            get { return DbConverter.ToIntNull(this["FyzickaKontrola"]); }
+            set { this["FyzickaKontrola"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> VzorovyKomponent
+        {
+            get { return DbConverter.ToIntNull(this["VzorovyKomponent"]); }
+            set { this["VzorovyKomponent"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<DateTime> NafocenoKdy
+        {
+            get { return DbConverter.ToDateTimeNull(this["NafocenoKdy"]); }
+            set { this["NafocenoKdy"] = DbConverter.FromDateTimeNull(value); }
+        }
+
+        public DbNullable<int> NafotilKdoID
+        {
+            get { return DbConverter.ToIntNull(this["NafotilKdoID"]); }
+            set { this["NafotilKdoID"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> Pcs
+        {
+            get { return DbConverter.ToIntNull(this["Pcs"]); }
+            set { this["Pcs"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> DostupnostID
+        {
+            get { return DbConverter.ToIntNull(this["DostupnostID"]); }
+            set { this["DostupnostID"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> PohledT
+        {
+            get { return DbConverter.ToIntNull(this["PohledT"]); }
+            set { this["PohledT"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> PohledTF
+        {
+            get { return DbConverter.ToIntNull(this["PohledTF"]); }
+            set { this["PohledTF"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> PohledC
+        {
+            get { return DbConverter.ToIntNull(this["PohledC"]); }
+            set { this["PohledC"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> PohledSpecial
+        {
+            get { return DbConverter.ToIntNull(this["PohledSpecial"]); }
+            set { this["PohledSpecial"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> PohledCompics
+        {
+            get { return DbConverter.ToIntNull(this["PohledCompics"]); }
+            set { this["PohledCompics"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> KontrolaFotek
+        {
+            get { return DbConverter.ToIntNull(this["KontrolaFotek"]); }
+            set { this["KontrolaFotek"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> Kprefoceni
+        {
+            get { return DbConverter.ToIntNull(this["Kprefoceni"]); }
+            set { this["Kprefoceni"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<string> EOD
+        {
+            get { return DbConverter.ToStringNull(this["EOD"]); }
+            set { this["EOD"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<int> SCRAP
+        {
+            get { return DbConverter.ToIntNull(this["SCRAP"]); }
+            set { this["SCRAP"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<DateTime> SCRAPdate
+        {
+            get { return DbConverter.ToDateTimeNull(this["SCRAPdate"]); }
+            set { this["SCRAPdate"] = DbConverter.FromDateTimeNull(value); }
+        }
+
+        public bool New
+        {
+            get { return DbConverter.ToBool(this["New"]); }
+            set { this["New"] = DbConverter.FromBool(value); }
+        }
+
+        public DbNullable<string> ReasonSubst
+        {
+            get { return DbConverter.ToStringNull(this["ReasonSubst"]); }
+            set { this["ReasonSubst"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> VendorPhoto
+        {
+            get { return DbConverter.ToStringNull(this["VendorPhoto"]); }
+            set { this["VendorPhoto"] = DbConverter.FromStringNull(value); }
+        }
+
+        public bool ZmenaDesignu
+        {
+            get { return DbConverter.ToBool(this["ZmenaDesignu"]); }
+            set { this["ZmenaDesignu"] = DbConverter.FromBool(value); }
+        }
+
+        public DbNullable<DateTime> ZmenaDatum
+        {
+            get { return DbConverter.ToDateTimeNull(this["ZmenaDatum"]); }
+            set { this["ZmenaDatum"] = DbConverter.FromDateTimeNull(value); }
+        }
+
+        public DbNullable<string> ZmenaPozn
+        {
+            get { return DbConverter.ToStringNull(this["ZmenaPozn"]); }
+            set { this["ZmenaPozn"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<decimal> Vaha
+        {
+            get { return DbConverter.ToDecimalNull(this["Vaha"]); }
+            set { this["Vaha"] = DbConverter.FromDecimalNull(value); }
+        }
+
+        public DbNullable<string> VahaPoznamka
+        {
+            get { return DbConverter.ToStringNull(this["VahaPoznamka"]); }
+            set { this["VahaPoznamka"] = DbConverter.FromStringNull(value); }
+        }
+
+        public bool TimeRevision
+        {
+            get { return DbConverter.ToBool(this["TimeRevision"]); }
+            set { this["TimeRevision"] = DbConverter.FromBool(value); }
+        }
+
+        public DbNullable<int> PcsBIN2
+        {
+            get { return DbConverter.ToIntNull(this["PcsBIN2"]); }
+            set { this["PcsBIN2"] = DbConverter.FromIntNull(value); }
+        }
+
+        public int SCRAP2
+        {
+            get { return DbConverter.ToInt(this["SCRAP2"]); }
+            set { this["SCRAP2"] = DbConverter.FromInt(value); }
+        }
+
+
+
+        protected override DbSchema GetSchema()
+        {
+            if (schema == null)
+            {
+                schema = new DbSchema("QFComponentDetailPhoto");
+                schema.Add("ComponentID", typeof(int), "ComponentID", false, true, true);
+                schema.Add("Code", typeof(string), "Code", false);
+                schema.Add("Vendor", typeof(string), "Vendor", true);
+                schema.Add("Description", typeof(string), "Description", true);
+                //schema.Add("ProdApprovPDM", typeof(DateTime), "ProdApprovPDM", true);
+                schema.Add("PDMStatusPhotoID", typeof(int), "PDMStatusPhotoID", true);
+                schema.Add("KategorieKomponentu", typeof(string), "KategorieKomponentu", true);
+                schema.Add("PDMComent", typeof(string), "PDMComent", true);
+                schema.Add("Note", typeof(string), "Note", true);
+                schema.Add("SpecialNote", typeof(string), "SpecialNote", true);
+                schema.Add("BIN", typeof(string), "BIN", true);
+                schema.Add("PcsBIN", typeof(string), "PcsBIN", true);
+                schema.Add("VP", typeof(int), "VP", true);
+                schema.Add("KomponentKategorieID", typeof(int), "KomponentKategorieID", true);
+                schema.Add("FyzickaKontrola", typeof(int), "FyzickaKontrola", true);
+                schema.Add("VzorovyKomponent", typeof(int), "VzorovyKomponent", true);
+                schema.Add("NafocenoKdy", typeof(DateTime), "NafocenoKdy", true);
+                schema.Add("NafotilKdoID", typeof(int), "NafotilKdoID", true);
+                schema.Add("Pcs", typeof(int), "Pcs", true);
+                schema.Add("DostupnostID", typeof(int), "DostupnostID", true);
+                schema.Add("PohledT", typeof(int), "PohledT", true);
+                schema.Add("PohledTF", typeof(int), "PohledTF", true);
+                schema.Add("PohledC", typeof(int), "PohledC", true);
+                schema.Add("PohledSpecial", typeof(int), "PohledSpecial", true);
+                schema.Add("PohledCompics", typeof(int), "PohledCompics", true);
+                schema.Add("KontrolaFotek", typeof(int), "KontrolaFotek", true);
+                schema.Add("Kprefoceni", typeof(int), "Kprefoceni", true);
+                schema.Add("EOD", typeof(string), "EOD", true);
+                schema.Add("SCRAP", typeof(int), "SCRAP", true);
+                schema.Add("SCRAPdate", typeof(DateTime), "SCRAPdate", true);
+                schema.Add("New", typeof(bool), "New", false);
+                schema.Add("ReasonSubst", typeof(string), "ReasonSubst", true);
+                schema.Add("VendorPhoto", typeof(string), "VendorPhoto", true);
+                schema.Add("ZmenaDesignu", typeof(bool), "ZmenaDesignu", false);
+                schema.Add("ZmenaDatum", typeof(DateTime), "ZmenaDatum", true);
+                schema.Add("ZmenaPozn", typeof(string), "ZmenaPozn", true);
+                schema.Add("Vaha", typeof(decimal), "Vaha", true);
+                schema.Add("VahaPoznamka", typeof(string), "VahaPoznamka", true);
+                schema.Add("TimeRevision", typeof(bool), "TimeRevision", false);
+                schema.Add("PcsBIN2", typeof(int), "PcsBIN2", true);
+                // added
+                schema.Add("SCRAP2", typeof(int), "SCRAP2", false);
+            }
+
+            return schema;
+        }
+
+        public override void LoadDefaultValues()
+        {
+            SqlCommand command = Session.CreateCommand();
+
+            this["ComponentID"] = DbConverter.DefaultInt();
+
+            this["Code"] = DbConverter.DefaultString();
+
+            this["Vendor"] = DBNull.Value;
+
+            this["Description"] = DBNull.Value;
+
+            //this["ProdApprovPDM"] = DBNull.Value;
+
+            this["PDMStatusPhotoID"] = DBNull.Value;
+
+            this["KategorieKomponentu"] = DBNull.Value;
+
+            this["PDMComent"] = DBNull.Value;
+
+            this["Note"] = DBNull.Value;
+
+            this["SpecialNote"] = DBNull.Value;
+
+            this["BIN"] = DBNull.Value;
+
+            this["PcsBIN"] = DBNull.Value;
+
+            this["VP"] = DBNull.Value;
+
+            this["KomponentKategorieID"] = DBNull.Value;
+
+            this["FyzickaKontrola"] = DBNull.Value;
+
+            this["VzorovyKomponent"] = DBNull.Value;
+
+            this["NafocenoKdy"] = DBNull.Value;
+
+            this["NafotilKdoID"] = DBNull.Value;
+
+            this["Pcs"] = DBNull.Value;
+
+            this["DostupnostID"] = DBNull.Value;
+
+            this["PohledT"] = DBNull.Value;
+
+            this["PohledTF"] = DBNull.Value;
+
+            this["PohledC"] = DBNull.Value;
+
+            this["PohledSpecial"] = DBNull.Value;
+
+            this["PohledCompics"] = DBNull.Value;
+
+            this["KontrolaFotek"] = DBNull.Value;
+
+            this["Kprefoceni"] = DBNull.Value;
+
+            this["EOD"] = DBNull.Value;
+
+            this["SCRAP"] = DBNull.Value;
+
+            this["SCRAPdate"] = DBNull.Value;
+
+            command.CommandText = "SELECT (1)";
+            this["New"] = command.ExecuteScalar();
+
+            this["ReasonSubst"] = DBNull.Value;
+
+            this["VendorPhoto"] = DBNull.Value;
+
+            command.CommandText = "SELECT (0)";
+            this["ZmenaDesignu"] = command.ExecuteScalar();
+
+            this["ZmenaDatum"] = DBNull.Value;
+
+            this["ZmenaPozn"] = DBNull.Value;
+
+            this["Vaha"] = DBNull.Value;
+
+            this["VahaPoznamka"] = DBNull.Value;
+
+            command.CommandText = "SELECT ((0))";
+            this["TimeRevision"] = command.ExecuteScalar();
+
+            this["PcsBIN2"] = DBNull.Value;
+
+            this["SCRAP2"] = DbConverter.DefaultInt();
+
+        }
+
+        public static QFComponentDetailPhoto Load(int componentID)
+        {
+            QFComponentDetailPhoto result = new QFComponentDetailPhoto();
+            result.LoadRecord(componentID);
+            return result;
+        }
+
+        public static QFComponentDetailPhoto CachedLoad(int componentID)
+        {
+            DbCache.TableKey key = new DbCache.TableKey("QFComponentDetailPhoto");
+            DbCache.CacheRecord record;
+            key.Set(componentID);
+            if (DbCache.Contains(key))
+            {
+                record = DbCache.GetRecord(key);
+                if (!record.IsValid())
+                {
+                    record.Value = Load(componentID);
+                    record.LastUpdate = DateTime.Now;
+                    record.Valid = true;
+                }
+            }
+            else
+            {
+                record = new DbCache.CacheRecord();
+                record.Value = Load(componentID);
+                record.LastUpdate = DateTime.Now;
+                record.Valid = true;
+                DbCache.SetRecord(key, record);
+            }
+            return (QFComponentDetailPhoto)record.Value;
+        }
+
+        public static QFComponentDetailPhoto Create()
+        {
+            QFComponentDetailPhoto result = new QFComponentDetailPhoto();
+            result.LoadDefaultValues();
+            return result;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadAll()
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
+            prototype.LoadTable(table);
+            return table;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadByPDMStatusPhotoID(DbNullable<int> pDMStatusPhotoID)
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
+            prototype.LoadTable(table, "[PDMStatusPhotoID]={0}", DbConverter.FromIntNull(pDMStatusPhotoID));
+            return table;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadByKategorieKomponentu(DbNullable<string> kategorieKomponentu)
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
+            prototype.LoadTable(table, "[KategorieKomponentu]={0}", DbConverter.FromStringNull(kategorieKomponentu));
+            return table;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadByKomponentKategorieID(DbNullable<int> komponentKategorieID)
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
+            prototype.LoadTable(table, "[KomponentKategorieID]={0}", DbConverter.FromIntNull(komponentKategorieID));
+            return table;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadByNafotilKdoID(DbNullable<int> nafotilKdoID)
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
+            prototype.LoadTable(table, "[NafotilKdoID]={0}", DbConverter.FromIntNull(nafotilKdoID));
+            return table;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadByDostupnostID(DbNullable<int> dostupnostID)
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
+            prototype.LoadTable(table, "[DostupnostID]={0}", DbConverter.FromIntNull(dostupnostID));
+            return table;
+        }
+
+        public static DbTable<QFComponentDetailPhoto> LoadBy(string whereCondition, params object[] parameterValues)
+        {
+            DbTable<QFComponentDetailPhoto> table = new DbTable<QFComponentDetailPhoto>();
+            QFComponentDetailPhoto prototype = new QFComponentDetailPhoto();
             prototype.LoadTable(table, whereCondition, parameterValues);
             return table;
         }
