@@ -37,11 +37,11 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
 
             }
 
-            //protected override SmartISLib.Modules.GridDetail.DetailControl
-            //    CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
-            //{
-            //    return new HistorieZmenDetail();
-            //}
+            protected override SmartISLib.Modules.GridDetail.DetailControl
+                CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
+            {
+                return new PrikazyKVyskladneniDetail();
+            }
 
             protected override SmartISLib.Modules.GridDetail.GridControl
                 CreateGrid(SmartISLib.Modules.AppModuleStartingOptions startingOptions)

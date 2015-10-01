@@ -111,6 +111,7 @@
             // 
             // PrikazyKVyskladneniGrid
             // 
+            this.PrimaryKeyAttribute = "IDPrikazVyskladneni";
             this.HorizontalScroll.Visible = true;
             this.DataGridView = this.fastDataGridView1;
             this.Controls.Add(this.fastDataGridView1);

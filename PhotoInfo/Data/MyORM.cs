@@ -1383,4 +1383,211 @@ namespace PhotoInfo.Data
         }
     }
 
+    public class QFPrikazVyskladDetail : DbObject
+    {
+        private static DbSchema schema = null;
+
+        public int IDPrikazVYskladDetail
+        {
+            get { return DbConverter.ToInt(this["IDPrikazVYskladDetail"]); }
+            set { this["IDPrikazVYskladDetail"] = DbConverter.FromInt(value); }
+        }
+
+        public int PrikazVyskladID
+        {
+            get { return DbConverter.ToInt(this["PrikazVyskladID"]); }
+            set { this["PrikazVyskladID"] = DbConverter.FromInt(value); }
+        }
+
+        public DbNullable<int> ComponentID
+        {
+            get { return DbConverter.ToIntNull(this["ComponentID"]); }
+            set { this["ComponentID"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<string> DescriptionPDM
+        {
+            get { return DbConverter.ToStringNull(this["DescriptionPDM"]); }
+            set { this["DescriptionPDM"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<int> Qty
+        {
+            get { return DbConverter.ToIntNull(this["Qty"]); }
+            set { this["Qty"] = DbConverter.FromIntNull(value); }
+        }
+
+        // my fields
+        public DbNullable<string> BIN
+        {
+            get { return DbConverter.ToStringNull(this["BIN"]); }
+            set { this["BIN"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> EOD
+        {
+            get { return DbConverter.ToStringNull(this["EOD"]); }
+            set { this["EOD"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> PcsBIN
+        {
+            get { return DbConverter.ToStringNull(this["PcsBIN"]); }
+            set { this["PcsBIN"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> DescriptionComp
+        {
+            get { return DbConverter.ToStringNull(this["DescriptionComp"]); }
+            set { this["DescriptionComp"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<string> ReasonSubst
+        {
+            get { return DbConverter.ToStringNull(this["ReasonSubst"]); }
+            set { this["ReasonSubst"] = DbConverter.FromStringNull(value); }
+        }
+
+        public DbNullable<int> UnitWeight
+        {
+            get { return DbConverter.ToIntNull(this["UnitWeight"]); }
+            set { this["UnitWeight"] = DbConverter.FromIntNull(value); }
+        }
+
+        public DbNullable<int> TotalWeight
+        {
+            get { return DbConverter.ToIntNull(this["TotalWeight"]); }
+            set { this["TotalWeight"] = DbConverter.FromIntNull(value); }
+        }
+
+
+
+
+        protected override DbSchema GetSchema()
+        {
+            if (schema == null)
+            {
+                schema = new DbSchema("QFPrikazVyskladDetail");
+                schema.Add("IDPrikazVYskladDetail", typeof(int), "IDPrikazVYskladDetail", false, true, true);
+                schema.Add("PrikazVyskladID", typeof(int), "PrikazVyskladID", false, true, false);
+                schema.Add("ComponentID", typeof(int), "ComponentID", true);
+                schema.Add("Description", typeof(string), "Description", true);
+                schema.Add("Qty", typeof(int), "Qty", true);
+                //added
+                schema.Add("BIN", typeof(int), "BIN", true);
+                schema.Add("EOD", typeof(int), "EOD", true);
+                schema.Add("PcsBIN", typeof(int), "PcsBIN", true);
+                schema.Add("DescriptionComp", typeof(int), "DescriptionComp", true);
+                schema.Add("ReasonSubst", typeof(int), "ReasonSubst", true);
+                schema.Add("UnitWeight", typeof(int), "UnitWeight", true);
+                schema.Add("TotalWeight", typeof(int), "TotalWeight", true);
+            }
+
+            return schema;
+        }
+
+        public override void LoadDefaultValues()
+        {
+            SqlCommand command = Session.CreateCommand();
+
+            this["IDPrikazVYskladDetail"] = DbConverter.DefaultInt();
+
+            this["PrikazVyskladID"] = DbConverter.DefaultInt();
+
+            this["ComponentID"] = DBNull.Value;
+
+            this["Description"] = DBNull.Value;
+
+            command.CommandText = "SELECT ((0))";
+            this["Qty"] = command.ExecuteScalar();
+
+            this["BIN"] = DBNull.Value;
+
+            this["EOD"] = DBNull.Value;
+
+            this["PcsBIN"] = DBNull.Value;
+
+            this["DescriptionComp"] = DBNull.Value;
+
+            this["ReasonSubst"] = DBNull.Value;
+
+            this["UnitWeight"] = DBNull.Value;
+
+            this["TotalWeight"] = DBNull.Value;
+        }
+
+        public static QFPrikazVyskladDetail Load(int iDPrikazVYskladDetail, int prikazVyskladID)
+        {
+            QFPrikazVyskladDetail result = new QFPrikazVyskladDetail();
+            result.LoadRecord(iDPrikazVYskladDetail, prikazVyskladID);
+            return result;
+        }
+
+        public static QFPrikazVyskladDetail CachedLoad(int iDPrikazVYskladDetail, int prikazVyskladID)
+        {
+            DbCache.TableKey key = new DbCache.TableKey("QFPrikazVyskladDetail");
+            DbCache.CacheRecord record;
+            key.Set(iDPrikazVYskladDetail, prikazVyskladID);
+            if (DbCache.Contains(key))
+            {
+                record = DbCache.GetRecord(key);
+                if (!record.IsValid())
+                {
+                    record.Value = Load(iDPrikazVYskladDetail, prikazVyskladID);
+                    record.LastUpdate = DateTime.Now;
+                    record.Valid = true;
+                }
+            }
+            else
+            {
+                record = new DbCache.CacheRecord();
+                record.Value = Load(iDPrikazVYskladDetail, prikazVyskladID);
+                record.LastUpdate = DateTime.Now;
+                record.Valid = true;
+                DbCache.SetRecord(key, record);
+            }
+            return (QFPrikazVyskladDetail)record.Value;
+        }
+
+        public static QFPrikazVyskladDetail Create()
+        {
+            QFPrikazVyskladDetail result = new QFPrikazVyskladDetail();
+            result.LoadDefaultValues();
+            return result;
+        }
+
+        public static DbTable<QFPrikazVyskladDetail> LoadAll()
+        {
+            DbTable<QFPrikazVyskladDetail> table = new DbTable<QFPrikazVyskladDetail>();
+            QFPrikazVyskladDetail prototype = new QFPrikazVyskladDetail();
+            prototype.LoadTable(table);
+            return table;
+        }
+
+        public static DbTable<QFPrikazVyskladDetail> LoadByPrikazVyskladID(int prikazVyskladID)
+        {
+            DbTable<QFPrikazVyskladDetail> table = new DbTable<QFPrikazVyskladDetail>();
+            QFPrikazVyskladDetail prototype = new QFPrikazVyskladDetail();
+            prototype.LoadTable(table, "[PrikazVyskladID]={0}", DbConverter.FromInt(prikazVyskladID));
+            return table;
+        }
+
+        public static DbTable<QFPrikazVyskladDetail> LoadByComponentID(DbNullable<int> componentID)
+        {
+            DbTable<QFPrikazVyskladDetail> table = new DbTable<QFPrikazVyskladDetail>();
+            QFPrikazVyskladDetail prototype = new QFPrikazVyskladDetail();
+            prototype.LoadTable(table, "[ComponentID]={0}", DbConverter.FromIntNull(componentID));
+            return table;
+        }
+
+        public static DbTable<QFPrikazVyskladDetail> LoadBy(string whereCondition, params object[] parameterValues)
+        {
+            DbTable<QFPrikazVyskladDetail> table = new DbTable<QFPrikazVyskladDetail>();
+            QFPrikazVyskladDetail prototype = new QFPrikazVyskladDetail();
+            prototype.LoadTable(table, whereCondition, parameterValues);
+            return table;
+        }
+    }
+
+
 }

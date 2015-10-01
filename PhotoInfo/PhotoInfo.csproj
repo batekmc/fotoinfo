@@ -157,6 +157,12 @@
     <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniGrid.Designer.cs">
       <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniDetail.Designer.cs">
+      <DependentUpon>PrikazyKVyskladneniDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasu.cs" />
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuDetail.cs">
       <SubType>UserControl</SubType>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\HistorieZmen\HistorieZmenGrid.resx">
       <DependentUpon>HistorieZmenGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniDetail.resx">
+      <DependentUpon>PrikazyKVyskladneniDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\PrikazyKVyskladneni\PrikazyKVyskladneniGrid.resx">
       <DependentUpon>PrikazyKVyskladneniGrid.cs</DependentUpon>
