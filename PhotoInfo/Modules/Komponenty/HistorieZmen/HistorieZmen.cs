@@ -36,11 +36,12 @@ namespace PhotoInfo.Modules.Komponenty.HistorieZmen
 
             }
 
-            //protected override SmartISLib.Modules.GridDetail.DetailControl
-            //    CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
-            //{
-            //    return new HistorieZmenDetail();
-            //}
+            protected override SmartISLib.Modules.GridDetail.DetailControl
+                CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
+            {
+                // it is equal to the form SeznamKomponentDetail.
+                return new SeznamKomponent.SeznamKomponentDetail();
+            }
 
             protected override SmartISLib.Modules.GridDetail.GridControl
                 CreateGrid(SmartISLib.Modules.AppModuleStartingOptions startingOptions)

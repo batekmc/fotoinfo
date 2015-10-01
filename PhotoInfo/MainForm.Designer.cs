@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.seznamKomponentůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.příkazyKVyskladněníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.revizeČasůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historieZměnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.seznamKomponentůToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.historieZměnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +86,6 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3,
             this.toolStripButton1});
@@ -100,45 +94,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(744, 25);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seznamKomponentůToolStripMenuItem,
-            this.příkazyKVyskladněníToolStripMenuItem,
-            this.revizeČasůToolStripMenuItem,
-            this.historieZměnToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.ShowDropDownArrow = false;
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(42, 22);
-            this.toolStripDropDownButton1.Text = "Menu";
-            // 
-            // seznamKomponentůToolStripMenuItem
-            // 
-            this.seznamKomponentůToolStripMenuItem.Name = "seznamKomponentůToolStripMenuItem";
-            this.seznamKomponentůToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.seznamKomponentůToolStripMenuItem.Text = "Seznam komponentů";
-            // 
-            // příkazyKVyskladněníToolStripMenuItem
-            // 
-            this.příkazyKVyskladněníToolStripMenuItem.Name = "příkazyKVyskladněníToolStripMenuItem";
-            this.příkazyKVyskladněníToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.příkazyKVyskladněníToolStripMenuItem.Text = "Příkazy k vyskladnění";
-            // 
-            // revizeČasůToolStripMenuItem
-            // 
-            this.revizeČasůToolStripMenuItem.Name = "revizeČasůToolStripMenuItem";
-            this.revizeČasůToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.revizeČasůToolStripMenuItem.Text = "Revize časů";
-            // 
-            // historieZměnToolStripMenuItem
-            // 
-            this.historieZměnToolStripMenuItem.Name = "historieZměnToolStripMenuItem";
-            this.historieZměnToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.historieZměnToolStripMenuItem.Text = "Historie změn";
             // 
             // toolStripDropDownButton2
             // 
@@ -153,8 +108,8 @@
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.ShowDropDownArrow = false;
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(80, 22);
-            this.toolStripDropDownButton2.Text = "Komponenty";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(42, 22);
+            this.toolStripDropDownButton2.Text = "Menu";
             // 
             // seznamKomponentůToolStripMenuItem1
             // 
@@ -375,11 +330,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem seznamKomponentůToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem příkazyKVyskladněníToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem revizeČasůToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historieZměnToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStripMenuItem seznamKomponentůToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem historieZměnToolStripMenuItem1;
