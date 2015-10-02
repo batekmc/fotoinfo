@@ -43,7 +43,7 @@
             this.dateTimePickerDatum = new System.Windows.Forms.DateTimePicker();
             this.comboBoxVytvorilKdo = new System.Windows.Forms.ComboBox();
             this.comboBoxZeme = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPrikazyKVyskladneni = new SmartISLib.Controls.FastDataGridView();
             this.ColumnComponent = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnQT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.ColumnUnitWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotalWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrikazyKVyskladneni)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCelkovaHmotnost
@@ -72,7 +72,7 @@
             // 
             this.labelKoef.AutoSize = true;
             this.labelKoef.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelKoef.Location = new System.Drawing.Point(292, 0);
+            this.labelKoef.Location = new System.Drawing.Point(288, 0);
             this.labelKoef.Name = "labelKoef";
             this.labelKoef.Size = new System.Drawing.Size(32, 13);
             this.labelKoef.TabIndex = 1;
@@ -91,7 +91,7 @@
             // textBoxCelkovaHmotnost
             // 
             this.textBoxCelkovaHmotnost.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxCelkovaHmotnost.Location = new System.Drawing.Point(126, 3);
+            this.textBoxCelkovaHmotnost.Location = new System.Drawing.Point(124, 3);
             this.textBoxCelkovaHmotnost.Name = "textBoxCelkovaHmotnost";
             this.textBoxCelkovaHmotnost.ReadOnly = true;
             this.textBoxCelkovaHmotnost.Size = new System.Drawing.Size(100, 21);
@@ -100,7 +100,7 @@
             // textBoxKoef
             // 
             this.textBoxKoef.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxKoef.Location = new System.Drawing.Point(397, 3);
+            this.textBoxKoef.Location = new System.Drawing.Point(393, 3);
             this.textBoxKoef.Name = "textBoxKoef";
             this.textBoxKoef.ReadOnly = true;
             this.textBoxKoef.Size = new System.Drawing.Size(100, 21);
@@ -112,7 +112,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.56055F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.43945F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
             this.tableLayoutPanel1.Controls.Add(this.textBoxKoef, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxCelkovaHmotnost, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelKoef, 2, 0);
@@ -151,7 +151,7 @@
             // 
             this.labelZeme.AutoSize = true;
             this.labelZeme.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelZeme.Location = new System.Drawing.Point(292, 26);
+            this.labelZeme.Location = new System.Drawing.Point(288, 26);
             this.labelZeme.Name = "labelZeme";
             this.labelZeme.Size = new System.Drawing.Size(39, 13);
             this.labelZeme.TabIndex = 6;
@@ -171,7 +171,7 @@
             // 
             this.labelCisloSetu.AutoSize = true;
             this.labelCisloSetu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelCisloSetu.Location = new System.Drawing.Point(292, 54);
+            this.labelCisloSetu.Location = new System.Drawing.Point(288, 54);
             this.labelCisloSetu.Name = "labelCisloSetu";
             this.labelCisloSetu.Size = new System.Drawing.Size(61, 13);
             this.labelCisloSetu.TabIndex = 8;
@@ -179,7 +179,7 @@
             // 
             // buttonTisk
             // 
-            this.buttonTisk.Location = new System.Drawing.Point(397, 84);
+            this.buttonTisk.Location = new System.Drawing.Point(393, 84);
             this.buttonTisk.Name = "buttonTisk";
             this.buttonTisk.Size = new System.Drawing.Size(75, 22);
             this.buttonTisk.TabIndex = 9;
@@ -188,22 +188,22 @@
             // 
             // textBoxCisloSetu
             // 
-            this.textBoxCisloSetu.Location = new System.Drawing.Point(397, 57);
+            this.textBoxCisloSetu.Location = new System.Drawing.Point(393, 57);
             this.textBoxCisloSetu.Name = "textBoxCisloSetu";
             this.textBoxCisloSetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxCisloSetu.TabIndex = 13;
             // 
             // dateTimePickerDatum
             // 
-            this.dateTimePickerDatum.Location = new System.Drawing.Point(126, 57);
+            this.dateTimePickerDatum.Location = new System.Drawing.Point(124, 57);
             this.dateTimePickerDatum.Name = "dateTimePickerDatum";
-            this.dateTimePickerDatum.Size = new System.Drawing.Size(160, 21);
+            this.dateTimePickerDatum.Size = new System.Drawing.Size(158, 21);
             this.dateTimePickerDatum.TabIndex = 14;
             // 
             // comboBoxVytvorilKdo
             // 
             this.comboBoxVytvorilKdo.FormattingEnabled = true;
-            this.comboBoxVytvorilKdo.Location = new System.Drawing.Point(126, 29);
+            this.comboBoxVytvorilKdo.Location = new System.Drawing.Point(124, 29);
             this.comboBoxVytvorilKdo.Name = "comboBoxVytvorilKdo";
             this.comboBoxVytvorilKdo.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVytvorilKdo.TabIndex = 15;
@@ -211,18 +211,20 @@
             // comboBoxZeme
             // 
             this.comboBoxZeme.FormattingEnabled = true;
-            this.comboBoxZeme.Location = new System.Drawing.Point(397, 29);
+            this.comboBoxZeme.Location = new System.Drawing.Point(393, 29);
             this.comboBoxZeme.Name = "comboBoxZeme";
             this.comboBoxZeme.Size = new System.Drawing.Size(121, 21);
             this.comboBoxZeme.TabIndex = 16;
             // 
-            // dataGridView1
+            // dataGridViewPrikazyKVyskladneni
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewPrikazyKVyskladneni.AlternatingRowStyle = true;
+            this.dataGridViewPrikazyKVyskladneni.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewPrikazyKVyskladneni.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPrikazyKVyskladneni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPrikazyKVyskladneni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnComponent,
             this.ColumnDescription,
             this.ColumnQT,
@@ -233,17 +235,20 @@
             this.ColumnPDMSub,
             this.ColumnUnitWeight,
             this.ColumnTotalWeight});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 139);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(568, 255);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridViewPrikazyKVyskladneni.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.dataGridViewPrikazyKVyskladneni.HighlightSelectedCross = false;
+            this.dataGridViewPrikazyKVyskladneni.Location = new System.Drawing.Point(7, 139);
+            this.dataGridViewPrikazyKVyskladneni.Name = "dataGridViewPrikazyKVyskladneni";
+            this.dataGridViewPrikazyKVyskladneni.Size = new System.Drawing.Size(568, 255);
+            this.dataGridViewPrikazyKVyskladneni.TabIndex = 6;
             // 
             // ColumnComponent
             // 
-            this.ColumnComponent.DataPropertyName = "ComponentID";
+            this.ColumnComponent.DataPropertyName = "Code";
             this.ColumnComponent.HeaderText = "Component";
             this.ColumnComponent.Name = "ColumnComponent";
-            this.ColumnComponent.Width = 70;
+            this.ColumnComponent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnComponent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ColumnDescription
             // 
@@ -309,14 +314,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewPrikazyKVyskladneni);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.labelNadpis);
             this.Name = "PrikazyKVyskladneniDetail";
             this.Size = new System.Drawing.Size(579, 404);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrikazyKVyskladneni)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +344,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDatum;
         private System.Windows.Forms.ComboBox comboBoxVytvorilKdo;
         private System.Windows.Forms.ComboBox comboBoxZeme;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private SmartISLib.Controls.FastDataGridView dataGridViewPrikazyKVyskladneni;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColumnComponent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnQT;

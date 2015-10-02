@@ -1471,7 +1471,7 @@ namespace PhotoInfo.Data
                 schema.Add("IDPrikazVYskladDetail", typeof(int), "IDPrikazVYskladDetail", false, true, true);
                 schema.Add("PrikazVyskladID", typeof(int), "PrikazVyskladID", false, true, false);
                 schema.Add("ComponentID", typeof(int), "ComponentID", true);
-                schema.Add("Description", typeof(string), "Description", true);
+                schema.Add("DescriptionPDM", typeof(string), "DescriptionPDM", true);
                 schema.Add("Qty", typeof(int), "Qty", true);
                 //added
                 schema.Add("BIN", typeof(int), "BIN", true);
@@ -1496,7 +1496,7 @@ namespace PhotoInfo.Data
 
             this["ComponentID"] = DBNull.Value;
 
-            this["Description"] = DBNull.Value;
+            this["DescriptionPDM"] = DBNull.Value;
 
             command.CommandText = "SELECT ((0))";
             this["Qty"] = command.ExecuteScalar();
@@ -1516,6 +1516,7 @@ namespace PhotoInfo.Data
             this["TotalWeight"] = DBNull.Value;
         }
 
+        // todo - probably could be only 
         public static QFPrikazVyskladDetail Load(int iDPrikazVYskladDetail, int prikazVyskladID)
         {
             QFPrikazVyskladDetail result = new QFPrikazVyskladDetail();
