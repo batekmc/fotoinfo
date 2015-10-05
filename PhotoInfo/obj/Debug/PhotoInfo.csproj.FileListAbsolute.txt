@@ -28,3 +28,6 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.RevizeCasu.RevizeCasuDetail.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentDetail.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni.PrikazyKVyskladneniDetail.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Forms.ReportPrikazKVyskladneni.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\RdlCompile.cache
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\RdlCompile.compiled

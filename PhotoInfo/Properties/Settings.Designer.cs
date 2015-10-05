@@ -32,5 +32,16 @@ namespace PhotoInfo.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NTB-BATEK\\SQLEXPRESS_2012;Initial Catalog=BatchDoc;Integrated Securit" +
+            "y=True")]
+        public string BatchDocConnectionString {
+            get {
+                return "Data Source=NTB-BATEK\\SQLEXPRESS_2012;Initial Catalog=batchdoc;Integrated Security=True";
+            }
+        }
     }
 }

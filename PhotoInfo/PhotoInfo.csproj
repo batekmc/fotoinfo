@@ -33,12 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="SmartISLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Desktop\Nativa\SmartISLib\trunk\SmartISLib\bin\Debug\SmartISLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,11 +61,22 @@
     <Compile Include="Data\Procedures.cs" />
     <Compile Include="Data\Tables.cs" />
     <Compile Include="Data\MyORM.cs" />
+    <Compile Include="Forms\DataSetPrikazKVyskladneni.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPrikazKVyskladneni.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GlobalniNastaveni.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\GlobalniNastaveni.Designer.cs">
       <DependentUpon>GlobalniNastaveni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportPrikazKVyskladneni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportPrikazKVyskladneni.Designer.cs">
+      <DependentUpon>ReportPrikazKVyskladneni.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -210,6 +224,10 @@
     <EmbeddedResource Include="Forms\GlobalniNastaveni.resx">
       <DependentUpon>GlobalniNastaveni.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report1.rdlc" />
+    <EmbeddedResource Include="Forms\ReportPrikazKVyskladneni.resx">
+      <DependentUpon>ReportPrikazKVyskladneni.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +279,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Forms\DataSetPrikazKVyskladneni.xsc">
+      <DependentUpon>DataSetPrikazKVyskladneni.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\DataSetPrikazKVyskladneni.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPrikazKVyskladneni.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\DataSetPrikazKVyskladneni.xss">
+      <DependentUpon>DataSetPrikazKVyskladneni.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni.PrikazyKVyskladneniDetail.datasource" />
+    <None Include="Properties\DataSources\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentGrid.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -277,6 +308,9 @@
   <ItemGroup>
     <Folder Include="Modules\Menu\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

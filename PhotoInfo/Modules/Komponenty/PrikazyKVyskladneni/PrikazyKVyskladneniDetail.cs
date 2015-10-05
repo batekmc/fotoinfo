@@ -17,6 +17,7 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
         private SmartISLib.ORM.DbTable<Data.TPersonResponsiblePhoto> ormTPersonResponsiblePhoto;
         private SmartISLib.ORM.DbTable<Data.TZeme> ormTZeme;
         private SmartISLib.ORM.DbTable<Data.TParameters> ormTParameters;
+
         // thousands of records => ORM is slow...
         private DataTable componentDTAB;
         //private SmartISLib.ORM.DbTable<Data.TComponents> ormTComponents;
@@ -76,7 +77,7 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             }
             if(zemeIndex > 0)
                 this.comboBoxZeme.SelectedIndex = zemeIndex;
-            
+
             // person/////////////////////////////
             this.comboBoxVytvorilKdo.DataSource = this.ormTPersonResponsiblePhoto;
             this.comboBoxVytvorilKdo.DisplayMember = "ResponsiblePhotoSurname";
@@ -91,6 +92,10 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             }
             if (personIndex > 0)
                 this.comboBoxVytvorilKdo.SelectedIndex = personIndex;
+
+            //BindComboBox(this.comboBoxVytvorilKdo, "SELECT IDPDMStatusPhoto, PDMStatusPhoto FROM TPDMStatusPhoto", "IDPDMStatusPhoto", "PDMStatusPhoto", ormTPersonResponsiblePhoto, "PDMStatusPhotoID");
+
+
 
             this.ColumnComponent.DataSource = this.componentDTAB;
             this.ColumnComponent.ValueMember = "ComponentID";
@@ -109,7 +114,9 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             
             Console.WriteLine("_____P: " + personIndex + ", Z: " + zemeIndex);
 
-
+            this.vytvorilKdoChanged = false;
+            this.zemeChanged = false;
+            this.dateChanged = false;
 
         }
 
@@ -124,8 +131,122 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
 
             return true;
         }
+
+
+
+        bool gridChanged = false, cisloSetuChanged = false, celkovaHmotnostChanged = false, dateChanged = false, vytvorilKdoChanged = false, zemeChanged = false;
+        protected override bool UpdateRecordCore()
+        {
+            // save the grid
+            if (gridChanged)
+            {
+                this.ormPrikazVysklad.SetAttribute("PrikazVyskladID", (int)this.PrimaryKey);
+                this.ormPrikazVysklad.Save();
+                gridChanged = false;
+            }
+
+            // update cisloSetu
+            if (cisloSetuChanged)
+            {
+                SmartISLib.Data.Execute(string.Format("UPDATE QFPrikazVyskladneniSeznam SET cisloSetu = '{0}' where IDPrikazVyskladneni = {1}", textBoxCisloSetu.Text, (int)this.PrimaryKey));
+                cisloSetuChanged = false;
+            }
+            //update weigth
+            if (celkovaHmotnostChanged)
+            {
+                SmartISLib.Data.Execute(string.Format("UPDATE QFPrikazVyskladneniSeznam SET SumTotalWeight = {0} where IDPrikazVyskladneni = {1}", textBoxCelkovaHmotnost.Text, (int)this.PrimaryKey));
+                celkovaHmotnostChanged = false;
+            }
+            //update date
+            if (dateChanged)
+            {
+                SmartISLib.Data.Execute(string.Format("UPDATE QFPrikazVyskladneniSeznam SET Created = '{0}' where IDPrikazVyskladneni = {1}", dateTimePickerDatum.Value.Date.ToString("yyyy-MM-dd"), (int)this.PrimaryKey));
+                dateChanged = false;
+            }
+            //update created by
+            if (vytvorilKdoChanged)
+            {
+                int kdoFK = -1;
+                foreach (Data.TPersonResponsiblePhoto kdo in ormTPersonResponsiblePhoto) 
+                {
+                    if (kdo.ResponsiblePhotoSurname == comboBoxVytvorilKdo.Text)
+                    {
+                        kdoFK = kdo.IDResponsiblePhoto;
+                        break;
+                    }
+                }
+                // has to be set this way because of using view where should not be...
+                SmartISLib.Data.Execute(string.Format("UPDATE TPrikazVyskladneni SET CreatedBy = {0} where IDPrikazVyskladneni = {1}", kdoFK, (int)this.PrimaryKey));
+                vytvorilKdoChanged = false;
+            }
+            //update zeme
+            if (zemeChanged)
+            {
+                int zemCode = -1;
+                foreach (Data.TZeme tmp in ormTZeme)
+                {
+                    if (tmp.Zeme == comboBoxZeme.Text)
+                    {
+                        zemCode = tmp.IDZeme;
+                        break;
+                    }
+                }
+                // has to be set this way because of using view where should not be...
+                SmartISLib.Data.Execute(string.Format("update TPrikazVyskladneni SET Zeme = {0} where IDPrikazVyskladneni = {1}", zemCode, (int)this.PrimaryKey));
+                zemeChanged = false;
+            }
+
+            SmartISLib.Messages.Information("Záznam uložen.");
+
+            return true;
+        }
         
+        #endregion      
+
+        #region  click events
+
+        private void textBoxCisloSetu_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            cisloSetuChanged = true;
+        }
+
+        private void dateTimePickerDatum_SelectedDateChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            dateChanged = true;
+        }
+
+        private void comboBoxVytvorilKdo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            vytvorilKdoChanged = true;
+        }
+
+        private void comboBoxZeme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            zemeChanged = true;
+        }
+
+        private void dataGridViewPrikazyKVyskladneni_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            this.NotifyChanged();
+            gridChanged = true;
+        }
+
+        private void buttonTisk_Click(object sender, EventArgs e)
+        {
+            Form printForm = new Forms.ReportPrikazKVyskladneni((int)this.PrimaryKey);
+            printForm.Show();
+        }
+
         #endregion
+
+
+
+
+
     }
 
 

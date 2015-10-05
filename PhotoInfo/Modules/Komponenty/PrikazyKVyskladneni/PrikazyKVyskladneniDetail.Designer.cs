@@ -72,7 +72,7 @@
             // 
             this.labelKoef.AutoSize = true;
             this.labelKoef.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelKoef.Location = new System.Drawing.Point(288, 0);
+            this.labelKoef.Location = new System.Drawing.Point(283, 0);
             this.labelKoef.Name = "labelKoef";
             this.labelKoef.Size = new System.Drawing.Size(32, 13);
             this.labelKoef.TabIndex = 1;
@@ -91,7 +91,7 @@
             // textBoxCelkovaHmotnost
             // 
             this.textBoxCelkovaHmotnost.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxCelkovaHmotnost.Location = new System.Drawing.Point(124, 3);
+            this.textBoxCelkovaHmotnost.Location = new System.Drawing.Point(122, 3);
             this.textBoxCelkovaHmotnost.Name = "textBoxCelkovaHmotnost";
             this.textBoxCelkovaHmotnost.ReadOnly = true;
             this.textBoxCelkovaHmotnost.Size = new System.Drawing.Size(100, 21);
@@ -100,7 +100,7 @@
             // textBoxKoef
             // 
             this.textBoxKoef.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxKoef.Location = new System.Drawing.Point(393, 3);
+            this.textBoxKoef.Location = new System.Drawing.Point(388, 3);
             this.textBoxKoef.Name = "textBoxKoef";
             this.textBoxKoef.ReadOnly = true;
             this.textBoxKoef.Size = new System.Drawing.Size(100, 21);
@@ -112,7 +112,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.56055F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.43945F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel1.Controls.Add(this.textBoxKoef, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxCelkovaHmotnost, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelKoef, 2, 0);
@@ -151,7 +151,7 @@
             // 
             this.labelZeme.AutoSize = true;
             this.labelZeme.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelZeme.Location = new System.Drawing.Point(288, 26);
+            this.labelZeme.Location = new System.Drawing.Point(283, 26);
             this.labelZeme.Name = "labelZeme";
             this.labelZeme.Size = new System.Drawing.Size(39, 13);
             this.labelZeme.TabIndex = 6;
@@ -171,7 +171,7 @@
             // 
             this.labelCisloSetu.AutoSize = true;
             this.labelCisloSetu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelCisloSetu.Location = new System.Drawing.Point(288, 54);
+            this.labelCisloSetu.Location = new System.Drawing.Point(283, 54);
             this.labelCisloSetu.Name = "labelCisloSetu";
             this.labelCisloSetu.Size = new System.Drawing.Size(61, 13);
             this.labelCisloSetu.TabIndex = 8;
@@ -179,42 +179,47 @@
             // 
             // buttonTisk
             // 
-            this.buttonTisk.Location = new System.Drawing.Point(393, 84);
+            this.buttonTisk.Location = new System.Drawing.Point(388, 84);
             this.buttonTisk.Name = "buttonTisk";
             this.buttonTisk.Size = new System.Drawing.Size(75, 22);
             this.buttonTisk.TabIndex = 9;
             this.buttonTisk.Text = "Tisk";
             this.buttonTisk.UseVisualStyleBackColor = true;
+            this.buttonTisk.Click += new System.EventHandler(this.buttonTisk_Click);
             // 
             // textBoxCisloSetu
             // 
-            this.textBoxCisloSetu.Location = new System.Drawing.Point(393, 57);
+            this.textBoxCisloSetu.Location = new System.Drawing.Point(388, 57);
             this.textBoxCisloSetu.Name = "textBoxCisloSetu";
             this.textBoxCisloSetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxCisloSetu.TabIndex = 13;
+            this.textBoxCisloSetu.TextChanged += new System.EventHandler(this.textBoxCisloSetu_TextChanged);
             // 
             // dateTimePickerDatum
             // 
-            this.dateTimePickerDatum.Location = new System.Drawing.Point(124, 57);
+            this.dateTimePickerDatum.Location = new System.Drawing.Point(122, 57);
             this.dateTimePickerDatum.Name = "dateTimePickerDatum";
-            this.dateTimePickerDatum.Size = new System.Drawing.Size(158, 21);
+            this.dateTimePickerDatum.Size = new System.Drawing.Size(155, 21);
             this.dateTimePickerDatum.TabIndex = 14;
+            this.dateTimePickerDatum.TextChanged += new System.EventHandler(this.dateTimePickerDatum_SelectedDateChanged);
             // 
             // comboBoxVytvorilKdo
             // 
             this.comboBoxVytvorilKdo.FormattingEnabled = true;
-            this.comboBoxVytvorilKdo.Location = new System.Drawing.Point(124, 29);
+            this.comboBoxVytvorilKdo.Location = new System.Drawing.Point(122, 29);
             this.comboBoxVytvorilKdo.Name = "comboBoxVytvorilKdo";
             this.comboBoxVytvorilKdo.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVytvorilKdo.TabIndex = 15;
+            this.comboBoxVytvorilKdo.SelectedIndexChanged += new System.EventHandler(this.comboBoxVytvorilKdo_SelectedIndexChanged);
             // 
             // comboBoxZeme
             // 
             this.comboBoxZeme.FormattingEnabled = true;
-            this.comboBoxZeme.Location = new System.Drawing.Point(393, 29);
+            this.comboBoxZeme.Location = new System.Drawing.Point(388, 29);
             this.comboBoxZeme.Name = "comboBoxZeme";
             this.comboBoxZeme.Size = new System.Drawing.Size(121, 21);
             this.comboBoxZeme.TabIndex = 16;
+            this.comboBoxZeme.SelectedIndexChanged += new System.EventHandler(this.comboBoxZeme_SelectedIndexChanged);
             // 
             // dataGridViewPrikazyKVyskladneni
             // 
@@ -241,6 +246,7 @@
             this.dataGridViewPrikazyKVyskladneni.Name = "dataGridViewPrikazyKVyskladneni";
             this.dataGridViewPrikazyKVyskladneni.Size = new System.Drawing.Size(568, 255);
             this.dataGridViewPrikazyKVyskladneni.TabIndex = 6;
+            this.dataGridViewPrikazyKVyskladneni.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPrikazyKVyskladneni_CellEndEdit);
             // 
             // ColumnComponent
             // 
