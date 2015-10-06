@@ -216,6 +216,7 @@
       <DependentUpon>SeznamKomponentGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Other\AppConfigParser.cs" />
+    <Compile Include="Other\Barcode.cs" />
     <Compile Include="Other\ExceptionHandler.cs" />
     <Compile Include="Other\UserSettingsManager.cs" />
     <Compile Include="Program.cs" />
@@ -290,6 +291,7 @@
     <None Include="Forms\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\PhotoInfo.Forms.ReportPrikazKVyskladneni.datasource" />
     <None Include="Properties\DataSources\PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni.PrikazyKVyskladneniDetail.datasource" />
     <None Include="Properties\DataSources\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentGrid.datasource" />
     <None Include="Properties\Settings.settings">

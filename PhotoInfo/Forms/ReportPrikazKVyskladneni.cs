@@ -14,7 +14,7 @@ namespace PhotoInfo.Forms
     public partial class ReportPrikazKVyskladneni : Form
     {
         private int PK = -1;
-        public string person = "";
+        private string person = "";
 
         public ReportPrikazKVyskladneni(int PKey, string personCR)
         {
