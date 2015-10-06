@@ -55,7 +55,6 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             Console.WriteLine("________radku combobox: " + componentDTAB.Rows.Count);
             // TODO console,.write...
             Console.WriteLine("___________PK: " + this.PrimaryKey + "  ,  lines: " + ormPrikazVysklad.Count);
-
             return true;
         }
 
@@ -237,7 +236,7 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
 
         private void buttonTisk_Click(object sender, EventArgs e)
         {
-            Form printForm = new Forms.ReportPrikazKVyskladneni((int)this.PrimaryKey);
+            Form printForm = new Forms.ReportPrikazKVyskladneni((int)this.PrimaryKey, comboBoxVytvorilKdo.Text);
             printForm.Show();
         }
 

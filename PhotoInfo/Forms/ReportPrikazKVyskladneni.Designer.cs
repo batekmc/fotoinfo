@@ -1,4 +1,5 @@
-﻿namespace PhotoInfo.Forms
+﻿using Microsoft.Reporting.WinForms;
+namespace PhotoInfo.Forms
 {
     partial class ReportPrikazKVyskladneni
     {
