@@ -30,31 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.QRPrikazVyskladneniBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSet1 = new PhotoInfo.Forms.DataSet1();
-            this.QFPrikazVyskladneniSeznamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.QFPrikazVyskladneniSeznamTableAdapter = new PhotoInfo.Forms.DataSet1TableAdapters.QFPrikazVyskladneniSeznamTableAdapter();
+            this.DataSet1 = new PhotoInfo.Forms.DataSet1();
+            this.QRPrikazVyskladneniBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QRPrikazVyskladneniTableAdapter = new PhotoInfo.Forms.DataSet1TableAdapters.QRPrikazVyskladneniTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.QRPrikazVyskladneniBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QFPrikazVyskladneniSeznamBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QRPrikazVyskladneniBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // QRPrikazVyskladneniBindingSource
-            // 
-            this.QRPrikazVyskladneniBindingSource.DataMember = "QRPrikazVyskladneni";
-            this.QRPrikazVyskladneniBindingSource.DataSource = this.DataSet1;
-            // 
-            // DataSet1
-            // 
-            this.DataSet1.DataSetName = "DataSet1";
-            this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // QFPrikazVyskladneniSeznamBindingSource
-            // 
-            this.QFPrikazVyskladneniSeznamBindingSource.DataMember = "QFPrikazVyskladneniSeznam";
-            this.QFPrikazVyskladneniSeznamBindingSource.DataSource = this.DataSet1;
             // 
             // reportViewer1
             // 
@@ -65,12 +47,18 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "PhotoInfo.Forms.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(617, 428);
+            this.reportViewer1.Size = new System.Drawing.Size(707, 635);
             this.reportViewer1.TabIndex = 0;
             // 
-            // QFPrikazVyskladneniSeznamTableAdapter
+            // DataSet1
             // 
-            this.QFPrikazVyskladneniSeznamTableAdapter.ClearBeforeFill = true;
+            this.DataSet1.DataSetName = "DataSet1";
+            this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // QRPrikazVyskladneniBindingSource
+            // 
+            this.QRPrikazVyskladneniBindingSource.DataMember = "QRPrikazVyskladneni";
+            this.QRPrikazVyskladneniBindingSource.DataSource = this.DataSet1;
             // 
             // QRPrikazVyskladneniTableAdapter
             // 
@@ -80,14 +68,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 428);
+            this.ClientSize = new System.Drawing.Size(707, 635);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReportPrikazKVyskladneni";
             this.Text = "ReportPrikazKVyskladneni";
             this.Load += new System.EventHandler(this.ReportPrikazKVyskladneni_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.QRPrikazVyskladneniBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QFPrikazVyskladneniSeznamBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QRPrikazVyskladneniBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -95,10 +82,8 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private DataSet1 DataSet1;
-        private System.Windows.Forms.BindingSource QFPrikazVyskladneniSeznamBindingSource;
-        private DataSet1TableAdapters.QFPrikazVyskladneniSeznamTableAdapter QFPrikazVyskladneniSeznamTableAdapter;
         private System.Windows.Forms.BindingSource QRPrikazVyskladneniBindingSource;
+        private DataSet1 DataSet1;
         private DataSet1TableAdapters.QRPrikazVyskladneniTableAdapter QRPrikazVyskladneniTableAdapter;
     }
 }

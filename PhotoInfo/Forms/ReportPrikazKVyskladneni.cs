@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,24 +14,17 @@ namespace PhotoInfo.Forms
     {
         private int PK = -1;
 
-        public ReportPrikazKVyskladneni(int PK)
+        public ReportPrikazKVyskladneni(int PKey)
         {
-            //sets primary key of detail
-            this.PK = PK;
+            this.PK = PKey;
             InitializeComponent();
         }
 
         private void ReportPrikazKVyskladneni_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DataSet1.QRPrikazVyskladneni' table. You can move, or remove it, as needed.
-            this.QRPrikazVyskladneniTableAdapter.Fill(this.DataSet1.QRPrikazVyskladneni);
-            //SqlDataAdapter sqlAdapter = SmartISLib.Data.GetDataAdapter("SELECT BIN, Code, DescriptionPDM, Qty, EOD, BIN_EOD, TotalWeight, ReasonSubst FROM QRPrikazVyskladneni where PrikazVyskladID =@PK");
-            //sqlAdapter.SelectCommand.Parameters.AddWithValue("PK", this.PK);
-            //DataTable bTab = new DataTable();
-            //sqlAdapter.Fill(bTab);
-            //Console.WriteLine("111111111111111111111111__" + bTab.Rows.Count);
-            //this.DataSet1.EnforceConstraints = true;
-            //sqlAdapter.Fill(this.DataSet1.QFPrikazVyskladneniSeznam);
+            //this.QRPrikazVyskladneniTableAdapter.Fill(this.DataSet1.QRPrikazVyskladneni);
+            SmartISLib.Data.GetDataAdapter("Select * from QRPrikazVyskladneni where PrikazVyskladID = " + this.PK).Fill(this.DataSet1.QRPrikazVyskladneni);
 
             this.reportViewer1.RefreshReport();
         }
