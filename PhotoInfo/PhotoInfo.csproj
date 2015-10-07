@@ -281,6 +281,9 @@
     <EmbeddedResource Include="Modules\Komponenty\RevizeCasu\RevizeCasuGrid.resx">
       <DependentUpon>RevizeCasuGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\SampleList\SampleListDetail.resx">
+      <DependentUpon>SampleListDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\SampleList\SampleListFilter.resx">
       <DependentUpon>SampleListFilter.cs</DependentUpon>
     </EmbeddedResource>
