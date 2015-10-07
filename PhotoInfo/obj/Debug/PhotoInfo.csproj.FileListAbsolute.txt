@@ -31,3 +31,5 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\cs\SmartISLib.resources.dll
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.exe
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.pdb
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SampleList.SampleListGrid.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SampleList.SampleListFilter.resources

@@ -56,6 +56,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.sampleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +104,8 @@
             this.historieZměnToolStripMenuItem1,
             this.příkazyKVyskladněníToolStripMenuItem1,
             this.importToolStripMenuItem,
-            this.revizeČasůToolStripMenuItem1});
+            this.revizeČasůToolStripMenuItem1,
+            this.sampleListToolStripMenuItem});
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -302,6 +304,13 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // sampleListToolStripMenuItem
+            // 
+            this.sampleListToolStripMenuItem.Name = "sampleListToolStripMenuItem";
+            this.sampleListToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.sampleListToolStripMenuItem.Text = "Sample List";
+            this.sampleListToolStripMenuItem.Click += new System.EventHandler(this.sampleListToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +364,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ToolStripMenuItem sampleListToolStripMenuItem;
     }
 }
 

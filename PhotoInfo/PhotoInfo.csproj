@@ -196,6 +196,25 @@
     <Compile Include="Modules\Komponenty\RevizeCasu\RevizeCasuGrid.Designer.cs">
       <DependentUpon>RevizeCasuGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Komponenty\SampleList\SampleList.cs" />
+    <Compile Include="Modules\Komponenty\SampleList\SampleListDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SampleList\SampleListDetail.Designer.cs">
+      <DependentUpon>SampleListDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SampleList\SampleListFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SampleList\SampleListFilter.Designer.cs">
+      <DependentUpon>SampleListFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SampleList\SampleListGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Komponenty\SampleList\SampleListGrid.Designer.cs">
+      <DependentUpon>SampleListGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponent.cs" />
     <Compile Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentDetail.cs">
       <SubType>UserControl</SubType>
@@ -261,6 +280,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\RevizeCasu\RevizeCasuGrid.resx">
       <DependentUpon>RevizeCasuGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\SampleList\SampleListFilter.resx">
+      <DependentUpon>SampleListFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Komponenty\SampleList\SampleListGrid.resx">
+      <DependentUpon>SampleListGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Komponenty\SeznamKomponent\SeznamKomponentDetail.resx">
       <DependentUpon>SeznamKomponentDetail.cs</DependentUpon>

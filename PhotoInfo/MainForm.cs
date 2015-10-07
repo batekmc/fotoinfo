@@ -205,6 +205,11 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 
         }
+        private void sampleListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AppModuleManager.GetModuleByName("SampleList").Start(
+SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
+        }
 
 
         #endregion click events
