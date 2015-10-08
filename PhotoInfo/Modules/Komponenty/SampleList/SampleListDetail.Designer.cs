@@ -30,7 +30,8 @@
         {
             this.tabControlPrikazyKvyskladneni = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonDeleteFile = new System.Windows.Forms.Button();
+            this.buttonSelectFile = new System.Windows.Forms.Button();
             this.dataGridViewPrilohy = new System.Windows.Forms.DataGridView();
             this.ColumnFileSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@
             this.ColumnVytvorilKdo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnZeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCelkovaHmotnost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControlPrikazyKvyskladneni.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrilohy)).BeginInit();
@@ -114,8 +114,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.buttonDeleteFile);
+            this.tabPage1.Controls.Add(this.buttonSelectFile);
             this.tabPage1.Controls.Add(this.dataGridViewPrilohy);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
@@ -127,15 +127,25 @@
             this.tabPage1.Text = "Základní údaje";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonDeleteFile
             // 
-            this.button1.Location = new System.Drawing.Point(426, 418);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonDeleteFile.Location = new System.Drawing.Point(426, 457);
+            this.buttonDeleteFile.Name = "buttonDeleteFile";
+            this.buttonDeleteFile.Size = new System.Drawing.Size(75, 33);
+            this.buttonDeleteFile.TabIndex = 4;
+            this.buttonDeleteFile.Text = "x";
+            this.buttonDeleteFile.UseVisualStyleBackColor = true;
+            this.buttonDeleteFile.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttonSelectFile
+            // 
+            this.buttonSelectFile.Location = new System.Drawing.Point(426, 418);
+            this.buttonSelectFile.Name = "buttonSelectFile";
+            this.buttonSelectFile.Size = new System.Drawing.Size(75, 33);
+            this.buttonSelectFile.TabIndex = 3;
+            this.buttonSelectFile.Text = "...";
+            this.buttonSelectFile.UseVisualStyleBackColor = true;
+            this.buttonSelectFile.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridViewPrilohy
             // 
@@ -400,10 +410,13 @@
             // 
             // textBoxCisloSetu
             // 
+            this.textBoxCisloSetu.BackColor = System.Drawing.Color.Salmon;
+            this.textBoxCisloSetu.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxCisloSetu.Location = new System.Drawing.Point(142, 3);
             this.textBoxCisloSetu.Name = "textBoxCisloSetu";
             this.textBoxCisloSetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxCisloSetu.TabIndex = 20;
+            this.textBoxCisloSetu.TextChanged += new System.EventHandler(this.textBoxCisloSetu_TextChanged);
             // 
             // textBoxPocetKsDOKrabice
             // 
@@ -411,36 +424,45 @@
             this.textBoxPocetKsDOKrabice.Name = "textBoxPocetKsDOKrabice";
             this.textBoxPocetKsDOKrabice.Size = new System.Drawing.Size(100, 21);
             this.textBoxPocetKsDOKrabice.TabIndex = 21;
+            this.textBoxPocetKsDOKrabice.TextChanged += new System.EventHandler(this.textBoxPocetKsDOKrabice_TextChanged);
             // 
             // textBoxSirkaSetu
             // 
+            this.textBoxSirkaSetu.BackColor = System.Drawing.Color.Salmon;
             this.textBoxSirkaSetu.Location = new System.Drawing.Point(142, 168);
             this.textBoxSirkaSetu.Name = "textBoxSirkaSetu";
             this.textBoxSirkaSetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxSirkaSetu.TabIndex = 22;
+            this.textBoxSirkaSetu.TextChanged += new System.EventHandler(this.textBoxSirkaSetu_TextChanged);
             // 
             // textBoxDelkaSetu
             // 
+            this.textBoxDelkaSetu.BackColor = System.Drawing.Color.Salmon;
             this.textBoxDelkaSetu.Location = new System.Drawing.Point(142, 199);
             this.textBoxDelkaSetu.Name = "textBoxDelkaSetu";
             this.textBoxDelkaSetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxDelkaSetu.TabIndex = 23;
+            this.textBoxDelkaSetu.TextChanged += new System.EventHandler(this.textBoxDelkaSetu_TextChanged);
             // 
             // comboBoxZeme
             // 
+            this.comboBoxZeme.BackColor = System.Drawing.Color.Salmon;
             this.comboBoxZeme.FormattingEnabled = true;
             this.comboBoxZeme.Location = new System.Drawing.Point(142, 34);
             this.comboBoxZeme.Name = "comboBoxZeme";
             this.comboBoxZeme.Size = new System.Drawing.Size(121, 21);
             this.comboBoxZeme.TabIndex = 25;
+            this.comboBoxZeme.SelectedIndexChanged += new System.EventHandler(this.comboBoxZeme_SelectedIndexChanged);
             // 
             // comboBoxStatusSetu
             // 
+            this.comboBoxStatusSetu.BackColor = System.Drawing.Color.Salmon;
             this.comboBoxStatusSetu.FormattingEnabled = true;
             this.comboBoxStatusSetu.Location = new System.Drawing.Point(142, 65);
             this.comboBoxStatusSetu.Name = "comboBoxStatusSetu";
             this.comboBoxStatusSetu.Size = new System.Drawing.Size(121, 21);
             this.comboBoxStatusSetu.TabIndex = 26;
+            this.comboBoxStatusSetu.SelectedIndexChanged += new System.EventHandler(this.comboBoxStatusSetu_SelectedIndexChanged);
             // 
             // comboBoxBreatherBag
             // 
@@ -449,14 +471,17 @@
             this.comboBoxBreatherBag.Name = "comboBoxBreatherBag";
             this.comboBoxBreatherBag.Size = new System.Drawing.Size(121, 21);
             this.comboBoxBreatherBag.TabIndex = 27;
+            this.comboBoxBreatherBag.SelectedIndexChanged += new System.EventHandler(this.comboBoxBreatherBag_SelectedIndexChanged);
             // 
             // comboBoxMetodaBaleniHlavni
             // 
+            this.comboBoxMetodaBaleniHlavni.BackColor = System.Drawing.Color.Salmon;
             this.comboBoxMetodaBaleniHlavni.FormattingEnabled = true;
             this.comboBoxMetodaBaleniHlavni.Location = new System.Drawing.Point(420, 34);
             this.comboBoxMetodaBaleniHlavni.Name = "comboBoxMetodaBaleniHlavni";
             this.comboBoxMetodaBaleniHlavni.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMetodaBaleniHlavni.TabIndex = 28;
+            this.comboBoxMetodaBaleniHlavni.SelectedIndexChanged += new System.EventHandler(this.comboBoxMetodaBaleniHlavni_SelectedIndexChanged);
             // 
             // comboBoxMetodaBaleniVedlejsi
             // 
@@ -465,6 +490,7 @@
             this.comboBoxMetodaBaleniVedlejsi.Name = "comboBoxMetodaBaleniVedlejsi";
             this.comboBoxMetodaBaleniVedlejsi.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMetodaBaleniVedlejsi.TabIndex = 29;
+            this.comboBoxMetodaBaleniVedlejsi.SelectedIndexChanged += new System.EventHandler(this.comboBoxMetodaBaleniVedlejsi_SelectedIndexChanged);
             // 
             // comboBoxDruhBaleni
             // 
@@ -473,6 +499,7 @@
             this.comboBoxDruhBaleni.Name = "comboBoxDruhBaleni";
             this.comboBoxDruhBaleni.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDruhBaleni.TabIndex = 30;
+            this.comboBoxDruhBaleni.SelectedIndexChanged += new System.EventHandler(this.comboBoxDruhBaleni_SelectedIndexChanged);
             // 
             // comboBoxVelikostKrabice
             // 
@@ -481,11 +508,13 @@
             this.comboBoxVelikostKrabice.Name = "comboBoxVelikostKrabice";
             this.comboBoxVelikostKrabice.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVelikostKrabice.TabIndex = 32;
+            this.comboBoxVelikostKrabice.SelectedIndexChanged += new System.EventHandler(this.comboBoxVelikostKrabice_SelectedIndexChanged);
             // 
             // textBoxID
             // 
             this.textBoxID.Location = new System.Drawing.Point(420, 230);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(100, 21);
             this.textBoxID.TabIndex = 33;
             // 
@@ -495,6 +524,7 @@
             this.textBoxDuleziteInformaceKsetu.Name = "textBoxDuleziteInformaceKsetu";
             this.textBoxDuleziteInformaceKsetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxDuleziteInformaceKsetu.TabIndex = 34;
+            this.textBoxDuleziteInformaceKsetu.TextChanged += new System.EventHandler(this.textBoxDuleziteInformaceKsetu_TextChanged);
             // 
             // checkBoxPoslanoWI
             // 
@@ -507,6 +537,7 @@
             this.checkBoxPoslanoWI.TabIndex = 35;
             this.checkBoxPoslanoWI.Text = "Posláno WI";
             this.checkBoxPoslanoWI.UseVisualStyleBackColor = true;
+            this.checkBoxPoslanoWI.CheckedChanged += new System.EventHandler(this.checkBoxPoslanoWI_CheckedChanged);
             // 
             // comboBoxKdoSchvalilWI
             // 
@@ -515,6 +546,7 @@
             this.comboBoxKdoSchvalilWI.Name = "comboBoxKdoSchvalilWI";
             this.comboBoxKdoSchvalilWI.Size = new System.Drawing.Size(121, 21);
             this.comboBoxKdoSchvalilWI.TabIndex = 38;
+            this.comboBoxKdoSchvalilWI.SelectedIndexChanged += new System.EventHandler(this.comboBoxKdoSchvalilWI_SelectedIndexChanged);
             // 
             // comboBoxZpracovalWI
             // 
@@ -523,6 +555,7 @@
             this.comboBoxZpracovalWI.Name = "comboBoxZpracovalWI";
             this.comboBoxZpracovalWI.Size = new System.Drawing.Size(121, 21);
             this.comboBoxZpracovalWI.TabIndex = 39;
+            this.comboBoxZpracovalWI.SelectedIndexChanged += new System.EventHandler(this.comboBoxZpracovalWI_SelectedIndexChanged);
             // 
             // comboBoxPoznamkaKUlozeniSetu
             // 
@@ -531,6 +564,7 @@
             this.comboBoxPoznamkaKUlozeniSetu.Name = "comboBoxPoznamkaKUlozeniSetu";
             this.comboBoxPoznamkaKUlozeniSetu.Size = new System.Drawing.Size(133, 21);
             this.comboBoxPoznamkaKUlozeniSetu.TabIndex = 40;
+            this.comboBoxPoznamkaKUlozeniSetu.SelectedIndexChanged += new System.EventHandler(this.comboBoxPoznamkaKUlozeniSetu_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -568,10 +602,12 @@
             // 
             // textBoxVyskaSetu
             // 
+            this.textBoxVyskaSetu.BackColor = System.Drawing.Color.Salmon;
             this.textBoxVyskaSetu.Location = new System.Drawing.Point(142, 137);
             this.textBoxVyskaSetu.Name = "textBoxVyskaSetu";
             this.textBoxVyskaSetu.Size = new System.Drawing.Size(100, 21);
             this.textBoxVyskaSetu.TabIndex = 41;
+            this.textBoxVyskaSetu.TextChanged += new System.EventHandler(this.textBoxVyskaSetu_TextChanged);
             // 
             // label21
             // 
@@ -588,6 +624,7 @@
             // 
             this.textBoxVahaPoslPKV.Location = new System.Drawing.Point(420, 168);
             this.textBoxVahaPoslPKV.Name = "textBoxVahaPoslPKV";
+            this.textBoxVahaPoslPKV.ReadOnly = true;
             this.textBoxVahaPoslPKV.Size = new System.Drawing.Size(100, 21);
             this.textBoxVahaPoslPKV.TabIndex = 43;
             // 
@@ -609,6 +646,7 @@
             this.dateTimePickerDatumZpracovani.ShowCheckBox = true;
             this.dateTimePickerDatumZpracovani.Size = new System.Drawing.Size(135, 21);
             this.dateTimePickerDatumZpracovani.TabIndex = 45;
+            this.dateTimePickerDatumZpracovani.ValueChanged += new System.EventHandler(this.dateTimePickerDatumZpracovani_ValueChanged);
             // 
             // dateTimePickerDatumSchvaleni
             // 
@@ -617,6 +655,7 @@
             this.dateTimePickerDatumSchvaleni.ShowCheckBox = true;
             this.dateTimePickerDatumSchvaleni.Size = new System.Drawing.Size(135, 21);
             this.dateTimePickerDatumSchvaleni.TabIndex = 46;
+            this.dateTimePickerDatumSchvaleni.ValueChanged += new System.EventHandler(this.dateTimePickerDatumSchvaleni_ValueChanged);
             // 
             // tabPage2
             // 
@@ -754,16 +793,6 @@
             this.ColumnCelkovaHmotnost.Name = "ColumnCelkovaHmotnost";
             this.ColumnCelkovaHmotnost.ReadOnly = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(426, 457);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "x";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // SampleListDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,7 +861,7 @@
         private System.Windows.Forms.DataGridView dataGridViewPrilohy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFileSelected;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSelectFile;
         private System.Windows.Forms.TextBox textBoxVyskaSetu;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBoxVahaPoslPKV;
@@ -849,6 +878,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVytvorilKdo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnZeme;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCelkovaHmotnost;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonDeleteFile;
     }
 }

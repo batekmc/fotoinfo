@@ -37,6 +37,10 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
         private SmartISLib.ORM.DbTable<Data.TPersonResponsiblePhoto> kdoSchvalilWIComboData;
         private string[] poznamkaKUlozeniSetu = { "podélně","ve dvou řadách","podélně ve dvou řadách","podélně ve třech řadách","podélně ve čtyřech řadách" };
 
+        private bool cisloSetuC, zemeC, statusSetuC, pocetKsDoKrabC, vyskaC, sirkaC, delkaC, poznamkaKulozC, zpracovalC, kdoSchvalilC, duleziteinfoC, breatherBagC, metodBalHlavniC, metodaBalVedlejsiC, druhBaleniC, velikostKrabC, datumZpracC, datumSchvaleniC, poslanoC;
+        //private bool cisloSetuCHANGED, zemeCHANGED
+
+        // TODO - poznamka - yobrazit data, ulozit prilohy, carovy kod, import z masterListu
         #region overriden methods
 
         protected override bool LoadRecordCore()
@@ -79,6 +83,13 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
 
         protected override void BindData()
         {
+
+            //events
+            this.textBoxPocetKsDOKrabice.LostFocus += this.pocetKSdoKrabicLostFocus;
+            this.textBoxVyskaSetu.LostFocus += vyskaSetuLostFocus;
+            this.textBoxSirkaSetu.LostFocus += sirkaSetuLostFocus;
+            this.textBoxDelkaSetu.LostFocus += delkaSetuLostFocus;
+
             //datagrids
             this.dataGridViewPrikazyKVyskladneni.AutoGenerateColumns = false;
             this.dataGridViewPrikazyKVyskladneni.DataSource = prikazyKVyskladneniDTAB;
@@ -309,10 +320,181 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                 this.comboBoxKdoSchvalilWI.SelectedIndex = -1;
             }
             this.comboBoxPoznamkaKUlozeniSetu.Items.AddRange(poznamkaKUlozeniSetu);
+
+            cisloSetuC = zemeC = statusSetuC = pocetKsDoKrabC = vyskaC = sirkaC = delkaC = poznamkaKulozC = zpracovalC = kdoSchvalilC = duleziteinfoC = breatherBagC = metodBalHlavniC = metodaBalVedlejsiC = druhBaleniC = velikostKrabC = datumZpracC = datumSchvaleniC = poslanoC = false;
+        }
+
+        protected override bool DeleteRecordCore()
+        {
+            string idDampleList = Convert.ToString(parentDTAB.Rows[0]["IDSampleList"]);
+
+            SmartISLib.Data.Execute("update TPrikazVyskladneni set SampleList = null where SampleList = " + idDampleList);
+
+            SmartISLib.Data.Execute("Delete from TSampleList where IDSampleList = " + idDampleList);
+            return true;
+        }
+
+        protected override bool UpdateRecordCore()
+        {
+
+            if (
+                String.IsNullOrEmpty(textBoxCisloSetu.Text) ||
+                String.IsNullOrEmpty(comboBoxZeme.Text) ||
+                String.IsNullOrEmpty(comboBoxStatusSetu.Text) ||
+                String.IsNullOrEmpty(textBoxVyskaSetu.Text) ||
+                String.IsNullOrEmpty(textBoxSirkaSetu.Text) ||
+                String.IsNullOrEmpty(textBoxDelkaSetu.Text) ||
+                String.IsNullOrEmpty(comboBoxMetodaBaleniHlavni.Text)
+            )
+            {
+                SmartISLib.Messages.Error("Cěrveně označená políčká nesmí být prázdná!");
+                return false;
+            }
+            //string sqlC = string.Format("UPDATE TSampleList set CisloSetu = {1}, Zeme = {4}, StatusSet = {5}, WidthSet = {6}, LengthSet = {7}, HeightSet = {8}, NumberInBox = {9}, TypeOfPackaging = {10}, MethodOfPackaging = {11}, BreatherBag = {12}, SizeOfBox = {13}, _WeightSetManually = {14}, WeightSet2 = {15}, NoteSet = {16}, WhoWorked = {17}, DateOfProcessing = {18}, WhoApproved = {19}, DateOfApproval = {20}, PostedWi = {21}, NoteForApproval = {22}, MethodOfPackagingMain = {23}, MethodOfPackagingSecondary] = {24} where IDSampleList = {25}", this.textBoxCisloSetu.Text, );
+            //SmartISLib.Data.Execute(sqlC);
+
+
+            if (cisloSetuC)
+            {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set CisloSetu = '{0}' where IDSampleList = {1}", textBoxCisloSetu.Text, (int)this.PrimaryKey));
+            }
+            if (zemeC) {
+                string a = "null";
+                foreach (Data.TZeme z in zemeComboData)
+                {
+                    if (z.Zeme == this.comboBoxZeme.Text)
+                    {
+                        a = z.IDZeme.ToString();
+                        break;
+                    }
+                }
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set Zeme = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+            if (statusSetuC) {
+                string a = "null";
+                foreach (Data.TSampleListCis z in statusSetuComboData)
+                {
+                    if (z.Name == this.comboBoxStatusSetu.Text)
+                    {
+                        a = z.ID.ToString();
+                        break;
+                    }
+                }
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set StatusSet = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+            if (pocetKsDoKrabC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set NumberInBox = {0} where IDSampleList = {1}", textBoxPocetKsDOKrabice.Text, (int)this.PrimaryKey));
+            
+            }
+
+            if (breatherBagC) {
+                string a = "null";
+                foreach (Data.TSampleListCis z in breatherBagComboData)
+                {
+                    if (z.Name == this.comboBoxBreatherBag.Text)
+                    {
+                        a = z.ID.ToString();
+                        break;
+                    }
+                }
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set BreatherBag = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+
+            if (metodBalHlavniC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set MethodOfPackagingMain = '{0}' where IDSampleList = {1}", comboBoxMetodaBaleniHlavni.Text, (int)this.PrimaryKey));
+            }
+
+            if (metodaBalVedlejsiC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set MethodOfPackagingSecondary = '{0}' where IDSampleList = {1}", comboBoxMetodaBaleniVedlejsi.Text, (int)this.PrimaryKey));
+            }
+
+            if (druhBaleniC) {
+                string a = "null";
+                foreach (Data.TSampleListCis z in druhBaleniComboData)
+                {
+                    if (z.Name == this.comboBoxDruhBaleni.Text)
+                    {
+                        a = z.ID.ToString();
+                        break;
+                    }
+                }
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set TypeOfPackaging = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+
+            if (sirkaC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set WidthSet = {0} where IDSampleList = {1}", textBoxSirkaSetu.Text, (int)this.PrimaryKey));
+            }
+            if (delkaC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set LengthSet = {0} where IDSampleList = {1}", textBoxDelkaSetu.Text, (int)this.PrimaryKey));
+            }
+            if (vyskaC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set HeightSet = {0} where IDSampleList = {1}", textBoxDelkaSetu.Text, (int)this.PrimaryKey));
+            }
+            if (velikostKrabC) {
+                string a = "null";
+                foreach (Data.TSampleListCis z in velikostKrabicComboData)
+                {
+                    if (z.Name == this.comboBoxVelikostKrabice.Text)
+                    {
+                        a = z.ID.ToString();
+                        break;
+                    }
+                }
+
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set SizeOfBox = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+            if (zpracovalC) {
+                string a = "null";
+                foreach (Data.TPersonResponsiblePhoto z in zpracovalWIComboData)
+                {
+                    if (z.ResponsiblePhotoCode == this.comboBoxZpracovalWI.Text)
+                    {
+                        a = z.IDResponsiblePhoto.ToString();
+                        break;
+                    }
+                }
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set WhoWorked = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+            if (kdoSchvalilC)
+            {
+                string a = "null";
+                foreach (Data.TPersonResponsiblePhoto z in kdoSchvalilWIComboData)
+                {
+                    if (z.ResponsiblePhotoCode == this.comboBoxKdoSchvalilWI.Text)
+                    {
+                        a = z.IDResponsiblePhoto.ToString();
+                        break;
+                    }
+                }
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set WhoApproved = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+            if (duleziteinfoC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set NoteForApproval = '{0}' where IDSampleList = {1}", textBoxDuleziteInformaceKsetu.Text, (int)this.PrimaryKey));
+            }
+            if (datumZpracC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set DateOfProcessing = '{0}' where IDSampleList = {1}", dateTimePickerDatumZpracovani.Value.ToString("yyyy-MM-dd"), (int)this.PrimaryKey));
+            }
+            if (datumSchvaleniC)
+            {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set DateOfApproval = '{0}' where IDSampleList = {1}", dateTimePickerDatumSchvaleni.Value.ToString("yyyy-MM-dd"), (int)this.PrimaryKey));
+            }
+            if (poslanoC) {
+                string a = "0";
+                if (checkBoxPoslanoWI.Checked)
+                    a = "1";
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set PostedWi = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+            }
+            if (poznamkaKulozC) {
+                SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set NoteForApproval = '{0}' where IDSampleList = {1}", comboBoxPoznamkaKUlozeniSetu.Text, (int)this.PrimaryKey));
+            
+            }
+            
+            return true;
         }
 
         #endregion
 
+        #region events
         private void button1_Click(object sender, EventArgs e)
         {
             // Create an instance of the open file dialog box.
@@ -326,13 +508,203 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                 row.CreateCells(dataGridViewPrilohy, file);
                 dataGridViewPrilohy.Rows.Add(row);
             }
+            this.NotifyChanged();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             int rowindex = dataGridViewPrilohy.CurrentCell.RowIndex;
             dataGridViewPrilohy.Rows.RemoveAt(rowindex);
+            this.NotifyChanged();
+        }
+       
+
+        private void textBoxCisloSetu_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.cisloSetuC = true;
         }
 
+        private void comboBoxZeme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.zemeC = true;
+        }
+
+        private void comboBoxStatusSetu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.statusSetuC = true;
+        }
+
+        private void textBoxPocetKsDOKrabice_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.pocetKsDoKrabC = true;
+        }
+
+        private void textBoxVyskaSetu_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.vyskaC = true;
+        }
+
+        private void textBoxSirkaSetu_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.sirkaC = true;
+        }
+
+        private void textBoxDelkaSetu_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.delkaC = true;
+        }
+
+        private void comboBoxPoznamkaKUlozeniSetu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.poznamkaKulozC = true;
+        }
+
+        private void comboBoxZpracovalWI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.zpracovalC = true;
+        }
+
+        private void comboBoxKdoSchvalilWI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.kdoSchvalilC = true;
+        }
+
+        private void textBoxDuleziteInformaceKsetu_TextChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.duleziteinfoC = true;
+        }
+
+        private void comboBoxBreatherBag_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.breatherBagC = true;
+        }
+
+        private void comboBoxMetodaBaleniHlavni_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.metodBalHlavniC = true;
+        }
+
+        private void comboBoxMetodaBaleniVedlejsi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.metodaBalVedlejsiC = true;
+        }
+
+        private void comboBoxDruhBaleni_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.druhBaleniC = true;
+        }
+
+        private void comboBoxVelikostKrabice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.velikostKrabC = true;
+        }
+
+        private void dateTimePickerDatumZpracovani_ValueChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.datumZpracC = true;
+        }
+
+        private void dateTimePickerDatumSchvaleni_ValueChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.datumSchvaleniC = true;
+        }
+
+        private void checkBoxPoslanoWI_CheckedChanged(object sender, EventArgs e)
+        {
+            this.NotifyChanged();
+            this.poslanoC = true;
+        }
+
+        private void pocetKSdoKrabicLostFocus(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(this.textBoxPocetKsDOKrabice.Text);
+                if (a < 1 || a > 99)
+                {
+                    SmartISLib.Messages.Error("Zadejte číslo v intervalu 1-99!");
+                    this.textBoxPocetKsDOKrabice.Text = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                SmartISLib.Messages.Error("Zadejte celé číslo!");
+                this.textBoxPocetKsDOKrabice.Text = null;
+            }
+        }
+
+        private void sirkaSetuLostFocus(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(this.textBoxSirkaSetu.Text);
+                if (a < 1 || a > 99)
+                {
+                    SmartISLib.Messages.Error("Zadejte číslo v intervalu 1-99!");
+                    this.textBoxSirkaSetu.Text = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                SmartISLib.Messages.Error("Zadejte celé číslo!");
+                this.textBoxSirkaSetu.Text = null;
+            }
+        }
+
+        private void delkaSetuLostFocus(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(this.textBoxDelkaSetu.Text);
+                if (a < 10 || a > 99)
+                {
+                    SmartISLib.Messages.Error("Zadejte číslo v intervalu 10-99!");
+                    this.textBoxDelkaSetu.Text = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                SmartISLib.Messages.Error("Zadejte celé číslo!");
+                this.textBoxDelkaSetu.Text = null;
+            }
+        }
+
+        private void vyskaSetuLostFocus(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(this.textBoxVyskaSetu.Text);
+                if (a < 10 || a > 99)
+                {
+                    SmartISLib.Messages.Error("Zadejte číslo v intervalu 10-99!");
+                    this.textBoxVyskaSetu.Text = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                SmartISLib.Messages.Error("Zadejte celé číslo!");
+                this.textBoxVyskaSetu.Text = null;
+            }
+        }
+        #endregion
     }
 }
