@@ -20,8 +20,6 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
 
         // thousands of records => ORM is slow...
         private DataTable componentDTAB;
-        //private SmartISLib.ORM.DbTable<Data.TComponents> ormTComponents;
-
         //datatable for fields - date, cislo setu... => view not in orm...
         private DataTable myDtab;
 
@@ -99,7 +97,7 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             this.ColumnComponent.DataSource = this.componentDTAB;
             this.ColumnComponent.ValueMember = "ComponentID";
             this.ColumnComponent.DisplayMember = "Code"; // Displayed value
-            this.ColumnComponent.DataPropertyName = this.ColumnComponent.ValueMember; // has to bbe set this way.. Even thought it worked in in other modules other way...
+            this.ColumnComponent.DataPropertyName = this.ColumnComponent.ValueMember; // has to be set this way.. Even thought it worked in in other modules other way...
 
             // GRID
             this.dataGridViewPrikazyKVyskladneni.DataSource = this.ormPrikazVysklad;
