@@ -33,7 +33,6 @@
             this.buttonDeleteFile = new System.Windows.Forms.Button();
             this.buttonSelectFile = new System.Windows.Forms.Button();
             this.dataGridViewPrilohy = new System.Windows.Forms.DataGridView();
-            this.ColumnFileSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -91,6 +90,8 @@
             this.ColumnVytvorilKdo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnZeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCelkovaHmotnost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxTotalWeigth = new System.Windows.Forms.TextBox();
+            this.ColumnFileSelected = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tabControlPrikazyKvyskladneni.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrilohy)).BeginInit();
@@ -135,7 +136,7 @@
             this.buttonDeleteFile.TabIndex = 4;
             this.buttonDeleteFile.Text = "x";
             this.buttonDeleteFile.UseVisualStyleBackColor = true;
-            this.buttonDeleteFile.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDeleteFile.Click += new System.EventHandler(this.buttonPrilohySmazat);
             // 
             // buttonSelectFile
             // 
@@ -145,7 +146,7 @@
             this.buttonSelectFile.TabIndex = 3;
             this.buttonSelectFile.Text = "...";
             this.buttonSelectFile.UseVisualStyleBackColor = true;
-            this.buttonSelectFile.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSelectFile.Click += new System.EventHandler(this.buttonPrilohyVlozit);
             // 
             // dataGridViewPrilohy
             // 
@@ -159,13 +160,6 @@
             this.dataGridViewPrilohy.ReadOnly = true;
             this.dataGridViewPrilohy.Size = new System.Drawing.Size(414, 133);
             this.dataGridViewPrilohy.TabIndex = 2;
-            // 
-            // ColumnFileSelected
-            // 
-            this.ColumnFileSelected.HeaderText = "Přílohy";
-            this.ColumnFileSelected.Name = "ColumnFileSelected";
-            this.ColumnFileSelected.ReadOnly = true;
-            this.ColumnFileSelected.Width = 350;
             // 
             // label12
             // 
@@ -221,10 +215,11 @@
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBoxVyskaSetu, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label21, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxVahaPoslPKV, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label22, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePickerDatumZpracovani, 3, 10);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePickerDatumSchvaleni, 3, 11);
+            this.tableLayoutPanel1.Controls.Add(this.label22, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxVahaPoslPKV, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxTotalWeigth, 3, 6);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 18);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 13;
@@ -622,7 +617,7 @@
             // 
             // textBoxVahaPoslPKV
             // 
-            this.textBoxVahaPoslPKV.Location = new System.Drawing.Point(420, 168);
+            this.textBoxVahaPoslPKV.Location = new System.Drawing.Point(420, 137);
             this.textBoxVahaPoslPKV.Name = "textBoxVahaPoslPKV";
             this.textBoxVahaPoslPKV.ReadOnly = true;
             this.textBoxVahaPoslPKV.Size = new System.Drawing.Size(100, 21);
@@ -633,7 +628,7 @@
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.Location = new System.Drawing.Point(306, 165);
+            this.label22.Location = new System.Drawing.Point(306, 134);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(108, 13);
             this.label22.TabIndex = 44;
@@ -793,6 +788,24 @@
             this.ColumnCelkovaHmotnost.Name = "ColumnCelkovaHmotnost";
             this.ColumnCelkovaHmotnost.ReadOnly = true;
             // 
+            // textBoxTotalWeigth
+            // 
+            this.textBoxTotalWeigth.Location = new System.Drawing.Point(420, 168);
+            this.textBoxTotalWeigth.Name = "textBoxTotalWeigth";
+            this.textBoxTotalWeigth.ReadOnly = true;
+            this.textBoxTotalWeigth.Size = new System.Drawing.Size(100, 21);
+            this.textBoxTotalWeigth.TabIndex = 47;
+            // 
+            // ColumnFileSelected
+            // 
+            this.ColumnFileSelected.DataPropertyName = "AttName";
+            this.ColumnFileSelected.HeaderText = "Přílohy";
+            this.ColumnFileSelected.Name = "ColumnFileSelected";
+            this.ColumnFileSelected.ReadOnly = true;
+            this.ColumnFileSelected.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnFileSelected.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnFileSelected.Width = 350;
+            // 
             // SampleListDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -859,7 +872,6 @@
         private System.Windows.Forms.ComboBox comboBoxZpracovalWI;
         private System.Windows.Forms.ComboBox comboBoxPoznamkaKUlozeniSetu;
         private System.Windows.Forms.DataGridView dataGridViewPrilohy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFileSelected;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonSelectFile;
         private System.Windows.Forms.TextBox textBoxVyskaSetu;
@@ -879,5 +891,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnZeme;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCelkovaHmotnost;
         private System.Windows.Forms.Button buttonDeleteFile;
+        private System.Windows.Forms.TextBox textBoxTotalWeigth;
+        private System.Windows.Forms.DataGridViewLinkColumn ColumnFileSelected;
     }
 }

@@ -37,14 +37,31 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
         private SmartISLib.ORM.DbTable<Data.TPersonResponsiblePhoto> kdoSchvalilWIComboData;
         private string[] poznamkaKUlozeniSetu = { "podélně","ve dvou řadách","podélně ve dvou řadách","podélně ve třech řadách","podélně ve čtyřech řadách" };
 
-        private bool cisloSetuC, zemeC, statusSetuC, pocetKsDoKrabC, vyskaC, sirkaC, delkaC, poznamkaKulozC, zpracovalC, kdoSchvalilC, duleziteinfoC, breatherBagC, metodBalHlavniC, metodaBalVedlejsiC, druhBaleniC, velikostKrabC, datumZpracC, datumSchvaleniC, poslanoC;
-        //private bool cisloSetuCHANGED, zemeCHANGED
+        private bool cisloSetuC, zemeC, statusSetuC, pocetKsDoKrabC, vyskaC, sirkaC, delkaC, poznamkaKulozC, zpracovalC, kdoSchvalilC, duleziteinfoC, breatherBagC, metodBalHlavniC, metodaBalVedlejsiC, druhBaleniC, velikostKrabC, datumZpracC, datumSchvaleniC, poslanoC, gridC;
+
+        private SmartISLib.ORM.DbTable<Data.TAttachments> tAttachment;
+        private SmartISLib.ORM.DbTable<Data.TAttachmentSL> tAttSL;
+
+        private List<int> deletedFromGrid;
+        private List<int> insertToGrid;
 
         // TODO - poznamka - yobrazit data, ulozit prilohy, carovy kod, import z masterListu
         #region overriden methods
 
         protected override bool LoadRecordCore()
         {
+            //smazane zaznamy z gridu priloh
+            deletedFromGrid = new List<int>();
+            insertToGrid = new List<int>();
+            //vazebni tabulka
+            tAttSL = Data.TAttachmentSL.LoadBy("SampleList =@param0", (int)this.PrimaryKey);
+            //vlastni data -> nacti vsechny radky
+            tAttachment = new SmartISLib.ORM.DbTable<Data.TAttachments>();
+            foreach (Data.TAttachmentSL t in tAttSL)
+            {
+                tAttachment.Add(Data.TAttachments.Load(t.Attachment));
+            }
+            
             velikostKrabicComboData = Data.TSampleListCis.LoadBy("SCategory =@param0", "VelikostKrabice");
             velikostKrabicComboData.Sort("Name");
 
@@ -83,21 +100,26 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
 
         protected override void BindData()
         {
-
-            //events
+            //events/////
             this.textBoxPocetKsDOKrabice.LostFocus += this.pocetKSdoKrabicLostFocus;
             this.textBoxVyskaSetu.LostFocus += vyskaSetuLostFocus;
             this.textBoxSirkaSetu.LostFocus += sirkaSetuLostFocus;
             this.textBoxDelkaSetu.LostFocus += delkaSetuLostFocus;
+            this.dataGridViewPrilohy.CellContentClick += prilohyLinkClicked;
 
-            //datagrids
+            //datagrids/////
             this.dataGridViewPrikazyKVyskladneni.AutoGenerateColumns = false;
             this.dataGridViewPrikazyKVyskladneni.DataSource = prikazyKVyskladneniDTAB;
             this.dataGridViewHistorieZmen.AutoGenerateColumns = false;
             this.dataGridViewHistorieZmen.DataSource = historieZmenDTAB;
 
-            //textBoxes
+            this.dataGridViewPrilohy.AutoGenerateColumns = false;
+            this.dataGridViewPrilohy.DataSource = this.tAttachment;
+            
 
+            //textBoxes/////
+            //ID - PK, always set
+            this.textBoxID.Text = Convert.ToString(this.parentDTAB.Rows[0]["IDSampleList"]);
             //CisloSetu
             string tmp = Convert.ToString(parentDTAB.Rows[0]["CisloSetu"]);
             if ( tmp != null )
@@ -133,6 +155,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             if (tmp != null)
             {
                 textBoxVahaPoslPKV.Text = tmp;
+                textBoxTotalWeigth.Text = Convert.ToString(prikazyKVyskladneniDTAB.Rows[0]["SumTotalWeight"]);
             }
             //datum zprac
             tmp = Convert.ToString(parentDTAB.Rows[0]["DateOfProcessing"]);
@@ -164,7 +187,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             checkBoxPoslanoWI.Checked = Convert.ToBoolean(parentDTAB.Rows[0]["PostedWi"]);
 
 
-            //comboBoxes
+            //comboBoxes/////
             //zeme
             this.comboBoxZeme.DataSource = zemeComboData;
             this.comboBoxZeme.DisplayMember = "Zeme";
@@ -321,7 +344,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             }
             this.comboBoxPoznamkaKUlozeniSetu.Items.AddRange(poznamkaKUlozeniSetu);
 
-            cisloSetuC = zemeC = statusSetuC = pocetKsDoKrabC = vyskaC = sirkaC = delkaC = poznamkaKulozC = zpracovalC = kdoSchvalilC = duleziteinfoC = breatherBagC = metodBalHlavniC = metodaBalVedlejsiC = druhBaleniC = velikostKrabC = datumZpracC = datumSchvaleniC = poslanoC = false;
+            cisloSetuC = zemeC = statusSetuC = pocetKsDoKrabC = vyskaC = sirkaC = delkaC = poznamkaKulozC = zpracovalC = kdoSchvalilC = duleziteinfoC = breatherBagC = metodBalHlavniC = metodaBalVedlejsiC = druhBaleniC = velikostKrabC = datumZpracC = datumSchvaleniC = poslanoC = gridC = false;
         }
 
         protected override bool DeleteRecordCore()
@@ -350,15 +373,14 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                 SmartISLib.Messages.Error("Cěrveně označená políčká nesmí být prázdná!");
                 return false;
             }
-            //string sqlC = string.Format("UPDATE TSampleList set CisloSetu = {1}, Zeme = {4}, StatusSet = {5}, WidthSet = {6}, LengthSet = {7}, HeightSet = {8}, NumberInBox = {9}, TypeOfPackaging = {10}, MethodOfPackaging = {11}, BreatherBag = {12}, SizeOfBox = {13}, _WeightSetManually = {14}, WeightSet2 = {15}, NoteSet = {16}, WhoWorked = {17}, DateOfProcessing = {18}, WhoApproved = {19}, DateOfApproval = {20}, PostedWi = {21}, NoteForApproval = {22}, MethodOfPackagingMain = {23}, MethodOfPackagingSecondary] = {24} where IDSampleList = {25}", this.textBoxCisloSetu.Text, );
-            //SmartISLib.Data.Execute(sqlC);
-
 
             if (cisloSetuC)
             {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set CisloSetu = '{0}' where IDSampleList = {1}", textBoxCisloSetu.Text, (int)this.PrimaryKey));
+                cisloSetuC = false;
             }
-            if (zemeC) {
+            if (zemeC)
+            {
                 string a = "null";
                 foreach (Data.TZeme z in zemeComboData)
                 {
@@ -369,8 +391,10 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                     }
                 }
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set Zeme = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                zemeC = false;
             }
-            if (statusSetuC) {
+            if (statusSetuC)
+            {
                 string a = "null";
                 foreach (Data.TSampleListCis z in statusSetuComboData)
                 {
@@ -381,13 +405,17 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                     }
                 }
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set StatusSet = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                statusSetuC = false;
             }
-            if (pocetKsDoKrabC) {
+            if (pocetKsDoKrabC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set NumberInBox = {0} where IDSampleList = {1}", textBoxPocetKsDOKrabice.Text, (int)this.PrimaryKey));
-            
+
+                pocetKsDoKrabC = false;
             }
 
-            if (breatherBagC) {
+            if (breatherBagC)
+            {
                 string a = "null";
                 foreach (Data.TSampleListCis z in breatherBagComboData)
                 {
@@ -398,17 +426,24 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                     }
                 }
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set BreatherBag = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                breatherBagC = false;
             }
 
-            if (metodBalHlavniC) {
+            if (metodBalHlavniC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set MethodOfPackagingMain = '{0}' where IDSampleList = {1}", comboBoxMetodaBaleniHlavni.Text, (int)this.PrimaryKey));
+                metodBalHlavniC = false;
             }
 
-            if (metodaBalVedlejsiC) {
+            if (metodaBalVedlejsiC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set MethodOfPackagingSecondary = '{0}' where IDSampleList = {1}", comboBoxMetodaBaleniVedlejsi.Text, (int)this.PrimaryKey));
+
+                metodaBalVedlejsiC = false;
             }
 
-            if (druhBaleniC) {
+            if (druhBaleniC)
+            {
                 string a = "null";
                 foreach (Data.TSampleListCis z in druhBaleniComboData)
                 {
@@ -419,18 +454,26 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                     }
                 }
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set TypeOfPackaging = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                druhBaleniC = false;
             }
 
-            if (sirkaC) {
+            if (sirkaC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set WidthSet = {0} where IDSampleList = {1}", textBoxSirkaSetu.Text, (int)this.PrimaryKey));
+                sirkaC = false;
             }
-            if (delkaC) {
+            if (delkaC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set LengthSet = {0} where IDSampleList = {1}", textBoxDelkaSetu.Text, (int)this.PrimaryKey));
+                delkaC = false;
             }
-            if (vyskaC) {
+            if (vyskaC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set HeightSet = {0} where IDSampleList = {1}", textBoxDelkaSetu.Text, (int)this.PrimaryKey));
+                vyskaC = false;
             }
-            if (velikostKrabC) {
+            if (velikostKrabC)
+            {
                 string a = "null";
                 foreach (Data.TSampleListCis z in velikostKrabicComboData)
                 {
@@ -442,8 +485,10 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                 }
 
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set SizeOfBox = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                velikostKrabC = false;
             }
-            if (zpracovalC) {
+            if (zpracovalC)
+            {
                 string a = "null";
                 foreach (Data.TPersonResponsiblePhoto z in zpracovalWIComboData)
                 {
@@ -454,6 +499,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                     }
                 }
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set WhoWorked = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                zpracovalC = false;
             }
             if (kdoSchvalilC)
             {
@@ -467,26 +513,61 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                     }
                 }
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set WhoApproved = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                kdoSchvalilC = false;
             }
-            if (duleziteinfoC) {
+            if (duleziteinfoC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set NoteForApproval = '{0}' where IDSampleList = {1}", textBoxDuleziteInformaceKsetu.Text, (int)this.PrimaryKey));
+                duleziteinfoC = false;
             }
-            if (datumZpracC) {
+            if (datumZpracC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set DateOfProcessing = '{0}' where IDSampleList = {1}", dateTimePickerDatumZpracovani.Value.ToString("yyyy-MM-dd"), (int)this.PrimaryKey));
+                datumZpracC = false;
             }
             if (datumSchvaleniC)
             {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set DateOfApproval = '{0}' where IDSampleList = {1}", dateTimePickerDatumSchvaleni.Value.ToString("yyyy-MM-dd"), (int)this.PrimaryKey));
+                datumSchvaleniC = false;
             }
-            if (poslanoC) {
+            if (poslanoC)
+            {
                 string a = "0";
                 if (checkBoxPoslanoWI.Checked)
                     a = "1";
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set PostedWi = {0} where IDSampleList = {1}", a, (int)this.PrimaryKey));
+                poslanoC = false;
             }
-            if (poznamkaKulozC) {
+            if (poznamkaKulozC)
+            {
                 SmartISLib.Data.Execute(string.Format("UPDATE TSampleList set NoteForApproval = '{0}' where IDSampleList = {1}", comboBoxPoznamkaKUlozeniSetu.Text, (int)this.PrimaryKey));
-            
+                poznamkaKulozC = false;
+            }
+            if (gridC)
+            {
+                // nejdrive ulozim soubory, aby se vygeneroval PK
+                this.tAttachment.Save();
+                gridC = false;
+                SmartISLib.ORM.DbTable<Data.TAttachmentSL> tmpDB;
+                for (int i = 0; i < tAttachment.Count; i++)
+                {
+                    // kdyz //////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////
+                    ////////////////////////////////////////////////////////////
+                    //////////////////TODO - ID se spatne zobrazuje////////////
+                    tmpDB = Data.TAttachmentSL.LoadBy("Attachment =@param0 and SampleList =@param1", tAttachment[i].IDAttachment, (int)this.PrimaryKey);
+                    Console.WriteLine("__Count: " + tmpDB.Count + " , PK: " + (int)this.PrimaryKey + ", ID " + tAttachment[i].IDAttachment);
+                    if (tmpDB.Count == 0)
+                    {
+
+                        SmartISLib.Data.Execute(string.Format("insert into TAttachmentSL(SampleList, Attachment) values ({0}, {1})", (int)this.PrimaryKey, tAttachment[i].IDAttachment));
+                    }
+                }
+                foreach (int i in deletedFromGrid)
+                {
+                    SmartISLib.Data.Execute(string.Format("DELETE FROM TAttachmentSL where SampleList = {0} AND Attachment = {1}", (int)this.PrimaryKey, i));
+                    Console.WriteLine(string.Format("DELETE FROM TAttachmentSL where SampleList = {0} AND Attachment = {1}", (int)this.PrimaryKey, i));
+                }
             }
             
             return true;
@@ -495,7 +576,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
         #endregion
 
         #region events
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonPrilohyVlozit(object sender, EventArgs e)
         {
             // Create an instance of the open file dialog box.
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -503,19 +584,28 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
-                string file = openFileDialog1.FileName;
-                DataGridViewRow row = (DataGridViewRow)dataGridViewPrilohy.RowTemplate.Clone();
-                row.CreateCells(dataGridViewPrilohy, file);
-                dataGridViewPrilohy.Rows.Add(row);
+                Data.TAttachments newAttatchment = Data.TAttachments.Create();
+                newAttatchment.AttPath = System.IO.Path.GetDirectoryName(openFileDialog1.FileName);
+                // +1 -> posledni lomitko
+                int len = Convert.ToString(newAttatchment.AttPath).Length + 1;
+                newAttatchment.AttName = openFileDialog1.FileName.Substring(len, openFileDialog1.FileName.Length - len);
+                this.tAttachment.Add(newAttatchment);
+                dataGridViewPrilohy.Refresh();
             }
             this.NotifyChanged();
+            this.gridC = true;
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonPrilohySmazat(object sender, EventArgs e)
         {
+            if (tAttachment.Count == 0) return;
             int rowindex = dataGridViewPrilohy.CurrentCell.RowIndex;
-            dataGridViewPrilohy.Rows.RemoveAt(rowindex);
+            //ulozit id pro smazani.
+            deletedFromGrid.Add(tAttachment[rowindex].IDAttachment);
+            tAttachment.RemoveAt(rowindex);
+            dataGridViewPrilohy.Refresh();
+            this.gridC = true;
             this.NotifyChanged();
         }
        
@@ -703,6 +793,20 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             {
                 SmartISLib.Messages.Error("Zadejte celé číslo!");
                 this.textBoxVyskaSetu.Text = null;
+            }
+        }
+
+        private void prilohyLinkClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string path = (string)this.tAttachment[e.RowIndex].AttPath;
+                if (!String.IsNullOrEmpty(path))
+                    System.Diagnostics.Process.Start(path);
+            }
+            catch (Exception ex) 
+            {
+                SmartISLib.Messages.Error("Soubor nelze otevřít");
             }
         }
         #endregion
