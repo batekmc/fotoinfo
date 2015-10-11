@@ -42,17 +42,12 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
         private SmartISLib.ORM.DbTable<Data.TAttachments> tAttachment;
         private SmartISLib.ORM.DbTable<Data.TAttachmentSL> tAttSL;
 
-        private List<int> deletedFromGrid;
-        private List<int> insertToGrid;
 
         // TODO - poznamka - yobrazit data, ulozit prilohy, carovy kod, import z masterListu
         #region overriden methods
 
         protected override bool LoadRecordCore()
         {
-            //smazane zaznamy z gridu priloh
-            deletedFromGrid = new List<int>();
-            insertToGrid = new List<int>();
             //vazebni tabulka
             tAttSL = Data.TAttachmentSL.LoadBy("SampleList =@param0", (int)this.PrimaryKey);
             //vlastni data -> nacti vsechny radky
@@ -545,31 +540,39 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             }
             if (gridC)
             {
-                // nejdrive ulozim soubory, aby se vygeneroval PK
+                //if (isPrilohyInserted)
+                //{
+                //    // nejdrive ulozim soubory, aby se vygeneroval PK
+                //    this.tAttachment.Save();
+                //    gridC = false;
+                //    SmartISLib.ORM.DbTable<Data.TAttachmentSL> tmpDB;
+                //    for (int i = 0; i < tAttachment.Count; i++)
+                //    {
+                //        tmpDB = Data.TAttachmentSL.LoadBy("Attachment =@param0 and SampleList =@param1", tAttachment[i].IDAttachment, (int)this.PrimaryKey);
+                //        Console.WriteLine("__Count: " + tmpDB.Count + " , PK: " + (int)this.PrimaryKey + ", ID " + tAttachment[i].IDAttachment);
+                //        if (tmpDB.Count == 0)
+                //        {
+                //            SmartISLib.Data.Execute(string.Format("insert into TAttachmentSL(SampleList, Attachment) values ({0}, {1})", (int)this.PrimaryKey, tAttachment[i].IDAttachment));
+                //            Console.WriteLine(string.Format("insert into TAttachmentSL(SampleList, Attachment) values ({0}, {1})", (int)this.PrimaryKey, tAttachment[i].IDAttachment));
+                //        }
+                //    }
+                //    isPrilohyInserted = false;
+                //}
+                ////odstranim na zaklade pk
+                //foreach (int i in deletedFromGrid)
+                //{
+                //    SmartISLib.Data.Execute(string.Format("DELETE FROM TAttachmentSL where SampleList = {0} AND Attachment = {1}", (int)this.PrimaryKey, i));
+                //    Console.WriteLine(string.Format("DELETE FROM TAttachmentSL where SampleList = {0} AND Attachment = {1}", (int)this.PrimaryKey, i));
+                //}
                 this.tAttachment.Save();
                 gridC = false;
-                SmartISLib.ORM.DbTable<Data.TAttachmentSL> tmpDB;
+                SmartISLib.Data.Execute("DELETE FROM TAttachmentSL WHERE SampleList = " + (int)this.PrimaryKey);
                 for (int i = 0; i < tAttachment.Count; i++)
                 {
-                    // kdyz //////////////////////////////////////////////////////
-                    /////////////////////////////////////////////////////////////
-                    ////////////////////////////////////////////////////////////
-                    //////////////////TODO - ID se spatne zobrazuje////////////
-                    tmpDB = Data.TAttachmentSL.LoadBy("Attachment =@param0 and SampleList =@param1", tAttachment[i].IDAttachment, (int)this.PrimaryKey);
-                    Console.WriteLine("__Count: " + tmpDB.Count + " , PK: " + (int)this.PrimaryKey + ", ID " + tAttachment[i].IDAttachment);
-                    if (tmpDB.Count == 0)
-                    {
+                    SmartISLib.Data.Execute(string.Format("insert into TAttachmentSL(SampleList, Attachment) values ({0}, {1})", (int)this.PrimaryKey, tAttachment[i].IDAttachment));
+                }
 
-                        SmartISLib.Data.Execute(string.Format("insert into TAttachmentSL(SampleList, Attachment) values ({0}, {1})", (int)this.PrimaryKey, tAttachment[i].IDAttachment));
-                    }
-                }
-                foreach (int i in deletedFromGrid)
-                {
-                    SmartISLib.Data.Execute(string.Format("DELETE FROM TAttachmentSL where SampleList = {0} AND Attachment = {1}", (int)this.PrimaryKey, i));
-                    Console.WriteLine(string.Format("DELETE FROM TAttachmentSL where SampleList = {0} AND Attachment = {1}", (int)this.PrimaryKey, i));
-                }
             }
-            
             return true;
         }
 
@@ -588,6 +591,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
                 newAttatchment.AttPath = System.IO.Path.GetDirectoryName(openFileDialog1.FileName);
                 // +1 -> posledni lomitko
                 int len = Convert.ToString(newAttatchment.AttPath).Length + 1;
+                // cele jmeno souboru - cesta k souboru
                 newAttatchment.AttName = openFileDialog1.FileName.Substring(len, openFileDialog1.FileName.Length - len);
                 this.tAttachment.Add(newAttatchment);
                 dataGridViewPrilohy.Refresh();
@@ -601,8 +605,6 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
         {
             if (tAttachment.Count == 0) return;
             int rowindex = dataGridViewPrilohy.CurrentCell.RowIndex;
-            //ulozit id pro smazani.
-            deletedFromGrid.Add(tAttachment[rowindex].IDAttachment);
             tAttachment.RemoveAt(rowindex);
             dataGridViewPrilohy.Refresh();
             this.gridC = true;
