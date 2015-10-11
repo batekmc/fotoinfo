@@ -621,7 +621,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.45549cm</Top>
         <Left>0.00406cm</Left>
-        <Height>1.75563cm</Height>
+        <Height>1.75562cm</Height>
         <Width>16.70495cm</Width>
         <Style>
           <Border>
@@ -722,6 +722,21 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Image Name="Image2">
+        <Source>Database</Source>
+        <Value>=First(Fields!ImageBytes.Value, "d2")</Value>
+        <MIMEType>=First(Fields!ImageBytes.Value, "d2")</MIMEType>
+        <Top>0.17639cm</Top>
+        <Left>9.75453cm</Left>
+        <Height>1.10271cm</Height>
+        <Width>6.95042cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>7.11459in</Height>
     <Style>
@@ -1015,7 +1030,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value EvaluationMode="Constant" />
+                  <Value>=First(Fields!Person.Value, "d2")</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -1028,7 +1043,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
           <Top>0.17639cm</Top>
-          <Left>7.83586cm</Left>
+          <Left>7.87114cm</Left>
           <Height>0.6cm</Height>
           <Width>3.54213cm</Width>
           <ZIndex>4</ZIndex>
@@ -1066,6 +1081,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>98cbcf8e-74db-4a6b-96ed-1515f0d14360</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DataSet2">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>a322b011-b91f-4b52-9f76-b1e8477aaeae</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1169,7 +1191,39 @@
         <rd:TableAdapterName>QRPrikazVyskladneniTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="d2">
+      <Query>
+        <DataSourceName>DataSet2</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ImageBytes">
+          <DataField>ImageBytes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Person">
+          <DataField>Person</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet2</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\Forms\DataSet2.xsd</rd:SchemaPath>
+        <rd:TableName>BarCode</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="ReportParameter1">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>f59e4d8b-c374-4b96-9047-dbbd47b8e088</rd:ReportID>
 </Report>

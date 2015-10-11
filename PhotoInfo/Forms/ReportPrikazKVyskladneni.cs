@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,19 @@ namespace PhotoInfo.Forms
             this.person = personCR;
             this.PK = PKey;
             InitializeComponent();
-
         }
 
         private void ReportPrikazKVyskladneni_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DataSet1.QRPrikazVyskladneni' table. You can move, or remove it, as needed.
-            //this.QRPrikazVyskladneniTableAdapter.Fill(this.DataSet1.QRPrikazVyskladneni);
             SmartISLib.Data.GetDataAdapter("Select * from QRPrikazVyskladneni where PrikazVyskladID = " + this.PK).Fill(this.DataSet1.QRPrikazVyskladneni); 
             //this.reportViewer1.LocalReport.SetParameters(new ReportParameter("person", person));
+            //DataTable dtBarcode = new DataTable();
+            DataRow row = this.DataSet2.BarCode.NewRow();
+            row["ImageBytes"] = Other.BarCode128.PaintBarCodeA(60, 120, "11111111");// Image.FromStream(new MemoryStream(Other.BarCode128.PaintBarCodeA(60, 120, "11111111")));
+            row["Person"] = person;
+            this.DataSet2.BarCode.Rows.Add(row);
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter(person));
+
             this.reportViewer1.RefreshReport();
         }
     }

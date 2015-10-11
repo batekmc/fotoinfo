@@ -61,10 +61,19 @@
     <Compile Include="Data\Procedures.cs" />
     <Compile Include="Data\Tables.cs" />
     <Compile Include="Data\MyORM.cs" />
+    <Compile Include="Forms\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\GlobalniNastaveni.cs">
       <SubType>Form</SubType>
@@ -319,6 +328,17 @@
     <None Include="Forms\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Forms\DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\PhotoInfo.Forms.ReportPrikazKVyskladneni.datasource" />
     <None Include="Properties\DataSources\PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni.PrikazyKVyskladneniDetail.datasource" />
     <None Include="Properties\DataSources\PhotoInfo.Modules.Komponenty.SeznamKomponent.SeznamKomponentGrid.datasource" />
@@ -336,7 +356,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules\Menu\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

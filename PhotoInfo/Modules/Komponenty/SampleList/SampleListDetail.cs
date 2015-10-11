@@ -43,7 +43,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
         private SmartISLib.ORM.DbTable<Data.TAttachmentSL> tAttSL;
 
 
-        // TODO - poznamka - yobrazit data, ulozit prilohy, carovy kod, import z masterListu
+        // TODO -  carovy kod, import z masterListu
         #region overriden methods
 
         protected override bool LoadRecordCore()

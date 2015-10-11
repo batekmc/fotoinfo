@@ -31,35 +31,53 @@ namespace PhotoInfo.Forms
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSet1 = new PhotoInfo.Forms.DataSet1();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.QRPrikazVyskladneniBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSet1 = new PhotoInfo.Forms.DataSet1();
+            this.BarCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSet2 = new PhotoInfo.Forms.DataSet2();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.QRPrikazVyskladneniTableAdapter = new PhotoInfo.Forms.DataSet1TableAdapters.QRPrikazVyskladneniTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QRPrikazVyskladneniBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarCodeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // QRPrikazVyskladneniBindingSource
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.QRPrikazVyskladneniBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PhotoInfo.Forms.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(707, 635);
-            this.reportViewer1.TabIndex = 0;
+            this.QRPrikazVyskladneniBindingSource.DataMember = "QRPrikazVyskladneni";
+            this.QRPrikazVyskladneniBindingSource.DataSource = this.DataSet1;
             // 
             // DataSet1
             // 
             this.DataSet1.DataSetName = "DataSet1";
             this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // QRPrikazVyskladneniBindingSource
+            // BarCodeBindingSource
             // 
-            this.QRPrikazVyskladneniBindingSource.DataMember = "QRPrikazVyskladneni";
-            this.QRPrikazVyskladneniBindingSource.DataSource = this.DataSet1;
+            this.BarCodeBindingSource.DataMember = "BarCode";
+            this.BarCodeBindingSource.DataSource = this.DataSet2;
+            // 
+            // DataSet2
+            // 
+            this.DataSet2.DataSetName = "DataSet2";
+            this.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.QRPrikazVyskladneniBindingSource;
+            reportDataSource2.Name = "d2";
+            reportDataSource2.Value = this.BarCodeBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PhotoInfo.Forms.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(707, 635);
+            this.reportViewer1.TabIndex = 0;
             // 
             // QRPrikazVyskladneniTableAdapter
             // 
@@ -74,8 +92,10 @@ namespace PhotoInfo.Forms
             this.Name = "ReportPrikazKVyskladneni";
             this.Text = "ReportPrikazKVyskladneni";
             this.Load += new System.EventHandler(this.ReportPrikazKVyskladneni_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QRPrikazVyskladneniBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarCodeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,5 +106,7 @@ namespace PhotoInfo.Forms
         private System.Windows.Forms.BindingSource QRPrikazVyskladneniBindingSource;
         private DataSet1 DataSet1;
         private DataSet1TableAdapters.QRPrikazVyskladneniTableAdapter QRPrikazVyskladneniTableAdapter;
+        private System.Windows.Forms.BindingSource BarCodeBindingSource;
+        private DataSet2 DataSet2;
     }
 }
