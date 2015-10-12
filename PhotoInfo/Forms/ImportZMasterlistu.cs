@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace PhotoInfo.Forms
     {
 
         private Dictionary<string, string> mapping;
+        private SmartISLib.ORM.DbTable<Data.TMasterListTmp> tMaster;
+
         public ImportZMasterlistu()
         {
             // mapovani sloupcu na hodnoty v databazi
@@ -89,17 +92,38 @@ namespace PhotoInfo.Forms
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            // TODO
+            importExcel(this.textBoxSelectedFile.Text);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        
         private bool importExcel(string file)
         {
-            SmartISLib.Session.BeginTransaction();
+            //SmartISLib.Session.BeginTransaction();
+            string connectionExcel = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;'", file);
+            using (OleDbConnection connection = new OleDbConnection(connectionExcel))
+            {
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select * from [Masterlist$]", connection);
+
+                using (OleDbDataReader dr = command.ExecuteReader())
+                {
+                    tMaster = new SmartISLib.ORM.DbTable<Data.TMasterListTmp>();
+                    while (dr.Read())
+                    {
+                        Data.TMasterListTmp tmp = Data.TMasterListTmp.Create();
+                        foreach (string key in mapping.Keys)
+                        {
+                            tmp[mapping[key]] = dr[key];
+                        }
+                        tMaster.Add(tmp);
+                    }
+                }
+            }
+            tMaster.Save();
 
 
             return true;
