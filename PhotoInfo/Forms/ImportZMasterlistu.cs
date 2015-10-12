@@ -19,7 +19,7 @@ namespace PhotoInfo.Forms
 
         public ImportZMasterlistu()
         {
-            // mapovani sloupcu na hodnoty v databazi
+            // mapovani sloupcu excelu na hodnoty v databazi
             mapping = new Dictionary<string, string>();
             mapping.Add("Material Number", "KarvinaCode");
             mapping.Add("Preferred Item Status", "Category");
@@ -92,7 +92,9 @@ namespace PhotoInfo.Forms
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            importExcel(this.textBoxSelectedFile.Text);
+            if (importExcel(this.textBoxSelectedFile.Text))
+                SmartISLib.Messages.Information("Masterlist importován.");
+            this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -100,31 +102,55 @@ namespace PhotoInfo.Forms
             this.Close();
         }
         
+        /// <summary>
+        /// Naimportuje data z excelu do databaze.
+        /// Excelovsky soubor musi obsahovat objekt s nazvem Masterlist!
+        /// </summary>
+        /// <param name="file">cela cesta k souboru</param>
+        /// <returns>True, pokud nacetl, jinak false. V pripade chyby vypise chybovou zpravu uzivateli.</returns>
         private bool importExcel(string file)
         {
-            //SmartISLib.Session.BeginTransaction();
-            string connectionExcel = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;'", file);
-            using (OleDbConnection connection = new OleDbConnection(connectionExcel))
+            try
             {
-                connection.Open();
-                OleDbCommand command = new OleDbCommand("select * from [Masterlist$]", connection);
-
-                using (OleDbDataReader dr = command.ExecuteReader())
+                SmartISLib.Session.BeginTransaction();
+                //SmartISLib.Session.BeginTransaction();
+                string connectionExcel = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;'", file);
+                using (OleDbConnection connection = new OleDbConnection(connectionExcel))
                 {
-                    tMaster = new SmartISLib.ORM.DbTable<Data.TMasterListTmp>();
-                    while (dr.Read())
-                    {
-                        Data.TMasterListTmp tmp = Data.TMasterListTmp.Create();
-                        foreach (string key in mapping.Keys)
-                        {
-                            tmp[mapping[key]] = dr[key];
-                        }
-                        tMaster.Add(tmp);
-                    }
-                }
-            }
-            tMaster.Save();
+                    connection.Open();
+                    OleDbCommand command = new OleDbCommand("select * from [Masterlist$]", connection);
 
+                    using (OleDbDataReader dr = command.ExecuteReader())
+                    {
+                        //vymaze data
+                        SmartISLib.Data.Execute(" DELETE FROM TMasterListTmp");
+                        tMaster = new SmartISLib.ORM.DbTable<Data.TMasterListTmp>();
+                        while (dr.Read())
+                        {
+                            Data.TMasterListTmp tmp = Data.TMasterListTmp.Create();
+                            foreach (string key in mapping.Keys)
+                            {
+                                tmp[mapping[key]] = dr[key];
+                            }
+                            tMaster.Add(tmp);
+                        }
+                        dr.Close();
+                    }
+                    connection.Close();
+                }
+                tMaster.Save();
+                
+                // procedura z db...
+                Data.Procedures.SPComponentImport2();
+
+                SmartISLib.Session.CommitTransaction();
+            }
+            catch (Exception ex)
+            {
+                SmartISLib.Session.RollbackTransaction();
+                SmartISLib.Messages.Error(ex.Message);
+                return false;
+            }
 
             return true;
         
