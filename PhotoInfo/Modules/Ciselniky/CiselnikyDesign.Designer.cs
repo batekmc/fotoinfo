@@ -48,6 +48,11 @@
             this.gridView.RowTemplate.Height = 18;
             this.gridView.Size = new System.Drawing.Size(319, 315);
             this.gridView.TabIndex = 2;
+            this.gridView.ReadOnly = false;
+            this.gridView.AllowUserToAddRows = true;
+            this.gridView.AllowUserToOrderColumns = true;
+            this.gridView.AllowUserToResizeRows = true;
+            this.HorizontalScroll.Visible = true;
             // 
             // col
             // 

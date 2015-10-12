@@ -39,7 +39,6 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             protected override SmartISLib.Modules.GridDetail.DetailControl
                 CreateDetail(SmartISLib.Modules.AppModuleStartingOptions startingOptions)
             {
-                Console.WriteLine("ahoj svete");
                 return new SampleListDetail();
             }
 

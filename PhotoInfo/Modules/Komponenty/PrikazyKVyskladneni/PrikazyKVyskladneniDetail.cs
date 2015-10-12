@@ -50,9 +50,6 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             this.ormTZeme = Data.TZeme.LoadAll();
             this.ormTZeme.Sort("Zeme");
 
-            Console.WriteLine("________radku combobox: " + componentDTAB.Rows.Count);
-            // TODO console,.write...
-            Console.WriteLine("___________PK: " + this.PrimaryKey + "  ,  lines: " + ormPrikazVysklad.Count);
             return true;
         }
 
@@ -109,8 +106,6 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
             this.ormTParameters = Data.TParameters.LoadAll();
             this.textBoxKoef.Text = this.ormTParameters[0].HmotnostKoef.ToString();
             
-            Console.WriteLine("_____P: " + personIndex + ", Z: " + zemeIndex);
-
             this.vytvorilKdoChanged = false;
             this.zemeChanged = false;
             this.dateChanged = false;

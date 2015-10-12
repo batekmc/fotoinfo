@@ -240,8 +240,6 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
                 DataTable dt = new DataTable();
                 tmpAdapter.Fill(dt);
                 // TODO console.write
-                Console.WriteLine("______Index: " + e.RowIndex + " , rows: " + dt.Rows.Count);
-                Console.WriteLine(tmpAdapter.SelectCommand.CommandText);
                 this.dataGridViewDetailRevize.DataSource = dt;
                 this.dataGridViewDetailRevize.Update(); ;
             }

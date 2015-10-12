@@ -242,7 +242,6 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
                     else
                         str = string.Format("UPDATE TTimesRevisionDetail set SourceImage ={0}, ExportDate = {1} where TimesRevision = {2} and image = {3}", newDetailID, "NULL", newID, Convert.ToInt32(row["Image"]));
 
-                    Console.WriteLine("_________SQL: " + str);
                     SmartISLib.Data.Execute(str);
 
                 }

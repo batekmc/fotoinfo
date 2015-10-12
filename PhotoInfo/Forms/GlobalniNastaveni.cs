@@ -130,7 +130,6 @@ namespace PhotoInfo.Forms
             string sql = String.Format("UPDATE Tparameters SET HmotnostKoef = {0} where ID = 1", this.textBox1.Text);
             //debilni zpusob nahrazeni desetinne carky teckou...
             sql= sql.Replace(',', '.');
-            Console.WriteLine(sql);
             SmartISLib.Data.Execute(sql);
         }
 
@@ -151,7 +150,6 @@ namespace PhotoInfo.Forms
                 return;
             }
             string sql = String.Format("UPDATE Tparameters SET PathMostForm = '{0}' where ID = 1", this.textBox2.Text);
-            Console.WriteLine(sql);
             SmartISLib.Data.Execute(sql);
         }
 
@@ -171,7 +169,6 @@ namespace PhotoInfo.Forms
             string sql = String.Format("UPDATE Tparameters SET TimeKoef = {0} where ID = 1", prirazka/100);
             //debilni zpusob nahrazeni desetinne carky teckou...
             sql = sql.Replace(',', '.');
-            Console.WriteLine(sql);
             SmartISLib.Data.Execute(sql);
         }
     }
