@@ -37,6 +37,7 @@
             this.příkazyKVyskladněníToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revizeČasůToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sampleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.pDMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kategorieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.sampleListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +139,7 @@
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.importToolStripMenuItem.Text = "Import z Master Listu";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // revizeČasůToolStripMenuItem1
             // 
@@ -146,6 +147,13 @@
             this.revizeČasůToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
             this.revizeČasůToolStripMenuItem1.Text = "Revize časů";
             this.revizeČasůToolStripMenuItem1.Click += new System.EventHandler(this.revizeČasůToolStripMenuItem1_Click);
+            // 
+            // sampleListToolStripMenuItem
+            // 
+            this.sampleListToolStripMenuItem.Name = "sampleListToolStripMenuItem";
+            this.sampleListToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.sampleListToolStripMenuItem.Text = "Sample List";
+            this.sampleListToolStripMenuItem.Click += new System.EventHandler(this.sampleListToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton3
             // 
@@ -303,13 +311,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // sampleListToolStripMenuItem
-            // 
-            this.sampleListToolStripMenuItem.Name = "sampleListToolStripMenuItem";
-            this.sampleListToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.sampleListToolStripMenuItem.Text = "Sample List";
-            this.sampleListToolStripMenuItem.Click += new System.EventHandler(this.sampleListToolStripMenuItem_Click);
             // 
             // MainForm
             // 

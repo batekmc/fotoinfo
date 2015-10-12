@@ -26,14 +26,16 @@ namespace PhotoInfo.Forms
 
         private void ReportPrikazKVyskladneni_Load(object sender, EventArgs e)
         {
+            this.reportViewer1.LocalReport.EnableExternalImages = true;
             SmartISLib.Data.GetDataAdapter("Select * from QRPrikazVyskladneni where PrikazVyskladID = " + this.PK).Fill(this.DataSet1.QRPrikazVyskladneni); 
             //this.reportViewer1.LocalReport.SetParameters(new ReportParameter("person", person));
             //DataTable dtBarcode = new DataTable();
             DataRow row = this.DataSet2.BarCode.NewRow();
-            row["ImageBytes"] = Other.BarCode128.PaintBarCodeA(60, 120, "11111111");// Image.FromStream(new MemoryStream(Other.BarCode128.PaintBarCodeA(60, 120, "11111111")));
+            row["ImageBytes"] = Other.BarCode128.PaintBarCodeA(240, 50, this.DataSet1.Tables[0].Rows[0]["CisloSetu"].ToString());// Image.FromStream(new MemoryStream(Other.BarCode128.PaintBarCodeA(60, 120, "11111111")));
             row["Person"] = person;
             this.DataSet2.BarCode.Rows.Add(row);
-            this.reportViewer1.LocalReport.SetParameters(new ReportParameter(person));
+            
+            //for(int i = 0; i < DataSet2.BarCode.Rows[0].im)
 
             this.reportViewer1.RefreshReport();
         }

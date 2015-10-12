@@ -15,7 +15,7 @@
         <xs:element name="BarCode" msprop:Generator_TableClassName="BarCodeDataTable" msprop:Generator_TableVarName="tableBarCode" msprop:Generator_TablePropName="BarCode" msprop:Generator_RowDeletingName="BarCodeRowDeleting" msprop:Generator_RowChangingName="BarCodeRowChanging" msprop:Generator_RowEvHandlerName="BarCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="BarCodeRowDeleted" msprop:Generator_UserTableName="BarCode" msprop:Generator_RowChangedName="BarCodeRowChanged" msprop:Generator_RowEvArgName="BarCodeRowChangeEvent" msprop:Generator_RowClassName="BarCodeRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ImageBytes" msprop:Generator_ColumnVarNameInTable="columnImageBytes" msprop:Generator_ColumnPropNameInRow="ImageBytes" msprop:Generator_ColumnPropNameInTable="ImageBytesColumn" msprop:Generator_UserColumnName="ImageBytes" type="xs:string" />
+              <xs:element name="ImageBytes" msprop:Generator_ColumnVarNameInTable="columnImageBytes" msprop:Generator_ColumnPropNameInRow="ImageBytes" msprop:Generator_ColumnPropNameInTable="ImageBytesColumn" msprop:Generator_UserColumnName="ImageBytes" type="xs:base64Binary" />
               <xs:element name="Person" msdata:Caption="StringWhoCr" msprop:Generator_ColumnVarNameInTable="columnPerson" msprop:Generator_ColumnPropNameInRow="Person" msprop:Generator_ColumnPropNameInTable="PersonColumn" msprop:Generator_UserColumnName="Person" type="xs:string" />
             </xs:sequence>
           </xs:complexType>

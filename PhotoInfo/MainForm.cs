@@ -214,5 +214,10 @@ SmartISLib.Modules.GridDetail.GridStartingOptions.Empty);
 
         #endregion click events
 
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Forms.ImportZMasterlistu().Show();
+        }
+
     }
 }

@@ -369,7 +369,7 @@ namespace PhotoInfo.Forms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BarCodeRow AddBarCodeRow(string ImageBytes, string Person) {
+            public BarCodeRow AddBarCodeRow(byte[] ImageBytes, string Person) {
                 BarCodeRow rowBarCodeRow = ((BarCodeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ImageBytes,
@@ -381,7 +381,7 @@ namespace PhotoInfo.Forms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BarCodeRow FindByImageBytesPerson(string ImageBytes, string Person) {
+            public BarCodeRow FindByImageBytesPerson(byte[] ImageBytes, string Person) {
                 return ((BarCodeRow)(this.Rows.Find(new object[] {
                             ImageBytes,
                             Person})));
@@ -411,7 +411,7 @@ namespace PhotoInfo.Forms {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnImageBytes = new global::System.Data.DataColumn("ImageBytes", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnImageBytes = new global::System.Data.DataColumn("ImageBytes", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImageBytes);
                 this.columnPerson = new global::System.Data.DataColumn("Person", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPerson);
@@ -563,9 +563,9 @@ namespace PhotoInfo.Forms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ImageBytes {
+            public byte[] ImageBytes {
                 get {
-                    return ((string)(this[this.tableBarCode.ImageBytesColumn]));
+                    return ((byte[])(this[this.tableBarCode.ImageBytesColumn]));
                 }
                 set {
                     this[this.tableBarCode.ImageBytesColumn] = value;
