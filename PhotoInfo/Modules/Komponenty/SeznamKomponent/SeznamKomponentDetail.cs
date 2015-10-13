@@ -150,8 +150,8 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
             BindDateTimePicker(this.dateTimePickerDatumZmeny, ormCompPhoto, "ZmenaDatum");
             
             //must be set .... again....
-            this.dateTimePickerDatumZmeny.Checked = false;
-            this.dateTimePickerNafocenoDne.Checked = false;
+            //this.dateTimePickerDatumZmeny.Checked = false;
+            //this.dateTimePickerNafocenoDne.Checked = false;
         }
 
         protected override bool LoadRecordCore()

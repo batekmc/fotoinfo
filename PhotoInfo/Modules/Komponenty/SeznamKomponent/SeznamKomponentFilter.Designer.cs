@@ -132,7 +132,7 @@
             this.strForeignKeyFilterControl1.Owner = this;
             this.strForeignKeyFilterControl1.ParentFilter = null;
             this.strForeignKeyFilterControl1.Size = new System.Drawing.Size(133, 25);
-            this.strForeignKeyFilterControl1.SqlSelect = "Select distinct PDMStatusPhoto from QFComponentsPhoto";
+            this.strForeignKeyFilterControl1.SqlSelect = "Select distinct PDMStatusPhoto from QFComponentsPhoto order by PDMStatusPhoto";
             this.strForeignKeyFilterControl1.TabIndex = 6;
             this.strForeignKeyFilterControl1.ValueAttribute = "PDMStatusPhoto";
             // 
@@ -148,7 +148,7 @@
             this.strForeignKeyFilterControl2.Owner = this;
             this.strForeignKeyFilterControl2.ParentFilter = null;
             this.strForeignKeyFilterControl2.Size = new System.Drawing.Size(133, 25);
-            this.strForeignKeyFilterControl2.SqlSelect = "Select distinct KomponentKategorieName from QFComponentsPhoto";
+            this.strForeignKeyFilterControl2.SqlSelect = "Select distinct KomponentKategorieName from QFComponentsPhoto order by KomponentKategorieName";
             this.strForeignKeyFilterControl2.TabIndex = 7;
             this.strForeignKeyFilterControl2.ValueAttribute = "KomponentKategorieName";
             // 

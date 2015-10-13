@@ -120,10 +120,10 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             BindTextBox(this.textBox6, ormTimeRev, "Revision");
 
             BindComboBox(this.comboBox1, "select * from TPickType order by PickTypeName", "PickTypeID", "PickTypeName", ormTimeRev, "PickType");
-            BindComboBox(this.comboBox2, "select * from TCorrection order by CorrectionName", "CorrectionName", "CorrectionName", ormTimeRev, "CorrectionNote");
+            BindComboBox(this.comboBox2, "select * from TCorrection order by CorrectionName", "CorrectionID", "CorrectionName", ormTimeRev, "Correction");
             BindComboBox(this.comboBox4, "SELECT * FROM TIFU", "ifuID", "IFUtype", ormTimeRev, "IFU_type");
 
-            BindTextBox(this.textBox7, ormTimeRev, "CorrectionNote");
+            BindTextBox(this.textBoxPoznamkaKOprave, ormTimeRev, "CorrectionNote");
             BindTextBox(this.textBox8, ormTimeRev, "Note");
             BindTextBox(this.textBox9, ormTimeRev, "FileLink");
 
@@ -131,9 +131,9 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             BindTextBox(this.textBox11, ormTimeRev, "TimeKoef");
 
             BindCheckBox(this.checkBox1, ormTimeRev, "Actual");
-            BindCheckBox(this.checkBox1, ormTimeRev, "IFU");
-            BindCheckBox(this.checkBox1, ormTimeRev, "CheckPackage");
-            BindCheckBox(this.checkBox1, ormTimeRev, "RevisionDone");
+            BindCheckBox(this.checkBox2, ormTimeRev, "IFU");
+            BindCheckBox(this.checkBoxPrekontrolovatBaleni, ormTimeRev, "CheckPackage");
+            BindCheckBox(this.checkBoxRevizeZkontrolovana, ormTimeRev, "RevisionDone");
 
             this.fkTypeRevision = ormTimeRev.TypeRevision;
             if (ormTimeRev.TypeRevision == 1)
@@ -146,6 +146,14 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             BindComboBox(this.comboBox3, string.Format("SELECT Revision FROM QMainComponentRevision where TimesRevisionID={0}", ormTimeRev.MainCompRevision), "Revision", "TimesRevisionID", ormTimeRev, "TypeRevision");
             //Display text to user
             this.comboBox3.SelectedIndex = 0;
+
+            this.radioButton1.Name = "1";
+            this.radioButton2.Name = "2";
+            this.radioButton3.Name = "3";
+
+            this.radioButton1.Click += this.AllCheckBoxes_CheckedChanged;
+            this.radioButton2.Click += this.AllCheckBoxes_CheckedChanged;
+            this.radioButton3.Click += this.AllCheckBoxes_CheckedChanged;
             
         }
 
@@ -276,8 +284,9 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             {
                 // This is the correct control.
                 RadioButton rb = (RadioButton)sender;
-                if (rb.Name == "")
+                if (String.IsNullOrEmpty(rb.Name))
                     return;
+                //button name is 1|2|3
                 this.ormTimeRev.TypeRevision = Int32.Parse(rb.Name);
                 //Oznamim zmenu gui
                 this.NotifyChanged();

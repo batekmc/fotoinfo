@@ -99,6 +99,8 @@
             this.cisloKomponentu = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewDetailRevize = new System.Windows.Forms.DataGridView();
+            this.imageCol = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cancelledCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewrevizeCasu = new SmartISLib.Controls.FastDataGridView();
             this.btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.revizeCasu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,8 +127,6 @@
             this.puvodniStav = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.novaHodnota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.imageCol = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cancelledCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControlHlKompPro.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDalsiOdepsani)).BeginInit();
@@ -217,7 +217,6 @@
             // 
             // dateTimePickerDatumZmeny
             // 
-            this.dateTimePickerDatumZmeny.Checked = false;
             this.dateTimePickerDatumZmeny.Location = new System.Drawing.Point(415, 500);
             this.dateTimePickerDatumZmeny.Name = "dateTimePickerDatumZmeny";
             this.dateTimePickerDatumZmeny.ShowCheckBox = true;
@@ -226,7 +225,6 @@
             // 
             // dateTimePickerNafocenoDne
             // 
-            this.dateTimePickerNafocenoDne.Checked = false;
             this.dateTimePickerNafocenoDne.Location = new System.Drawing.Point(152, 503);
             this.dateTimePickerNafocenoDne.Name = "dateTimePickerNafocenoDne";
             this.dateTimePickerNafocenoDne.ShowCheckBox = true;
@@ -853,6 +851,25 @@
             this.dataGridViewDetailRevize.Size = new System.Drawing.Size(216, 582);
             this.dataGridViewDetailRevize.TabIndex = 1;
             // 
+            // imageCol
+            // 
+            this.imageCol.DataPropertyName = "image";
+            this.imageCol.HeaderText = "Typ fotky";
+            this.imageCol.Name = "imageCol";
+            this.imageCol.ReadOnly = true;
+            this.imageCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.imageCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // cancelledCol
+            // 
+            this.cancelledCol.DataPropertyName = "CancelImage";
+            this.cancelledCol.HeaderText = "Zrušeno";
+            this.cancelledCol.Name = "cancelledCol";
+            this.cancelledCol.ReadOnly = true;
+            this.cancelledCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cancelledCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cancelledCol.Width = 50;
+            // 
             // dataGridViewrevizeCasu
             // 
             this.dataGridViewrevizeCasu.AllowUserToAddRows = false;
@@ -1107,28 +1124,8 @@
             this.novaHodnota.Name = "novaHodnota";
             this.novaHodnota.ReadOnly = true;
             // 
-            // imageCol
-            // 
-            this.imageCol.DataPropertyName = "image";
-            this.imageCol.HeaderText = "Typ fotky";
-            this.imageCol.Name = "imageCol";
-            this.imageCol.ReadOnly = true;
-            this.imageCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.imageCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // cancelledCol
-            // 
-            this.cancelledCol.DataPropertyName = "CancelImage";
-            this.cancelledCol.HeaderText = "Zrušeno";
-            this.cancelledCol.Name = "cancelledCol";
-            this.cancelledCol.ReadOnly = true;
-            this.cancelledCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cancelledCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cancelledCol.Width = 50;
-            // 
             // SeznamKomponentDetail
             // 
-            this.dataGridViewrevizeCasu.CellContentClick += this.dataGridViewRevizeCasu_CellContentClick;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControlHlKompPro);

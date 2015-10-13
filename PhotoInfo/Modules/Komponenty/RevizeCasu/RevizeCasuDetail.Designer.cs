@@ -44,7 +44,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxPoznamkaKOprave = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,8 +58,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxPrekontrolovatBaleni = new System.Windows.Forms.CheckBox();
+            this.checkBoxRevizeZkontrolovana = new System.Windows.Forms.CheckBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -239,12 +239,12 @@
             this.comboBox2.Size = new System.Drawing.Size(142, 21);
             this.comboBox2.TabIndex = 15;
             // 
-            // textBox7
+            // textBoxPoznamkaKOprave
             // 
-            this.textBox7.Location = new System.Drawing.Point(411, 114);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(235, 21);
-            this.textBox7.TabIndex = 16;
+            this.textBoxPoznamkaKOprave.Location = new System.Drawing.Point(411, 114);
+            this.textBoxPoznamkaKOprave.Name = "textBoxPoznamkaKOprave";
+            this.textBoxPoznamkaKOprave.Size = new System.Drawing.Size(235, 21);
+            this.textBoxPoznamkaKOprave.TabIndex = 16;
             // 
             // textBox8
             // 
@@ -366,29 +366,29 @@
             this.comboBox4.Size = new System.Drawing.Size(64, 21);
             this.comboBox4.TabIndex = 29;
             // 
-            // checkBox3
+            // checkBoxPrekontrolovatBaleni
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox3.Location = new System.Drawing.Point(676, 32);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(149, 17);
-            this.checkBox3.TabIndex = 30;
-            this.checkBox3.Text = "Překontrolovat balení";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBoxPrekontrolovatBaleni.AutoSize = true;
+            this.checkBoxPrekontrolovatBaleni.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxPrekontrolovatBaleni.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBoxPrekontrolovatBaleni.Location = new System.Drawing.Point(676, 32);
+            this.checkBoxPrekontrolovatBaleni.Name = "checkBoxPrekontrolovatBaleni";
+            this.checkBoxPrekontrolovatBaleni.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxPrekontrolovatBaleni.TabIndex = 30;
+            this.checkBoxPrekontrolovatBaleni.Text = "Překontrolovat balení";
+            this.checkBoxPrekontrolovatBaleni.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBoxRevizeZkontrolovana
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox4.Location = new System.Drawing.Point(676, 55);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(149, 17);
-            this.checkBox4.TabIndex = 31;
-            this.checkBox4.Text = "Revize zkontrolována";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBoxRevizeZkontrolovana.AutoSize = true;
+            this.checkBoxRevizeZkontrolovana.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxRevizeZkontrolovana.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBoxRevizeZkontrolovana.Location = new System.Drawing.Point(676, 55);
+            this.checkBoxRevizeZkontrolovana.Name = "checkBoxRevizeZkontrolovana";
+            this.checkBoxRevizeZkontrolovana.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxRevizeZkontrolovana.TabIndex = 31;
+            this.checkBoxRevizeZkontrolovana.Text = "Revize zkontrolována";
+            this.checkBoxRevizeZkontrolovana.UseVisualStyleBackColor = true;
             // 
             // textBox11
             // 
@@ -423,10 +423,9 @@
             // 
             // radioButton3
             // 
-            this.radioButton3.CheckedChanged += this.AllCheckBoxes_CheckedChanged;
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(9, 74);
-            this.radioButton3.Name = "3";
+            this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(86, 17);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.Text = "Starý form";
@@ -434,10 +433,9 @@
             // 
             // radioButton2
             // 
-            this.radioButton2.CheckedChanged += this.AllCheckBoxes_CheckedChanged;
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(9, 56);
-            this.radioButton2.Name = "2";
+            this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(37, 17);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "LF";
@@ -445,11 +443,10 @@
             // 
             // radioButton1
             // 
-            this.radioButton1.CheckedChanged += this.AllCheckBoxes_CheckedChanged;
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(9, 35);
-            this.radioButton1.Name = "1";
+            this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(43, 17);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
@@ -623,8 +620,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBoxRevizeZkontrolovana);
+            this.Controls.Add(this.checkBoxPrekontrolovatBaleni);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -639,7 +636,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBoxPoznamkaKOprave);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox1);
@@ -683,7 +680,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxPoznamkaKOprave;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -697,8 +694,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBoxPrekontrolovatBaleni;
+        private System.Windows.Forms.CheckBox checkBoxRevizeZkontrolovana;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox1;

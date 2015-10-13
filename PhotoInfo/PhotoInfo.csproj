@@ -155,12 +155,6 @@
     <Compile Include="Modules\Ciselniky\ZpusobyVyskladneni\ZpusobyVyskladneni.cs" />
     <Compile Include="Modules\Ciselniky\DostupnostFotek\DostupnostFotek.cs" />
     <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmen.cs" />
-    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenDetail.Designer.cs">
-      <DependentUpon>HistorieZmenDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Komponenty\HistorieZmen\HistorieZmenFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
