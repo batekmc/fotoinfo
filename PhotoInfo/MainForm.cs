@@ -71,6 +71,7 @@ namespace PhotoInfo
         {
             AppModuleManager.GetModuleByName("PDM_Status").Start(
 SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
+
         }
 
         private void kategorieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,14 +163,12 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
                     GridDetailModuleInstance module =
                         Instances.CurrentModule as GridDetailModuleInstance;
                     module.GridControl.Export();
-                    SmartISLib.Messages.Information("Soubor uložen.");
                 }
                 else if (Instances.CurrentModule is EditableGridModuleInstance)
                 {
                     EditableGridModuleInstance module =
                         Instances.CurrentModule as EditableGridModuleInstance;
                     module.GridControl.Export();
-                    SmartISLib.Messages.Information("Soubor uložen.");
                 }
                 else
                 {

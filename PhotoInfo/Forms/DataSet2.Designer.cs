@@ -283,6 +283,8 @@ namespace PhotoInfo.Forms {
             
             private global::System.Data.DataColumn columnPerson;
             
+            private global::System.Data.DataColumn columnHmotnost;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BarCodeDataTable() {
@@ -334,6 +336,14 @@ namespace PhotoInfo.Forms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HmotnostColumn {
+                get {
+                    return this.columnHmotnost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -369,11 +379,12 @@ namespace PhotoInfo.Forms {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BarCodeRow AddBarCodeRow(byte[] ImageBytes, string Person) {
+            public BarCodeRow AddBarCodeRow(byte[] ImageBytes, string Person, string Hmotnost) {
                 BarCodeRow rowBarCodeRow = ((BarCodeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ImageBytes,
-                        Person};
+                        Person,
+                        Hmotnost};
                 rowBarCodeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBarCodeRow);
                 return rowBarCodeRow;
@@ -406,6 +417,7 @@ namespace PhotoInfo.Forms {
             internal void InitVars() {
                 this.columnImageBytes = base.Columns["ImageBytes"];
                 this.columnPerson = base.Columns["Person"];
+                this.columnHmotnost = base.Columns["Hmotnost"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -415,7 +427,9 @@ namespace PhotoInfo.Forms {
                 base.Columns.Add(this.columnImageBytes);
                 this.columnPerson = new global::System.Data.DataColumn("Person", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPerson);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("BarCodeKey1", new global::System.Data.DataColumn[] {
+                this.columnHmotnost = new global::System.Data.DataColumn("Hmotnost", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHmotnost);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnImageBytes,
                                 this.columnPerson}, true));
                 this.columnImageBytes.AllowDBNull = false;
@@ -581,6 +595,34 @@ namespace PhotoInfo.Forms {
                 set {
                     this[this.tableBarCode.PersonColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Hmotnost {
+                get {
+                    try {
+                        return ((string)(this[this.tableBarCode.HmotnostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Hmotnost\' in table \'BarCode\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBarCode.HmotnostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHmotnostNull() {
+                return this.IsNull(this.tableBarCode.HmotnostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHmotnostNull() {
+                this[this.tableBarCode.HmotnostColumn] = global::System.Convert.DBNull;
             }
         }
         

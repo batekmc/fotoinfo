@@ -109,7 +109,7 @@
             this.strForeignKeyFilterControl1.Owner = this;
             this.strForeignKeyFilterControl1.ParentFilter = null;
             this.strForeignKeyFilterControl1.Size = new System.Drawing.Size(133, 25);
-            this.strForeignKeyFilterControl1.SqlSelect = "Select distinct CreatedByStr from QFPrikazVyskladneniSeznam";
+            this.strForeignKeyFilterControl1.SqlSelect = "Select distinct CreatedByStr from QFPrikazVyskladneniSeznam where CreatedByStr is not null order by CreatedByStr";
             this.strForeignKeyFilterControl1.TabIndex = 6;
             this.strForeignKeyFilterControl1.ValueAttribute = "CreatedByStr";
             // 
@@ -125,7 +125,7 @@
             this.strForeignKeyFilterControl2.Owner = this;
             this.strForeignKeyFilterControl2.ParentFilter = null;
             this.strForeignKeyFilterControl2.Size = new System.Drawing.Size(133, 25);
-            this.strForeignKeyFilterControl2.SqlSelect = "Select distinct ZemeStr from QFPrikazVyskladneniSeznam";
+            this.strForeignKeyFilterControl2.SqlSelect = "Select distinct ZemeStr from QFPrikazVyskladneniSeznam where ZemeStr is not null order by ZemeStr";
             this.strForeignKeyFilterControl2.TabIndex = 6;
             this.strForeignKeyFilterControl2.ValueAttribute = "ZemeStr";
             this.FilterElements.Add(this.sqlFilterHeader1);
