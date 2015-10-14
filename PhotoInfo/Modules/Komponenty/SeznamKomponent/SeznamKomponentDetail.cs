@@ -131,8 +131,16 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
             BindTextBox(this.textBoxVychoziNaskladneni, ormCompPhoto, "PcsBIN2");
             BindTextBox(this.textBoxVychoziOdepsani, ormCompPhoto, "SCRAP2");
 
-            // TODO =[PcsBIN2]+[TotalNA]-[TotalVY] -> textBoxPOcetKSBIN --> FAIL!
-            BindTextBox(this.textBoxPOcetKSBIN, ormCompPhoto, "PcsBIN2");
+            // TODO =[PcsBIN2]+[TotalNA]-[TotalVY] -> textBoxPOcetKSBIN
+            this.textBoxPOcetKSBIN.ReadOnly = true;
+            int sumA = 0;
+            foreach (Data.TComponentMovement t in ormMovementsNA)
+                sumA += t.Quantity;
+            int sumB = 0;
+            foreach (Data.TComponentMovement t in ormMovementsVY)
+                sumB += t.Quantity;
+            int tmpC = this.ormCompPhoto.PcsBIN2.Value + sumA + sumB;
+            this.textBoxPOcetKSBIN.Text = tmpC.ToString();
 
             BindTextBox(this.textBoxKomentKeZmene, ormCompPhoto, "ZmenaPozn");
             BindTextBox(this.textBoxPoznamkySpecialni, ormCompPhoto, "SpecialNote");

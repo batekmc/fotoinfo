@@ -1,4 +1,3 @@
-C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.exe.config
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.csprojResolveAssemblyReference.cache
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Forms.GlobalniNastaveni.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Forms.ReportPrikazKVyskladneni.resources
@@ -20,7 +19,6 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.csproj.GenerateResource.Cache
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\RdlCompile.cache
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\RdlCompile.compiled
-C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.exe
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.pdb
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\SmartISLib.dll
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
@@ -29,9 +27,11 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\SmartISLib.xml
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\EPPlus.xml
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\cs\SmartISLib.resources.dll
-C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.exe
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.pdb
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SampleList.SampleListGrid.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SampleList.SampleListFilter.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Modules.Komponenty.SampleList.SampleListDetail.resources
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.Forms.ImportZMasterlistu.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.dll.config
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\bin\Debug\PhotoInfo.dll
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\PhotoInfo\obj\Debug\PhotoInfo.dll

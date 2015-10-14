@@ -139,7 +139,7 @@
             // strForeignKeyFilterControl2
             // 
             this.strForeignKeyFilterControl2.Active = false;
-            this.strForeignKeyFilterControl2.Attribute = "KomponentKategorieName";
+            this.strForeignKeyFilterControl2.Attribute = "KomponentKategorieID";
             this.strForeignKeyFilterControl2.AttributeTitle = "Druh komponentu";
             this.strForeignKeyFilterControl2.DisplayAttribute = "KomponentKategorieName";
             this.strForeignKeyFilterControl2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -148,9 +148,9 @@
             this.strForeignKeyFilterControl2.Owner = this;
             this.strForeignKeyFilterControl2.ParentFilter = null;
             this.strForeignKeyFilterControl2.Size = new System.Drawing.Size(133, 25);
-            this.strForeignKeyFilterControl2.SqlSelect = "Select distinct KomponentKategorieName from QFComponentsPhoto order by KomponentKategorieName";
+            this.strForeignKeyFilterControl2.SqlSelect = "Select distinct KomponentKategorieName, KomponentKategorieID from QFComponentsPhoto order by KomponentKategorieName";
             this.strForeignKeyFilterControl2.TabIndex = 7;
-            this.strForeignKeyFilterControl2.ValueAttribute = "KomponentKategorieName";
+            this.strForeignKeyFilterControl2.ValueAttribute = "KomponentKategorieID";
             // 
             // intFilter1
             // 
@@ -181,6 +181,7 @@
             //
             //boolFilter1
             //
+            this.boolFilter1.ConditionFormat = "CASE WHEN [{0}] IS NOT NULL THEN 1 ELSE 0 END = {1}";
             this.boolFilter1.Active = false;
             this.boolFilter1.Attribute = "Scrap";
             this.boolFilter1.AttributeTitle = "Scrap";
@@ -191,7 +192,6 @@
             //
             //boolFilter2
             //
-            // TODO - opraveno upravit... ConditionFormat. „CASE WHEN [{0}] IS NOT NULL THEN ELSE 0 END = {1}“
             this.boolFilter2.ConditionFormat = "CASE WHEN [{0}] IS NOT NULL THEN 1 ELSE 0 END = {1}";
             this.boolFilter2.Active = false;
             this.boolFilter2.Attribute = "EOD";
