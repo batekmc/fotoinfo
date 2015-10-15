@@ -82,6 +82,7 @@ namespace PhotoInfo.Modules.Komponenty.SeznamKomponent
 
         protected override void BindData()
         {
+            base.NewRecordAvailable = false;
             //historie Zmen
             this.dataGridViewHistorieZmen.AutoGenerateColumns = false;
             this.dataGridViewHistorieZmen.DataSource = hZmenDTAB;

@@ -749,7 +749,7 @@
         <rd:DefaultName>Textbox14</rd:DefaultName>
         <Top>6.22307cm</Top>
         <Height>0.6cm</Height>
-        <Width>4.59748cm</Width>
+        <Width>5.01764cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -777,7 +777,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
         <Top>6.22307cm</Top>
-        <Left>4.77387cm</Left>
+        <Left>5.12347cm</Left>
         <Height>0.6cm</Height>
         <Width>6.44228cm</Width>
         <ZIndex>6</ZIndex>

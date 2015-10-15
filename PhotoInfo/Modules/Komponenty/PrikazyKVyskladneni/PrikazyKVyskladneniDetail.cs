@@ -55,6 +55,7 @@ namespace PhotoInfo.Modules.Komponenty.PrikazyKVyskladneni
 
         protected override void BindData()
         {
+            base.NewRecordAvailable = false;
 
             int zemeIndex = -1, personIndex = -1;
             //  Zeme/////////////////////////////

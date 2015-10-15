@@ -95,6 +95,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
 
         protected override void BindData()
         {
+            base.NewRecordAvailable = false;
             //events/////
             this.textBoxPocetKsDOKrabice.LostFocus += this.pocetKSdoKrabicLostFocus;
             this.textBoxVyskaSetu.LostFocus += vyskaSetuLostFocus;

@@ -26,26 +26,32 @@ namespace PhotoInfo.Forms
 
         private void ReportPrikazKVyskladneni_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.LocalReport.EnableExternalImages = true;
-            SmartISLib.Data.GetDataAdapter("Select * from QRPrikazVyskladneni where PrikazVyskladID = " + this.PK).Fill(this.DataSet1.QRPrikazVyskladneni);
-            DataRow row = this.DataSet2.BarCode.NewRow();
-            row["ImageBytes"] = Other.BarCode128.PaintBarCodeA(240, 50, this.DataSet1.Tables[0].Rows[0]["CisloSetu"].ToString());
-            row["Person"] = person;
-            double f = 0;
             try
             {
-                foreach (DataRow r in this.DataSet1.Tables[0].Rows)
+                this.reportViewer1.LocalReport.EnableExternalImages = true;
+                SmartISLib.Data.GetDataAdapter("Select * from QRPrikazVyskladneni where PrikazVyskladID = " + this.PK).Fill(this.DataSet1.QRPrikazVyskladneni);
+                DataRow row = this.DataSet2.BarCode.NewRow();
+                row["ImageBytes"] = Other.BarCode128.PaintBarCodeA(240, 50, this.DataSet1.Tables[0].Rows[0]["CisloSetu"].ToString());
+                row["Person"] = person;
+                double f = 0;
+                try
                 {
-                    f += Convert.ToDouble(r["TotalWeight"]);
+                    foreach (DataRow r in this.DataSet1.Tables[0].Rows)
+                    {
+                        f += Convert.ToDouble(r["TotalWeight"]);
+                    }
+                    f += (double)Data.TParameters.LoadAll()[0].HmotnostKoef.Value;
+                    row["Hmotnost"] = f.ToString();
                 }
-                f += (double)Data.TParameters.LoadAll()[0].HmotnostKoef.Value;
-                row["Hmotnost"] = f.ToString();
+                catch (Exception ex)
+                {
+                    row["Hmotnost"] = "Nelze stanovit - nutno zvážit";
+                }
+                this.DataSet2.BarCode.Rows.Add(row);
             }
-            catch (Exception ex)
-            {
-                row["Hmotnost"] = "Nelze stanovit - nutno zvážit";
+            catch (Exception exc) { 
+            
             }
-            this.DataSet2.BarCode.Rows.Add(row);
 
             this.reportViewer1.RefreshReport();
         }
