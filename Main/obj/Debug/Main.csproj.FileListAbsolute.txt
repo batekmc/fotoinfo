@@ -1,7 +1,4 @@
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\Main.exe.config
-C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
-C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.Properties.Resources.resources
-C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.csproj.GenerateResource.Cache
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\Main.exe
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\Main.pdb
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\PhotoInfo.dll
@@ -13,5 +10,8 @@ C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\Smart
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\SmartISLib.xml
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\EPPlus.xml
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\bin\Debug\cs\SmartISLib.resources.dll
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.Properties.Resources.resources
+C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.csproj.GenerateResource.Cache
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.exe
 C:\Users\Ja\documents\visual studio 2013\Projects\PhotoInfo\Main\obj\Debug\Main.pdb

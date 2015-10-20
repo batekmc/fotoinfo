@@ -225,7 +225,7 @@
             //
             this.boolFilter6.Active = false;
             this.boolFilter6.Attribute = "TimeRevision";
-            this.boolFilter6.AttributeTitle = "Změna designu";
+            this.boolFilter6.AttributeTitle = "Revidovat časy";
             this.boolFilter6.Name = "TimeRevision";
             this.boolFilter6.Owner = this;
             this.boolFilter6.Location = new System.Drawing.Point(0, 350);

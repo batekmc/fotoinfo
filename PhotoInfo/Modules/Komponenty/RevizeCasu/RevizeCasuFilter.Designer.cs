@@ -226,7 +226,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             //
             this.boolFilter4.Active = false;
             this.boolFilter4.Attribute = "TimeRevision";
-            this.boolFilter4.AttributeTitle = "Rvidovat časy";
+            this.boolFilter4.AttributeTitle = "Revidovat časy";
             this.boolFilter4.Name = "TimeRevision";
             this.boolFilter4.Owner = this;
             //
@@ -252,7 +252,7 @@ namespace PhotoInfo.Modules.Komponenty.RevizeCasu
             //
             this.boolFilter7.Active = false;
             this.boolFilter7.Attribute = "CancelImage";
-            this.boolFilter7.AttributeTitle = "Zrusené fotky";
+            this.boolFilter7.AttributeTitle = "Zrušené fotky";
             this.boolFilter7.Name = "CancelImage";
             this.boolFilter7.Owner = this;
             //

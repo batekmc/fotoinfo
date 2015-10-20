@@ -78,7 +78,7 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             // 
             this.stringFilterItem2.Active = false;
             this.stringFilterItem2.Attribute = "MethodOfPackagingMain";
-            this.stringFilterItem2.AttributeTitle = "Metoda balení hlavní";
+            this.stringFilterItem2.AttributeTitle = "Metoda balení Hl.";
             this.stringFilterItem2.Dock = System.Windows.Forms.DockStyle.Top;
             this.stringFilterItem2.Location = new System.Drawing.Point(0, 51);
             this.stringFilterItem2.Name = "stringFilterItem2";
@@ -91,12 +91,12 @@ namespace PhotoInfo.Modules.Komponenty.SampleList
             // 
             this.stringFilterItem3.Active = false;
             this.stringFilterItem3.Attribute = "MethodOfPackagingSecondary";
-            this.stringFilterItem3.AttributeTitle = "Metoda balení vedlejší";
+            this.stringFilterItem3.AttributeTitle = "Metoda balení V.";
             this.stringFilterItem3.Dock = System.Windows.Forms.DockStyle.Top;
             this.stringFilterItem3.Location = new System.Drawing.Point(0, 76);
             this.stringFilterItem3.Name = "stringFilterItem3";
             this.stringFilterItem3.Owner = this;
-            this.stringFilterItem3.Size = new System.Drawing.Size(133, 25);
+            this.stringFilterItem3.Size = new System.Drawing.Size(140, 25);
             this.stringFilterItem3.TabIndex = 1;
             this.stringFilterItem3.Value = "";
             // 

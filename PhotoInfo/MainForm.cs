@@ -162,13 +162,20 @@ SmartISLib.Modules.EditableGrid.EditableGridStartingOptions.Empty);
                 {
                     GridDetailModuleInstance module =
                         Instances.CurrentModule as GridDetailModuleInstance;
-                    module.GridControl.Export();
+
+                    if (module.GridControl.Export())
+                        SmartISLib.Messages.Information("soubor uložen.");
+                    else
+                        throw new Exception("Soubor se nepodařilo uložit.");
                 }
                 else if (Instances.CurrentModule is EditableGridModuleInstance)
                 {
                     EditableGridModuleInstance module =
                         Instances.CurrentModule as EditableGridModuleInstance;
-                    module.GridControl.Export();
+                    if(module.GridControl.Export())
+                        SmartISLib.Messages.Information("soubor uložen.");
+                    else
+                        throw new Exception("Soubor se nepodařilo uložit.");
                 }
                 else
                 {

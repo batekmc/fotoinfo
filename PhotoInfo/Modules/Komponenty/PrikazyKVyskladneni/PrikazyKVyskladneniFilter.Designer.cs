@@ -69,7 +69,7 @@
             this.intFilter1.Attribute = "SumTotalWeight";
             this.intFilter1.AttributeTitle = "Celková hmotnost [g]";
             this.intFilter1.Location = new System.Drawing.Point(0, 200);
-            this.intFilter1.Maximum = 100;
+            this.intFilter1.Maximum = 99999999;
             this.intFilter1.Minimum = 0;
             this.intFilter1.Name = "intFilter1";
             this.intFilter1.Owner = this;
